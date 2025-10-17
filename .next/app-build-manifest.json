@@ -1,3 +1,57 @@
 {
-  "pages": {}
+  "pages": {
+    "/_not-found/page": [
+      "static/chunks/30617_next_dist_754e5001._.js",
+      "static/chunks/Documents_GitHub_PetConnect_PWA_app_favicon_ico_mjs_330a1680._.js",
+      "static/chunks/[root-of-the-server]__4a4b2df6._.css",
+      "static/chunks/Documents_GitHub_PetConnect_PWA_app_layout_tsx_daa0dcdd._.js",
+      "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_4b70b63e._.js",
+      "static/chunks/30617_next_dist_compiled_react-dom_c140eb4c._.js",
+      "static/chunks/30617_next_dist_compiled_next-devtools_index_0eef3e19.js",
+      "static/chunks/30617_next_dist_compiled_235473c1._.js",
+      "static/chunks/30617_next_dist_client_b945b61c._.js",
+      "static/chunks/30617_next_dist_be2d2907._.js",
+      "static/chunks/30617_@swc_helpers_cjs_a6cdfc03._.js",
+      "static/chunks/Documents_GitHub_PetConnect_PWA_a0ff3932._.js",
+      "static/chunks/turbopack-Documents_GitHub_PetConnect_PWA_b37aa53a._.js"
+    ],
+    "/home/page": [
+      "static/chunks/30617_next_dist_754e5001._.js",
+      "static/chunks/Documents_GitHub_PetConnect_PWA_app_favicon_ico_mjs_330a1680._.js",
+      "static/chunks/[root-of-the-server]__4a4b2df6._.css",
+      "static/chunks/Documents_GitHub_PetConnect_PWA_app_layout_tsx_daa0dcdd._.js",
+      "static/chunks/30617_next_dist_client_components_builtin_global-error_59727f45.js",
+      "static/chunks/30617_next_c83e966d._.js",
+      "static/chunks/Documents_GitHub_PetConnect_PWA_app_home_page_jsx_b7985a3e._.js",
+      "static/chunks/Documents_GitHub_PetConnect_PWA_app_home_page_jsx_59727f45._.js",
+      "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_4b70b63e._.js",
+      "static/chunks/30617_next_dist_compiled_react-dom_c140eb4c._.js",
+      "static/chunks/30617_next_dist_compiled_next-devtools_index_0eef3e19.js",
+      "static/chunks/30617_next_dist_compiled_235473c1._.js",
+      "static/chunks/30617_next_dist_client_b945b61c._.js",
+      "static/chunks/30617_next_dist_be2d2907._.js",
+      "static/chunks/30617_@swc_helpers_cjs_a6cdfc03._.js",
+      "static/chunks/Documents_GitHub_PetConnect_PWA_a0ff3932._.js",
+      "static/chunks/turbopack-Documents_GitHub_PetConnect_PWA_b37aa53a._.js"
+    ],
+    "/page": [
+      "static/chunks/30617_next_dist_754e5001._.js",
+      "static/chunks/Documents_GitHub_PetConnect_PWA_app_favicon_ico_mjs_330a1680._.js",
+      "static/chunks/[root-of-the-server]__4a4b2df6._.css",
+      "static/chunks/Documents_GitHub_PetConnect_PWA_app_layout_tsx_daa0dcdd._.js",
+      "static/chunks/30617_next_dist_client_components_builtin_global-error_59727f45.js",
+      "static/chunks/Documents_GitHub_PetConnect_PWA_app_db9bd904._.js",
+      "static/chunks/30617_70850f95._.js",
+      "static/chunks/Documents_GitHub_PetConnect_PWA_app_page_tsx_59727f45._.js",
+      "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_4b70b63e._.js",
+      "static/chunks/30617_next_dist_compiled_react-dom_c140eb4c._.js",
+      "static/chunks/30617_next_dist_compiled_next-devtools_index_0eef3e19.js",
+      "static/chunks/30617_next_dist_compiled_235473c1._.js",
+      "static/chunks/30617_next_dist_client_b945b61c._.js",
+      "static/chunks/30617_next_dist_be2d2907._.js",
+      "static/chunks/30617_@swc_helpers_cjs_a6cdfc03._.js",
+      "static/chunks/Documents_GitHub_PetConnect_PWA_a0ff3932._.js",
+      "static/chunks/turbopack-Documents_GitHub_PetConnect_PWA_b37aa53a._.js"
+    ]
+  }
 }

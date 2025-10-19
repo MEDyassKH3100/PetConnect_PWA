@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { EyeIcon, EyeOffIcon, UserIcon, LockIcon, MailIcon, CheckIcon, XIcon } from 'lucide-react';
 
 // Imports des nouveaux composants d'authentification
@@ -12,6 +12,9 @@ import Login from './auth/Login';
 import Register from './auth/Register';
 
 export default function HomePage() {
+  const searchParams = useSearchParams();
+  const showLogin = searchParams.get('showLogin');
+  const message = searchParams.get('message');
   const router = useRouter();
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isRegister, setIsRegister] = useState(false);
@@ -32,6 +35,12 @@ export default function HomePage() {
   const [isForgotPasswordOpen, setIsForgotPasswordOpen] = useState(false);
   const [isVerifyOTPOpen, setIsVerifyOTPOpen] = useState(false);
   const [isResetPasswordOpen, setIsResetPasswordOpen] = useState(false);
+  useEffect(() => {
+    if (showLogin === 'true') {
+      // Votre logique pour afficher la popup de login (ex. : setShowLoginModal(true))
+      console.log('Afficher popup de login avec message :', message);
+    }
+  }, [showLogin, message]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

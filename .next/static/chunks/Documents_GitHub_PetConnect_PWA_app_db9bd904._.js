@@ -1686,15 +1686,18 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetCo
 var __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f40$heroicons$2f$react$2f$24$2f$solid$2f$esm$2f$EyeIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__EyeIcon$3e$__ = __turbopack_context__.i("[project]/Documents/GitHub/PetConnect_PWA/node_modules/@heroicons/react/24/solid/esm/EyeIcon.js [app-client] (ecmascript) <export default as EyeIcon>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f40$heroicons$2f$react$2f$24$2f$solid$2f$esm$2f$EyeSlashIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__EyeSlashIcon$3e$__ = __turbopack_context__.i("[project]/Documents/GitHub/PetConnect_PWA/node_modules/@heroicons/react/24/solid/esm/EyeSlashIcon.js [app-client] (ecmascript) <export default as EyeSlashIcon>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__XIcon$3e$__ = __turbopack_context__.i("[project]/Documents/GitHub/PetConnect_PWA/node_modules/lucide-react/dist/esm/icons/x.js [app-client] (ecmascript) <export default as XIcon>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/Documents/GitHub/PetConnect_PWA/node_modules/next/navigation.js [app-client] (ecmascript)"); // Ajouter pour redirection
 ;
 var _s = __turbopack_context__.k.signature();
 'use client';
 ;
 ;
 ;
+;
 const Register = (param)=>{
     let { onSwitchToLogin } = param;
     _s();
+    const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const [formData, setFormData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])({
         firstName: '',
         lastName: '',
@@ -1726,15 +1729,35 @@ const Register = (param)=>{
     const passwordsMatch = ()=>{
         return formData.password === formData.confirmPassword && formData.password !== '';
     };
-    const handleSubmit = (e)=>{
+    const handleSubmit = async (e)=>{
         e.preventDefault();
         setError('');
         if (!passwordsMatch() || !termsAccepted) return;
         setLoading(true);
-        setTimeout(()=>{
+        try {
+            const response = await fetch('/api/auth/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    firstName: formData.firstName,
+                    lastName: formData.lastName,
+                    email: formData.email,
+                    password: formData.password
+                })
+            });
+            const data = await response.json();
+            if (!response.ok) {
+                throw new Error(data.error || 'Erreur lors de l\'inscription');
+            }
+            // Succès
+            router.push('/?showLogin=true&message=Inscription réussie, veuillez vous connecter');
+        } catch (err) {
+            setError(err.message || 'Erreur lors de l\'inscription');
+        } finally{
             setLoading(false);
-        // In a real app, handle registration
-        }, 1500);
+        }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
@@ -1749,17 +1772,17 @@ const Register = (param)=>{
                                 className: "w-6 h-6 text-white"
                             }, void 0, false, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                lineNumber: 56,
+                                lineNumber: 78,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                            lineNumber: 55,
+                            lineNumber: 77,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                        lineNumber: 54,
+                        lineNumber: 76,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
@@ -1767,7 +1790,7 @@ const Register = (param)=>{
                         children: "Créer un compte"
                     }, void 0, false, {
                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                        lineNumber: 59,
+                        lineNumber: 81,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1775,13 +1798,13 @@ const Register = (param)=>{
                         children: "Rejoignez PetCareVerse dès aujourd'hui"
                     }, void 0, false, {
                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                        lineNumber: 60,
+                        lineNumber: 82,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                lineNumber: 53,
+                lineNumber: 75,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -1799,7 +1822,7 @@ const Register = (param)=>{
                                         children: "Prénom"
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                        lineNumber: 65,
+                                        lineNumber: 87,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1813,13 +1836,13 @@ const Register = (param)=>{
                                         placeholder: "Sophie"
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                        lineNumber: 66,
+                                        lineNumber: 88,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                lineNumber: 64,
+                                lineNumber: 86,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1830,7 +1853,7 @@ const Register = (param)=>{
                                         children: "Nom"
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                        lineNumber: 78,
+                                        lineNumber: 100,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1844,19 +1867,19 @@ const Register = (param)=>{
                                         placeholder: "Martin"
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                        lineNumber: 79,
+                                        lineNumber: 101,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                lineNumber: 77,
+                                lineNumber: 99,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                        lineNumber: 63,
+                        lineNumber: 85,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1867,7 +1890,7 @@ const Register = (param)=>{
                                 children: "Email"
                             }, void 0, false, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                lineNumber: 92,
+                                lineNumber: 114,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1879,12 +1902,12 @@ const Register = (param)=>{
                                             className: "w-6 h-6 text-gray-400"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                            lineNumber: 95,
+                                            lineNumber: 117,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                        lineNumber: 94,
+                                        lineNumber: 116,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1899,19 +1922,19 @@ const Register = (param)=>{
                                         placeholder: "votre@email.com"
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                        lineNumber: 97,
+                                        lineNumber: 119,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                lineNumber: 93,
+                                lineNumber: 115,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                        lineNumber: 91,
+                        lineNumber: 113,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1922,7 +1945,7 @@ const Register = (param)=>{
                                 children: "Mot de passe"
                             }, void 0, false, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                lineNumber: 111,
+                                lineNumber: 133,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1934,12 +1957,12 @@ const Register = (param)=>{
                                             className: "w-6 h-6 text-gray-400"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                            lineNumber: 114,
+                                            lineNumber: 136,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                        lineNumber: 113,
+                                        lineNumber: 135,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1953,7 +1976,7 @@ const Register = (param)=>{
                                         placeholder: "••••••••"
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                        lineNumber: 116,
+                                        lineNumber: 138,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1966,29 +1989,29 @@ const Register = (param)=>{
                                                 className: "w-6 h-6"
                                             }, void 0, false, {
                                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                                lineNumber: 128,
+                                                lineNumber: 150,
                                                 columnNumber: 49
                                             }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f40$heroicons$2f$react$2f$24$2f$solid$2f$esm$2f$EyeIcon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__EyeIcon$3e$__["EyeIcon"], {
                                                 className: "w-6 h-6"
                                             }, void 0, false, {
                                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                                lineNumber: 128,
+                                                lineNumber: 150,
                                                 columnNumber: 88
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                            lineNumber: 127,
+                                            lineNumber: 149,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                        lineNumber: 126,
+                                        lineNumber: 148,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                lineNumber: 112,
+                                lineNumber: 134,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             formData.password && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2006,12 +2029,12 @@ const Register = (param)=>{
                                                     }
                                                 }, void 0, false, {
                                                     fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                                    lineNumber: 136,
+                                                    lineNumber: 158,
                                                     columnNumber: 37
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             }, void 0, false, {
                                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                                lineNumber: 135,
+                                                lineNumber: 157,
                                                 columnNumber: 33
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -2019,13 +2042,13 @@ const Register = (param)=>{
                                                 children: passwordStrength() === 0 ? '' : passwordStrength() === 1 ? 'Faible' : passwordStrength() === 2 ? 'Moyen' : passwordStrength() === 3 ? 'Bon' : 'Excellent'
                                             }, void 0, false, {
                                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                                lineNumber: 138,
+                                                lineNumber: 160,
                                                 columnNumber: 33
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                        lineNumber: 134,
+                                        lineNumber: 156,
                                         columnNumber: 29
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
@@ -2040,19 +2063,19 @@ const Register = (param)=>{
                                                             className: "w-6 h-6"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                                            lineNumber: 143,
+                                                            lineNumber: 165,
                                                             columnNumber: 74
                                                         }, ("TURBOPACK compile-time value", void 0)) : '•'
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                                        lineNumber: 142,
+                                                        lineNumber: 164,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     "Au moins 8 caractères"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                                lineNumber: 141,
+                                                lineNumber: 163,
                                                 columnNumber: 33
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -2064,19 +2087,19 @@ const Register = (param)=>{
                                                             className: "w-6 h-6"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                                            lineNumber: 149,
+                                                            lineNumber: 171,
                                                             columnNumber: 76
                                                         }, ("TURBOPACK compile-time value", void 0)) : '•'
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                                        lineNumber: 148,
+                                                        lineNumber: 170,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     "Au moins une majuscule"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                                lineNumber: 147,
+                                                lineNumber: 169,
                                                 columnNumber: 33
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -2088,19 +2111,19 @@ const Register = (param)=>{
                                                             className: "w-6 h-6"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                                            lineNumber: 155,
+                                                            lineNumber: 177,
                                                             columnNumber: 76
                                                         }, ("TURBOPACK compile-time value", void 0)) : '•'
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                                        lineNumber: 154,
+                                                        lineNumber: 176,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     "Au moins un chiffre"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                                lineNumber: 153,
+                                                lineNumber: 175,
                                                 columnNumber: 33
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
@@ -2112,37 +2135,37 @@ const Register = (param)=>{
                                                             className: "w-6 h-6"
                                                         }, void 0, false, {
                                                             fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                                            lineNumber: 161,
+                                                            lineNumber: 183,
                                                             columnNumber: 83
                                                         }, ("TURBOPACK compile-time value", void 0)) : '•'
                                                     }, void 0, false, {
                                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                                        lineNumber: 160,
+                                                        lineNumber: 182,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     "Au moins un caractère spécial"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                                lineNumber: 159,
+                                                lineNumber: 181,
                                                 columnNumber: 33
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                        lineNumber: 140,
+                                        lineNumber: 162,
                                         columnNumber: 29
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                lineNumber: 133,
+                                lineNumber: 155,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                        lineNumber: 110,
+                        lineNumber: 132,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2153,7 +2176,7 @@ const Register = (param)=>{
                                 children: "Confirmer le mot de passe"
                             }, void 0, false, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                lineNumber: 170,
+                                lineNumber: 192,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2165,12 +2188,12 @@ const Register = (param)=>{
                                             className: "w-6 h-6 text-gray-400"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                            lineNumber: 173,
+                                            lineNumber: 195,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                        lineNumber: 172,
+                                        lineNumber: 194,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2184,7 +2207,7 @@ const Register = (param)=>{
                                         placeholder: "••••••••"
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                        lineNumber: 175,
+                                        lineNumber: 197,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     formData.confirmPassword && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2193,24 +2216,24 @@ const Register = (param)=>{
                                             className: "w-6 h-6 text-green-500"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                            lineNumber: 187,
+                                            lineNumber: 209,
                                             columnNumber: 53
                                         }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__XIcon$3e$__["XIcon"], {
                                             className: "w-6 h-6 text-red-500"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                            lineNumber: 187,
+                                            lineNumber: 209,
                                             columnNumber: 104
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                        lineNumber: 186,
+                                        lineNumber: 208,
                                         columnNumber: 29
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                lineNumber: 171,
+                                lineNumber: 193,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             formData.confirmPassword && !passwordsMatch() && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2218,13 +2241,13 @@ const Register = (param)=>{
                                 children: "Les mots de passe ne correspondent pas"
                             }, void 0, false, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                lineNumber: 192,
+                                lineNumber: 214,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                        lineNumber: 169,
+                        lineNumber: 191,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2240,7 +2263,7 @@ const Register = (param)=>{
                                 className: "h-4 w-4 text-[#FFB8C2] focus:ring-[#FFB8C2] border-gray-300 rounded"
                             }, void 0, false, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                lineNumber: 196,
+                                lineNumber: 218,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -2254,7 +2277,7 @@ const Register = (param)=>{
                                         children: "conditions d'utilisation"
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                        lineNumber: 206,
+                                        lineNumber: 228,
                                         columnNumber: 39
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     " et la ",
@@ -2264,19 +2287,19 @@ const Register = (param)=>{
                                         children: "politique de confidentialité"
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                        lineNumber: 206,
+                                        lineNumber: 228,
                                         columnNumber: 164
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                lineNumber: 205,
+                                lineNumber: 227,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                        lineNumber: 195,
+                        lineNumber: 217,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2299,7 +2322,7 @@ const Register = (param)=>{
                                         strokeWidth: "4"
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                        lineNumber: 217,
+                                        lineNumber: 239,
                                         columnNumber: 33
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -2308,29 +2331,29 @@ const Register = (param)=>{
                                         d: "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                        lineNumber: 218,
+                                        lineNumber: 240,
                                         columnNumber: 33
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                lineNumber: 216,
+                                lineNumber: 238,
                                 columnNumber: 29
                             }, ("TURBOPACK compile-time value", void 0)) : 'Créer mon compte'
                         }, void 0, false, {
                             fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                            lineNumber: 210,
+                            lineNumber: 232,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                        lineNumber: 209,
+                        lineNumber: 231,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                lineNumber: 62,
+                lineNumber: 84,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2345,12 +2368,12 @@ const Register = (param)=>{
                                     className: "w-full border-t border-gray-300"
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                    lineNumber: 229,
+                                    lineNumber: 251,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                lineNumber: 228,
+                                lineNumber: 250,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2360,18 +2383,18 @@ const Register = (param)=>{
                                     children: "Ou s'inscrire avec"
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                    lineNumber: 232,
+                                    lineNumber: 254,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                lineNumber: 231,
+                                lineNumber: 253,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                        lineNumber: 227,
+                        lineNumber: 249,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2391,7 +2414,7 @@ const Register = (param)=>{
                                             fill: "#4285F4"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                            lineNumber: 238,
+                                            lineNumber: 260,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -2399,7 +2422,7 @@ const Register = (param)=>{
                                             fill: "#34A853"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                            lineNumber: 239,
+                                            lineNumber: 261,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -2407,7 +2430,7 @@ const Register = (param)=>{
                                             fill: "#FBBC05"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                            lineNumber: 240,
+                                            lineNumber: 262,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
@@ -2415,18 +2438,18 @@ const Register = (param)=>{
                                             fill: "#EA4335"
                                         }, void 0, false, {
                                             fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                            lineNumber: 241,
+                                            lineNumber: 263,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                    lineNumber: 237,
+                                    lineNumber: 259,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                lineNumber: 236,
+                                lineNumber: 258,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2443,29 +2466,29 @@ const Register = (param)=>{
                                         clipRule: "evenodd"
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                        lineNumber: 246,
+                                        lineNumber: 268,
                                         columnNumber: 29
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                    lineNumber: 245,
+                                    lineNumber: 267,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                                lineNumber: 244,
+                                lineNumber: 266,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                        lineNumber: 235,
+                        lineNumber: 257,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                lineNumber: 226,
+                lineNumber: 248,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2478,19 +2501,23 @@ const Register = (param)=>{
                         children: "Se connecter"
                     }, void 0, false, {
                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                        lineNumber: 252,
+                        lineNumber: 274,
                         columnNumber: 34
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/auth/Register.tsx",
-                lineNumber: 251,
+                lineNumber: 273,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true);
 };
-_s(Register, "yL4kwOdTIOKv5vBx9q46Xu5xE+o=");
+_s(Register, "fzmcInybMvM/Ur5GIBa97brXAq0=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"]
+    ];
+});
 _c = Register;
 const __TURBOPACK__default__export__ = Register;
 var _c;
@@ -2527,6 +2554,9 @@ var _s = __turbopack_context__.k.signature();
 ;
 function HomePage() {
     _s();
+    const searchParams = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSearchParams"])();
+    const showLogin = searchParams.get('showLogin');
+    const message = searchParams.get('message');
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const [isLoginOpen, setIsLoginOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [isRegister, setIsRegister] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
@@ -2547,6 +2577,17 @@ function HomePage() {
     const [isForgotPasswordOpen, setIsForgotPasswordOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [isVerifyOTPOpen, setIsVerifyOTPOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [isResetPasswordOpen, setIsResetPasswordOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "HomePage.useEffect": ()=>{
+            if (showLogin === 'true') {
+                // Votre logique pour afficher la popup de login (ex. : setShowLoginModal(true))
+                console.log('Afficher popup de login avec message :', message);
+            }
+        }
+    }["HomePage.useEffect"], [
+        showLogin,
+        message
+    ]);
     const handleSubmit = (e)=>{
         e.preventDefault();
         setError('');
@@ -2622,7 +2663,7 @@ function HomePage() {
                             children: "Home"
                         }, void 0, false, {
                             fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                            lineNumber: 107,
+                            lineNumber: 116,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -2631,7 +2672,7 @@ function HomePage() {
                             children: "About Us"
                         }, void 0, false, {
                             fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                            lineNumber: 108,
+                            lineNumber: 117,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -2640,7 +2681,7 @@ function HomePage() {
                             children: "Services"
                         }, void 0, false, {
                             fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                            lineNumber: 109,
+                            lineNumber: 118,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
@@ -2649,18 +2690,18 @@ function HomePage() {
                             children: "Contact"
                         }, void 0, false, {
                             fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                            lineNumber: 110,
+                            lineNumber: 119,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                    lineNumber: 106,
+                    lineNumber: 115,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                lineNumber: 105,
+                lineNumber: 114,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2678,7 +2719,7 @@ function HomePage() {
                                         children: "Welcome to PetCareVerse"
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                                        lineNumber: 119,
+                                        lineNumber: 128,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2686,7 +2727,7 @@ function HomePage() {
                                         children: "Votre plateforme complète pour le soin de vos animaux de compagnie. Découvrez nos services innovants pour la santé, la nutrition et bien plus."
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                                        lineNumber: 120,
+                                        lineNumber: 129,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2698,13 +2739,13 @@ function HomePage() {
                                         children: "Get Started"
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                                        lineNumber: 121,
+                                        lineNumber: 130,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                                lineNumber: 118,
+                                lineNumber: 127,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2715,18 +2756,18 @@ function HomePage() {
                                     className: "w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                                    lineNumber: 129,
+                                    lineNumber: 138,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                                lineNumber: 128,
+                                lineNumber: 137,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                        lineNumber: 117,
+                        lineNumber: 126,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -2741,12 +2782,12 @@ function HomePage() {
                                     className: "w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                                    lineNumber: 136,
+                                    lineNumber: 145,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                                lineNumber: 135,
+                                lineNumber: 144,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2757,7 +2798,7 @@ function HomePage() {
                                         children: "À Propos de Nous"
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                                        lineNumber: 139,
+                                        lineNumber: 148,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2765,7 +2806,7 @@ function HomePage() {
                                         children: "PetCareVerse est une plateforme dédiée au bien-être animal, utilisant l'IA pour offrir des soins personnalisés à vos chats et chiens. Notre mission : un écosystème mondial pour les pets."
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                                        lineNumber: 140,
+                                        lineNumber: 149,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2773,19 +2814,19 @@ function HomePage() {
                                         children: "En Savoir Plus"
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                                        lineNumber: 141,
+                                        lineNumber: 150,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                                lineNumber: 138,
+                                lineNumber: 147,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                        lineNumber: 134,
+                        lineNumber: 143,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -2800,7 +2841,7 @@ function HomePage() {
                                         children: "Nos Services"
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                                        lineNumber: 148,
+                                        lineNumber: 157,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2808,7 +2849,7 @@ function HomePage() {
                                         children: "Santé, Nutrition, Éducation, Adoption – tout ce dont votre animal a besoin, centralisé dans une IA intelligente pour des conseils personnalisés."
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                                        lineNumber: 149,
+                                        lineNumber: 158,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2816,13 +2857,13 @@ function HomePage() {
                                         children: "Explorer"
                                     }, void 0, false, {
                                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                                        lineNumber: 150,
+                                        lineNumber: 159,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                                lineNumber: 147,
+                                lineNumber: 156,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2833,18 +2874,18 @@ function HomePage() {
                                     className: "w-full h-64 md:h-96 object-cover rounded-lg shadow-lg"
                                 }, void 0, false, {
                                     fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                                    lineNumber: 153,
+                                    lineNumber: 162,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                                lineNumber: 152,
+                                lineNumber: 161,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                        lineNumber: 146,
+                        lineNumber: 155,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
@@ -2856,7 +2897,7 @@ function HomePage() {
                                 children: "Contactez-Nous"
                             }, void 0, false, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                                lineNumber: 159,
+                                lineNumber: 168,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2864,7 +2905,7 @@ function HomePage() {
                                 children: "Besoin d'aide ? Envoyez-nous un message ou rejoignez notre communauté pour plus d'informations."
                             }, void 0, false, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                                lineNumber: 160,
+                                lineNumber: 169,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
@@ -2873,7 +2914,7 @@ function HomePage() {
                                 className: "w-full h-64 md:h-96 object-cover rounded-lg shadow-lg mb-6"
                             }, void 0, false, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                                lineNumber: 161,
+                                lineNumber: 170,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2881,13 +2922,13 @@ function HomePage() {
                                 children: "Nous Contacter"
                             }, void 0, false, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                                lineNumber: 162,
+                                lineNumber: 171,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                        lineNumber: 158,
+                        lineNumber: 167,
                         columnNumber: 9
                     }, this),
                     isLoginOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2901,23 +2942,23 @@ function HomePage() {
                                 onOpenForgotPassword: ()=>setIsForgotPasswordOpen(true)
                             }, void 0, false, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                                lineNumber: 173,
+                                lineNumber: 182,
                                 columnNumber: 17
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$app$2f$auth$2f$Register$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                 onSwitchToLogin: ()=>setIsRegister(false)
                             }, void 0, false, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                                lineNumber: 175,
+                                lineNumber: 184,
                                 columnNumber: 17
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                            lineNumber: 171,
+                            lineNumber: 180,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                        lineNumber: 170,
+                        lineNumber: 179,
                         columnNumber: 11
                     }, this),
                     isForgotPasswordOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2929,30 +2970,6 @@ function HomePage() {
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$app$2f$auth$2f$ForgotPasswordForm$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                                 onOpenVerifyOTP: ()=>setIsVerifyOTPOpen(true),
                                 onOpenLogin: ()=>setIsLoginOpen(true)
-                            }, void 0, false, {
-                                fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                                lineNumber: 185,
-                                columnNumber: 15
-                            }, this)
-                        }, void 0, false, {
-                            fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                            lineNumber: 184,
-                            columnNumber: 13
-                        }, this)
-                    }, void 0, false, {
-                        fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                        lineNumber: 183,
-                        columnNumber: 11
-                    }, this),
-                    isVerifyOTPOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "fixed inset-0 bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] bg-opacity-80 backdrop-blur-md z-50 flex items-center justify-center p-4",
-                        onClick: ()=>setIsVerifyOTPOpen(false),
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "w-full max-w-md mx-auto bg-white p-8 rounded-xl shadow-md",
-                            onClick: (e)=>e.stopPropagation(),
-                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$app$2f$auth$2f$VerifyOTPForm$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
-                                onOpenResetPassword: ()=>setIsResetPasswordOpen(true),
-                                onOpenLogin: ()=>setIsForgotPasswordOpen(true)
                             }, void 0, false, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
                                 lineNumber: 194,
@@ -2968,13 +2985,16 @@ function HomePage() {
                         lineNumber: 192,
                         columnNumber: 11
                     }, this),
-                    isResetPasswordOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    isVerifyOTPOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "fixed inset-0 bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] bg-opacity-80 backdrop-blur-md z-50 flex items-center justify-center p-4",
-                        onClick: ()=>setIsResetPasswordOpen(false),
+                        onClick: ()=>setIsVerifyOTPOpen(false),
                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             className: "w-full max-w-md mx-auto bg-white p-8 rounded-xl shadow-md",
                             onClick: (e)=>e.stopPropagation(),
-                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$app$2f$auth$2f$ResetPasswordForm$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$app$2f$auth$2f$VerifyOTPForm$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
+                                onOpenResetPassword: ()=>setIsResetPasswordOpen(true),
+                                onOpenLogin: ()=>setIsForgotPasswordOpen(true)
+                            }, void 0, false, {
                                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
                                 lineNumber: 203,
                                 columnNumber: 15
@@ -2988,22 +3008,44 @@ function HomePage() {
                         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
                         lineNumber: 201,
                         columnNumber: 11
+                    }, this),
+                    isResetPasswordOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "fixed inset-0 bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] bg-opacity-80 backdrop-blur-md z-50 flex items-center justify-center p-4",
+                        onClick: ()=>setIsResetPasswordOpen(false),
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "w-full max-w-md mx-auto bg-white p-8 rounded-xl shadow-md",
+                            onClick: (e)=>e.stopPropagation(),
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$app$2f$auth$2f$ResetPasswordForm$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {}, void 0, false, {
+                                fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
+                                lineNumber: 212,
+                                columnNumber: 15
+                            }, this)
+                        }, void 0, false, {
+                            fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
+                            lineNumber: 211,
+                            columnNumber: 13
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
+                        lineNumber: 210,
+                        columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-                lineNumber: 115,
+                lineNumber: 124,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/Documents/GitHub/PetConnect_PWA/app/page.tsx",
-        lineNumber: 103,
+        lineNumber: 112,
         columnNumber: 5
     }, this);
 }
-_s(HomePage, "TYMnG2OwfQTTs1quE52oLJQqrDg=", false, function() {
+_s(HomePage, "7lr0EBZs4QoBbgw4J3yREyEh3oM=", false, function() {
     return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSearchParams"],
         __TURBOPACK__imported__module__$5b$project$5d2f$Documents$2f$GitHub$2f$PetConnect_PWA$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"]
     ];
 });

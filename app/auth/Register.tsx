@@ -3,8 +3,10 @@
 import { useState } from 'react';
 import { UserIcon, EnvelopeIcon, LockClosedIcon, CheckIcon, XMarkIcon, EyeIcon, EyeSlashIcon } from '@heroicons/react/24/solid';
 import { XIcon } from 'lucide-react';
+import { useRouter } from 'next/navigation';  // Ajouter pour redirection
 
 const Register = ({ onSwitchToLogin }: { onSwitchToLogin: () => void }) => {
+    const router = useRouter();
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -37,15 +39,35 @@ const Register = ({ onSwitchToLogin }: { onSwitchToLogin: () => void }) => {
         return formData.password === formData.confirmPassword && formData.password !== '';
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setError('');
         if (!passwordsMatch() || !termsAccepted) return;
         setLoading(true);
-        setTimeout(() => {
+        try {
+            const response = await fetch('/api/auth/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    firstName: formData.firstName,
+                    lastName: formData.lastName,
+                    email: formData.email,
+                    password: formData.password,
+                }),
+            });
+
+            const data = await response.json();
+            if (!response.ok) {
+                throw new Error(data.error || 'Erreur lors de l\'inscription');
+            }
+
+            // Succès
+            router.push('/?showLogin=true&message=Inscription réussie, veuillez vous connecter');
+        } catch (err: any) {
+            setError(err.message || 'Erreur lors de l\'inscription');
+        } finally {
             setLoading(false);
-            // In a real app, handle registration
-        }, 1500);
+        }
     };
 
     return (

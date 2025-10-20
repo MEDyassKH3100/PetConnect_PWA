@@ -8,7 +8,7 @@ import { EyeIcon, EyeOffIcon, UserIcon, LockIcon, MailIcon, CheckIcon, XIcon } f
 import ForgotPasswordForm from './auth/ForgotPasswordForm';
 import VerifyOTPForm from './auth/VerifyOTPForm';
 import ResetPasswordForm from './auth/ResetPasswordForm';
-import Login from './auth/Login';
+import Login from './auth/login/page';
 import Register from './auth/Register';
 
 export default function HomePage() {

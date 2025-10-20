@@ -1,5 +1,6 @@
 import { UserService } from "@/models/User";
 import { NextRequest, NextResponse } from "next/server";
+import jwt from "jsonwebtoken";
 
 export async function POST(request: NextRequest) {
   try {
@@ -13,7 +14,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Vérifier l'utilisateur via le service
     const user = await UserService.login({ email, password });
 
     if (!user) {
@@ -23,11 +23,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Ici, vous pouvez créer un token JWT si vous voulez
-    // const token = createJWT(user);
+    
+    const token = jwt.sign(
+      { id: user._id, email: user.email, role: user.role },
+      process.env.JWT_SECRET!,
+      { expiresIn: "7d" }
+    );
 
     return NextResponse.json(
-      { message: "Connexion réussie", user /*, token */ },
+      { message: "Connexion réussie", user, token },
       { status: 200 }
     );
   } catch (error: any) {

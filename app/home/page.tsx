@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+
 import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 import { Dashboard } from './components/Dashboard';
@@ -19,8 +20,30 @@ export default function HomePage() {
   const router = useRouter();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [activeModule, setActiveModule] = useState('dashboard');
+  const [userToken, setUserToken] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Check for token in localStorage
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      setUserToken(token); // store token in state
+      setLoading(false);
+    } else {
+      // No token → redirect to login
+      router.replace('/auth/login');
+    }
+  }, [router]);
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
+
+  // Show loader while checking authentication
+  if (loading) return (
+    <div className="flex items-center justify-center min-h-screen">
+      <p className="text-gray-500 text-lg">Loading...</p>
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-gray-50 flex">
@@ -37,14 +60,14 @@ export default function HomePage() {
         {/* Header */}
         <Header toggleSidebar={toggleSidebar} setActiveModule={setActiveModule} />
 
-        {/* Dashboard Content */}
+        {/* Modules */}
         <main className="flex-1 p-6 overflow-y-auto">
           {activeModule === 'dashboard' && <Dashboard />}
           {activeModule === 'health' && <HealthModule />}
           {activeModule === 'nutrition' && <NutritionModule />}
           {activeModule === 'education' && <EducationModule />}
           {activeModule === 'adoption' && <AdoptionModule />}
-          {activeModule === 'pets' && <UserPets />}
+          {activeModule === 'pets' && userToken && <UserPets token={userToken} />}
           {activeModule === 'appointments' && <UserAppointments />}
           {activeModule === 'notifications' && <UserNotifications />}
           {activeModule === 'profile' && <UserProfile />}

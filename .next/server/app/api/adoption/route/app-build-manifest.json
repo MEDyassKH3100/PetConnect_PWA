@@ -1,0 +1,11 @@
+{
+  "pages": {
+    "/api/adoption/route": [
+      "static/chunks/e34748c98324a711.js",
+      "static/chunks/0bb7771c4e68952b.js",
+      "static/chunks/a61b9f6c1298c7dd.js",
+      "static/chunks/11ac4f004b8d16b4.js",
+      "static/chunks/turbopack-acc06d3193df0da8.js"
+    ]
+  }
+}

@@ -1,9 +1,7 @@
 import connectDB from "../lib/db";
 import User, { IUser } from "../models/User";
-import jwt from "jsonwebtoken";
+import { generateToken, generateRefreshToken } from "../lib/auth";
 import crypto from "crypto";
-
-const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key";
 
 export class UserService {
   // 1. Register (Inscription)
@@ -17,24 +15,38 @@ export class UserService {
   }): Promise<IUser> {
     await connectDB();
 
-    const existingUser = await User.findOne({ email: userData.email });
+    // Vérifier que l'email n'existe pas déjà
+    const existingUser = await User.findOne({
+      email: userData.email.toLowerCase(),
+    });
     if (existingUser) {
       throw new Error("Cet email est déjà utilisé");
     }
 
-    const user = new User(userData);
+    // Validation supplémentaire
+    if (userData.password.length < 6) {
+      throw new Error("Le mot de passe doit contenir au moins 6 caractères");
+    }
+
+    const user = new User({
+      ...userData,
+      email: userData.email.toLowerCase(),
+    });
+
     await user.save();
     return user;
   }
 
-  // 2. Login (Connexion)
+  // 2. Login (Connexion) - Version optimisée
   static async login(
     email: string,
     password: string
-  ): Promise<{ user: IUser; token: string }> {
+  ): Promise<{ user: IUser; token: string; refreshToken: string }> {
     await connectDB();
 
-    const user = await User.findOne({ email }).select("+password");
+    const user = await User.findOne({ email: email.toLowerCase() }).select(
+      "+password"
+    );
     if (!user) {
       throw new Error("Email ou mot de passe incorrect");
     }
@@ -44,13 +56,20 @@ export class UserService {
       throw new Error("Email ou mot de passe incorrect");
     }
 
-    const token = jwt.sign(
-      { userId: user._id, email: user.email, role: user.role },
-      JWT_SECRET,
-      { expiresIn: "7d" }
-    );
+    // Générer les tokens avec les utilitaires sécurisés
+    const token = generateToken({
+      userId: user._id.toString(),
+      email: user.email,
+      role: user.role,
+    });
 
-    return { user, token };
+    const refreshToken = generateRefreshToken({
+      userId: user._id.toString(),
+      email: user.email,
+      role: user.role,
+    });
+
+    return { user, token, refreshToken };
   }
 
   // 3. Update Profile (Mettre à jour le profil)
@@ -77,7 +96,7 @@ export class UserService {
   ): Promise<{ resetToken: string; message: string }> {
     await connectDB();
 
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email: email.toLowerCase() });
     if (!user) {
       throw new Error("Aucun utilisateur trouvé avec cet email");
     }
@@ -92,9 +111,6 @@ export class UserService {
     user.resetPasswordToken = hashedToken;
     user.resetPasswordExpires = expires;
     await user.save();
-
-    // Ici, vous pourriez intégrer un service d'email pour envoyer le token par mail
-    // Exemple : await sendEmail(email, 'Réinitialisation de mot de passe', `Votre token: ${resetToken}`);
 
     return {
       resetToken,
@@ -111,7 +127,7 @@ export class UserService {
     await connectDB();
 
     const user = await User.findOne({
-      email,
+      email: email.toLowerCase(),
       otp,
       otpExpires: { $gt: new Date() },
     });
@@ -146,6 +162,11 @@ export class UserService {
       throw new Error("Token invalide ou expiré");
     }
 
+    // Validation du nouveau mot de passe
+    if (newPassword.length < 6) {
+      throw new Error("Le mot de passe doit contenir au moins 6 caractères");
+    }
+
     user.password = newPassword;
     user.resetPasswordToken = undefined;
     user.resetPasswordExpires = undefined;
@@ -172,6 +193,11 @@ export class UserService {
       throw new Error("Mot de passe actuel incorrect");
     }
 
+    // Validation du nouveau mot de passe
+    if (newPassword.length < 6) {
+      throw new Error("Le mot de passe doit contenir au moins 6 caractères");
+    }
+
     user.password = newPassword;
     await user.save();
 
@@ -190,14 +216,34 @@ export class UserService {
     return { message: "Profil supprimé avec succès" };
   }
 
-  // Méthodes utilitaires supplémentaires (optionnelles)
+  // 9. Get User by ID (Récupérer un utilisateur par ID)
   static async getUserById(userId: string): Promise<IUser | null> {
     await connectDB();
     return User.findById(userId);
   }
 
+  // 10. Get All Users (Admin only)
   static async getAllUsers(): Promise<IUser[]> {
     await connectDB();
     return User.find({}).sort({ createdAt: -1 });
+  }
+
+  // 11. Get User by Email
+  static async getUserByEmail(email: string): Promise<IUser | null> {
+    await connectDB();
+    return User.findOne({ email: email.toLowerCase() });
+  }
+
+  // 12. Update User Role (Admin only)
+  static async updateUserRole(
+    userId: string,
+    role: "user" | "admin" | "vet"
+  ): Promise<IUser | null> {
+    await connectDB();
+    return User.findByIdAndUpdate(
+      userId,
+      { role },
+      { new: true, runValidators: true }
+    );
   }
 }

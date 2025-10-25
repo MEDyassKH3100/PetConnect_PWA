@@ -19,34 +19,36 @@ const Login = ({ onSwitchToRegister, onOpenForgotPassword }: LoginProps) => {
     const [showPassword, setShowPassword] = useState(false);
     const router = useRouter();
 
-  const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setError('');
-  setLoading(true);
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setError('');
+        setLoading(true);
 
-  try {
-    const response = await fetch('/api/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password }),
-    });
+        try {
+            const response = await fetch('/api/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password }),
+            });
 
-    const data = await response.json();
+            const data = await response.json();
 
-    if (!response.ok) throw new Error(data.error || 'Erreur lors de la connexion');
+            if (!response.ok) throw new Error(data.error || 'Erreur lors de la connexion');
 
-    if (data.token) {
-      // ✅ Store the token
-      localStorage.setItem('token', data.token);
-    }
+            if (data.token) {
+                // ✅ Store the token and refresh token
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('refreshToken', data.refreshToken);
+                localStorage.setItem('user', JSON.stringify(data.user));
+            }
 
-    router.push('/home'); // navigate to HomePage
-  } catch (err: any) {
-    setError(err.message);
-  } finally {
-    setLoading(false);
-  }
-};
+            router.push('/home'); // navigate to HomePage
+        } catch (err: any) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
 
 
     return (

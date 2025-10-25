@@ -4,8 +4,8 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 const MONGO_URI = "mongodb://localhost:27017/mydb"; // local MongoDB
-const JWT_SECRET = "your_super_secret_key";
-
+const JWT_SECRET = process.env.JWT_SECRET || "fallback_secret_key_12345";
+const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || "7d";
 let cachedClient: MongoClient | null = null;
 
 async function connectMongo() {
@@ -21,14 +21,20 @@ export async function POST(req: NextRequest) {
     const { username, email, password } = await req.json();
 
     if (!username || !email || !password) {
-      return NextResponse.json({ message: "All fields are required" }, { status: 400 });
+      return NextResponse.json(
+        { message: "All fields are required" },
+        { status: 400 }
+      );
     }
 
     const db = await connectMongo();
     const existingUser = await db.collection("users").findOne({ email });
 
     if (existingUser) {
-      return NextResponse.json({ message: "User already exists" }, { status: 400 });
+      return NextResponse.json(
+        { message: "User already exists" },
+        { status: 400 }
+      );
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -40,9 +46,16 @@ export async function POST(req: NextRequest) {
       createdAt: new Date(),
     });
 
-    const token = jwt.sign({ userId: result.insertedId, email }, JWT_SECRET, { expiresIn: "1d" });
+    const token = jwt.sign({ userId: result.insertedId, email }, JWT_SECRET, {
+      expiresIn: JWT_EXPIRES_IN,
+      issuer: "PetCareVerse",
+      audience: "PetCareVerse-Users",
+    } as jwt.SignOptions);
 
-    return NextResponse.json({ message: "User created", token }, { status: 201 });
+    return NextResponse.json(
+      { message: "User created", token },
+      { status: 201 }
+    );
   } catch (error) {
     console.error(error);
     return NextResponse.json({ message: "Server error" }, { status: 500 });

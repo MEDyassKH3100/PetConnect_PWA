@@ -1,12 +1,12 @@
-import { UserService } from "@/models/User";
+import { UserService } from "@/services/userService";
 import { NextRequest, NextResponse } from "next/server";
-import jwt from "jsonwebtoken";
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const { email, password } = body;
 
+    // Validation des données d'entrée
     if (!email || !password) {
       return NextResponse.json(
         { error: "Email et mot de passe sont requis" },
@@ -14,30 +14,45 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const user = await UserService.login({ email, password });
+    // Validation format email basique
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: "Format d'email invalide" },
+        { status: 400 }
+      );
+    }
 
-    if (!user) {
+    // Utiliser UserService pour l'authentification
+    const authResult = await UserService.login(email, password);
+
+    // Créer une réponse sécurisée (sans le mot de passe)
+    const { password: _, ...userWithoutPassword } = authResult.user.toObject();
+
+    // Succès de la connexion
+    return NextResponse.json(
+      {
+        message: "Connexion réussie",
+        user: userWithoutPassword,
+        token: authResult.token,
+        refreshToken: authResult.refreshToken,
+        expiresIn: "7d",
+      },
+      { status: 200 }
+    );
+  } catch (error: any) {
+    console.error("Erreur login:", error);
+
+    // Gestion des erreurs spécifiques
+    if (error.message.includes("Email ou mot de passe incorrect")) {
       return NextResponse.json(
         { error: "Email ou mot de passe incorrect" },
         { status: 401 }
       );
     }
 
-    
-    const token = jwt.sign(
-      { id: user._id, email: user.email, role: user.role },
-      process.env.JWT_SECRET!,
-      { expiresIn: "7d" }
-    );
-
     return NextResponse.json(
-      { message: "Connexion réussie", user, token },
-      { status: 200 }
-    );
-  } catch (error: any) {
-    console.error("Erreur login:", error);
-    return NextResponse.json(
-      { error: error.message || "Erreur serveur" },
+      { error: error.message || "Erreur serveur lors de la connexion" },
       { status: 500 }
     );
   }

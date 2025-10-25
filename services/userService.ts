@@ -1,6 +1,6 @@
 import connectDB from "../lib/db";
 import User, { IUser } from "../models/User";
-import { generateToken, generateRefreshToken } from "../lib/auth";
+import { generateToken, generateRefreshToken } from "../lib/auth-server";
 import crypto from "crypto";
 
 export class UserService {

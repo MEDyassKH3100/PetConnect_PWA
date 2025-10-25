@@ -179,7 +179,11 @@ export default function HomePage() {
           <div className="fixed inset-0 bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] bg-opacity-80 backdrop-blur-md z-50 flex items-center justify-center p-4" onClick={() => setIsLoginOpen(false)}>
             <div className="w-full max-w-md mx-auto bg-white p-8 rounded-xl shadow-md" onClick={(e) => e.stopPropagation()}>
               {!isRegister ? (
-                <Login onSwitchToRegister={() => setIsRegister(true)} onOpenForgotPassword={() => setIsForgotPasswordOpen(true)} />
+                <Login
+                  onSwitchToRegister={() => setIsRegister(true)}
+                  onOpenForgotPassword={() => setIsForgotPasswordOpen(true)}
+                  onLoginSuccess={() => setIsLoginOpen(false)}
+                />
               ) : (
                 <Register onSwitchToLogin={() => setIsRegister(false)} />
               )}

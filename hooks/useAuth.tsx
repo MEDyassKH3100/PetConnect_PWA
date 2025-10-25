@@ -7,7 +7,18 @@ import {
   useContext,
   ReactNode,
 } from "react";
-import { verifyToken, decodeToken } from "@/lib/auth";
+// Fonction locale pour décoder le token (évite l'import problématique)
+function decodeToken(token: string): any | null {
+  try {
+    const parts = token.split('.');
+    if (parts.length !== 3) return null;
+    const payload = parts[1];
+    const decoded = JSON.parse(atob(payload.replace(/-/g, '+').replace(/_/g, '/')));
+    return decoded;
+  } catch (error) {
+    return null;
+  }
+}
 
 // Interface simplifiée pour les données utilisateur
 interface UserProfile {

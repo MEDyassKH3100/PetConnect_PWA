@@ -1,6 +1,33 @@
 {
   "version": 3,
-  "middleware": {},
-  "sortedMiddleware": [],
+  "middleware": {
+    "/": {
+      "files": [
+        "server/edge/chunks/Documents_GitHub_PetConnect_PWA_dd08980e._.js",
+        "server/edge/chunks/[root-of-the-server]__ed6daf59._.js",
+        "server/edge/chunks/turbopack-Documents_GitHub_PetConnect_PWA_edge-wrapper_4c56123e.js"
+      ],
+      "name": "middleware",
+      "page": "/",
+      "matchers": [
+        {
+          "regexp": "^(?:\\/(_next\\/data\\/[^/]{1,}))?(?:\\/((?!_next\\/static|_next\\/image|favicon.ico|images|.*\\.png$|.*\\.jpg$|.*\\.svg$).*))(\\\\.json)?[\\/#\\?]?$",
+          "originalSource": "/((?!_next/static|_next/image|favicon.ico|images|.*\\.png$|.*\\.jpg$|.*\\.svg$).*)"
+        }
+      ],
+      "wasm": [],
+      "assets": [],
+      "env": {
+        "__NEXT_BUILD_ID": "development",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "psdzHfVCvtRp42vs0ZEhyRUFOmBJNzCGyEi1b0mQ6CA=",
+        "__NEXT_PREVIEW_MODE_ID": "eed2b887839aa9210f14977efa25f1ac",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "482184cc1563c03b41d62714729505e604ed669350c9772d4883a9db9496660b",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "8a15278639c6268ffd5efdda80d17ee0b74616b6d7bc3d29615c80db7c99c191"
+      }
+    }
+  },
+  "sortedMiddleware": [
+    "/"
+  ],
   "functions": {}
 }

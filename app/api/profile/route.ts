@@ -1,5 +1,5 @@
 import { UserService } from "@/services/userService";
-import { authenticateUser } from "@/lib/auth";
+import { authenticateUser } from "@/lib/auth-server";
 import { NextRequest, NextResponse } from "next/server";
 
 // Interface simplifiée pour les données utilisateur

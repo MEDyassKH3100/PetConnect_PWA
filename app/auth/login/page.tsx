@@ -36,29 +36,29 @@ const Login = ({ onSwitchToRegister, onOpenForgotPassword, onLoginSuccess }: Log
 
             if (!response.ok) throw new Error(data.error || 'Erreur lors de la connexion');
 
-            if (data.token) {
-                // Stocker le token et les informations utilisateur
-                localStorage.setItem('token', data.token);
-                localStorage.setItem('refreshToken', data.refreshToken);
-                localStorage.setItem('user', JSON.stringify(data.user));
+       if (data.token) {
+    // ✅ Stocker le token et les informations utilisateur
+    localStorage.setItem('token', data.token);
+    localStorage.setItem('refreshToken', data.refreshToken);
+    localStorage.setItem('user', JSON.stringify(data.user));
 
-                // Stocker dans les cookies pour le middleware (sans attributs de sécurité qui bloquent en dev)
-                const maxAge = rememberMe ? 7 * 24 * 60 * 60 : 24 * 60 * 60;
-                document.cookie = `token=${data.token}; path=/; max-age=${maxAge}`;
+    const maxAge = rememberMe ? 7 * 24 * 60 * 60 : 24 * 60 * 60;
+    document.cookie = `token=${data.token}; path=/; max-age=${maxAge}`;
 
-                console.log('✅ Connexion réussie, token JWT généré');
-                console.log('🍪 Token stocké dans cookies:', document.cookie.includes('token'));
-            }
+    console.log('✅ Connexion réussie, token JWT généré');
+    console.log('🍪 Token stocké dans cookies:', document.cookie.includes('token'));
 
-            // Appeler le callback si fourni (pour fermer la popup)
-            if (onLoginSuccess) {
-                onLoginSuccess();
-            }
-            // Rediriger vers la page d'accueil avec un petit délai pour laisser le temps au cookie de se propager
-            setTimeout(() => {
-                router.push('/home');
-            }, 100);
-        } catch (err: any) {
+    // ✅ Appeler le callback si fourni
+    if (onLoginSuccess) {
+        onLoginSuccess();
+    }
+
+    // ✅ Rediriger uniquement si le login est réussi
+    setTimeout(() => {
+        router.push('/home');
+    }, 100);
+}
+} catch (err: any) {
             console.error('❌ Erreur de connexion:', err);
             setError(err.message);
         } finally {

@@ -1,6 +1,3 @@
 {
-  "/api/auth/login/route": "app/api/auth/login/route.js",
-  "/api/pets/route": "app/api/pets/route.js",
-  "/api/profile/route": "app/api/profile/route.js",
-  "/home/page": "app/home/page.js"
+  "/api/pets/route": "app/api/pets/route.js"
 }

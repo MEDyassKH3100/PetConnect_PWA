@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import { XIcon, SaveIcon, UploadIcon } from 'lucide-react';
+import { jwtDecode } from 'jwt-decode';
+
 
 interface PetFormProps {
   pet?: {
@@ -27,7 +29,7 @@ export const PetForm = ({ pet, token, onSaved, onClose }: PetFormProps) => {
     name: pet?.name || '',
     type: pet?.type || 'Chien',
     breed: pet?.breed || '',
-    age: pet?.age || '', // Added age field
+    age: pet?.age || '',
     gender: pet?.gender || 'Mâle',
     birthdate: pet?.birthdate || '',
     weight: pet?.weight?.replace(' kg', '') || '',
@@ -43,43 +45,50 @@ export const PetForm = ({ pet, token, onSaved, onClose }: PetFormProps) => {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setError('');
+  e.preventDefault();
+  setLoading(true);
+  setError('');
 
-    try {
-const method = pet ? 'PATCH' : 'POST';
-const url = '/api/pets';
+  try {
+    // Decode JWT token
+    const decoded: any = jwtDecode(token);
+    const userId = decoded.userId || decoded.id;
+    if (!userId) throw new Error('Utilisateur non authentifié');
 
-const body = pet ? { id: pet._id, ...formData } : formData; 
+    // Prepare request body
+    const body = { ...formData }; // ❌ Don't include owner here
 
-const res = await fetch(url, {
-  method,
+    // Choose HTTP method and URL
+    const method = pet ? 'PATCH' : 'POST';
+    // For PATCH, pass id as search param
+    const url = pet ? `/api/pets?id=${pet._id}` : '/api/pets';
+
+ const res = await fetch('/api/pets', {
+  method: 'POST',
   headers: {
     'Content-Type': 'application/json',
     Authorization: `Bearer ${token}`,
   },
-  body: JSON.stringify(body),
+  body: JSON.stringify(formData), // MUST be stringified
 });
 
 
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Erreur serveur');
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || 'Erreur serveur');
 
-      onSaved(); // refresh pet list
-    } catch (err: any) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
+    onSaved();
+    onClose();
+  } catch (err: any) {
+    setError(err.message);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
@@ -87,7 +96,10 @@ const res = await fetch(url, {
         <h2 className="text-lg font-semibold text-gray-800">
           {pet ? 'Modifier les informations' : 'Ajouter un animal'}
         </h2>
-        <button className="p-1 rounded-full hover:bg-gray-100" onClick={onClose}>
+        <button
+          className="p-1 rounded-full hover:bg-gray-100"
+          onClick={onClose}
+        >
           <XIcon size={20} className="text-gray-500" />
         </button>
       </div>
@@ -121,9 +133,11 @@ const res = await fetch(url, {
                   const file = e.target.files?.[0];
                   if (file) {
                     const reader = new FileReader();
-                    reader.onload = () => {
-                      setFormData((prev) => ({ ...prev, image: reader.result as string }));
-                    };
+                    reader.onload = () =>
+                      setFormData((prev) => ({
+                        ...prev,
+                        image: reader.result as string,
+                      }));
                     reader.readAsDataURL(file);
                   }
                 }}
@@ -230,7 +244,9 @@ const res = await fetch(url, {
           <button
             type="submit"
             disabled={loading}
-            className={`flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] text-white rounded-md hover:from-[#FFB8C2] hover:to-[#F5F5DC] ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
+            className={`flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] text-white rounded-md hover:from-[#FFB8C2] hover:to-[#F5F5DC] ${
+              loading ? 'opacity-70 cursor-not-allowed' : ''
+            }`}
           >
             <SaveIcon size={16} />
             <span>{pet ? 'Enregistrer' : 'Ajouter'}</span>

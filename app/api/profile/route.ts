@@ -20,7 +20,7 @@ interface UserProfileData {
 export async function GET(request: NextRequest) {
   try {
     // Authentifier l'utilisateur
-    const user = authenticateUser(request);
+    const user = await authenticateUser(request);
 
     // Récupérer les informations complètes de l'utilisateur
     const userProfile = await UserService.getUserById(user.id);
@@ -71,7 +71,7 @@ export async function GET(request: NextRequest) {
 export async function PUT(request: NextRequest) {
   try {
     // Authentifier l'utilisateur
-    const user = authenticateUser(request);
+    const user = await authenticateUser(request);
     const body = await request.json();
 
     const { firstName, lastName, phone, address, avatar } = body;

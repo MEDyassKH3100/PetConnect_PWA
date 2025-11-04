@@ -34,7 +34,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ServiceWorkerRegistration />
-        {children}
+        <AuthProvider>
+          {children} {/* Now all children can use useAuth */}
+        </AuthProvider>
       </body>
     </html>
   );

@@ -111,7 +111,11 @@ export default function HomePage() {
         <main className="flex-1 p-6 overflow-y-auto">
           {activeModule === 'dashboard' && <Dashboard />}
           {activeModule === 'health' && <HealthModule />}
-          {activeModule === 'nutrition' && <NutritionModule />}
+        {activeModule === 'nutrition' && userToken && (
+  <NutritionModule token={userToken} />
+)}
+
+
           {activeModule === 'education' && <EducationModule />}
           {activeModule === 'adoption' && <AdoptionModule />}
           {activeModule === 'pets' && userToken && <UserPets token={userToken} />}

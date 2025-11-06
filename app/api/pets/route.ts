@@ -21,15 +21,21 @@ async function verifyToken(request: NextRequest) {
 }
 
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   await connectDB();
+  const decoded: any = await verifyToken(request); // verify the user
+  if (!decoded)
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
   try {
-    const pets = await Pet.find();
+    // Fetch only pets belonging to this user
+    const pets = await Pet.find({ owner: decoded.userId });
     return NextResponse.json({ pets });
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 });
   }
 }
+
 
 export async function POST(request: NextRequest) {
   await connectDB();

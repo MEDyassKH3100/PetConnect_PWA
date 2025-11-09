@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { UtensilsIcon, ScaleIcon, ClipboardIcon } from 'lucide-react';
 import { NutritionChart } from './components/NutritionChart';
+import { Trash2Icon } from 'lucide-react';
 
 interface Pet {
   _id: string;
@@ -15,6 +16,12 @@ interface Pet {
   currentDiet?: { name: string; description: string; amount: string }[];
 }
 
+interface WeightEntry {
+  _id: string;
+  weight: number;
+  date: string;
+}
+
 interface NutritionModuleProps {
   token: string;
 }
@@ -23,18 +30,18 @@ export const NutritionModule = ({ token }: NutritionModuleProps) => {
   const [pets, setPets] = useState<Pet[]>([]);
   const [selectedPetId, setSelectedPetId] = useState<string | undefined>(undefined);
   const [loading, setLoading] = useState(true);
+  const [weights, setWeights] = useState<WeightEntry[]>([]);
 
-  // Form states for ration calculator
+  // Ration calculator state
   const [weight, setWeight] = useState<number | ''>('');
   const [age, setAge] = useState<number | ''>('');
   const [activityLevel, setActivityLevel] = useState<string>('Sédentaire');
   const [foodType, setFoodType] = useState<string>('Croquettes sèches');
   const [recommendedRation, setRecommendedRation] = useState<string>('');
 
-  // Fetch pets
+  // Fetch all pets
   const fetchPets = async () => {
     if (!token) return;
-
     try {
       const res = await fetch('/api/pets', {
         headers: { Authorization: `Bearer ${token}` },
@@ -43,20 +50,36 @@ export const NutritionModule = ({ token }: NutritionModuleProps) => {
       if (res.ok) {
         setPets(data.pets);
         if (data.pets.length > 0) setSelectedPetId(data.pets[0]._id);
-      } else {
-        throw new Error(data.error || 'Erreur lors du chargement');
-      }
-    } catch (err: any) {
-      console.error(err);
+      } else setPets([]);
+    } catch {
       setPets([]);
     } finally {
       setLoading(false);
     }
   };
 
+  // Fetch weights for selected pet
+  const fetchWeights = async (petId: string) => {
+    if (!token) return;
+    try {
+      const res = await fetch(`/api/pets/${petId}/weights`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data = await res.json();
+      if (res.ok) setWeights(data.weights);
+      else setWeights([]);
+    } catch {
+      setWeights([]);
+    }
+  };
+
   useEffect(() => {
     fetchPets();
   }, [token]);
+
+  useEffect(() => {
+    if (selectedPetId) fetchWeights(selectedPetId);
+  }, [selectedPetId, token]);
 
   const selectedPet = pets.find((p) => p._id === selectedPetId);
 
@@ -72,7 +95,54 @@ export const NutritionModule = ({ token }: NutritionModuleProps) => {
     return <p className="text-gray-500">Vous n'avez aucun animal enregistré.</p>;
   }
 
-  // Simple ration calculation formula
+  // Add weight (currently disabled in UI)
+  const handleAddWeight = async () => {
+    const newWeight = prompt(`Entrer le nouveau poids de ${selectedPet.name} (kg):`);
+    if (!newWeight) return;
+    try {
+      const res = await fetch(`/api/pets/${selectedPet._id}/weights`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ weight: Number(newWeight) }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        alert('✅ Mesure ajoutée avec succès !');
+        fetchWeights(selectedPet._id); // refresh weights
+      } else alert(`Erreur: ${data.error}`);
+    } catch {
+      alert('Erreur lors de l’ajout de la mesure.');
+    }
+  };
+
+  // Delete weight
+  const handleDeleteWeight = async (weightId: string) => {
+    if (!token) return;
+    if (!confirm("Voulez-vous vraiment supprimer cette mesure ?")) return;
+
+    try {
+      const res = await fetch(`/api/pets/${selectedPet._id}/weights`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({ weightId }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        alert('Mesure supprimée avec succès !');
+        fetchWeights(selectedPet._id); // refresh weights
+      } else alert(`Erreur: ${data.error}`);
+    } catch {
+      alert('Erreur lors de la suppression de la mesure.');
+    }
+  };
+
+  // Simple ration calculation
   const calculateRation = (e: React.FormEvent) => {
     e.preventDefault();
     if (!weight || !age) return;
@@ -92,7 +162,7 @@ export const NutritionModule = ({ token }: NutritionModuleProps) => {
         factor = 1.4;
         break;
     }
-    const ration = (weight as number) * factor * 10; // grams/day
+    const ration = (weight as number) * factor * 10;
     setRecommendedRation(`${ration.toFixed(0)} g/jour (${foodType})`);
   };
 
@@ -100,11 +170,9 @@ export const NutritionModule = ({ token }: NutritionModuleProps) => {
     <div className="space-y-6">
       <h1 className="text-2xl font-bold text-gray-800">Module Nutrition</h1>
 
-      {/* Pet Selector */}
+      {/* Pet selector */}
       <div className="mb-6">
-        <label className="block text-gray-700 font-medium mb-2">
-          Choisir un animal :
-        </label>
+        <label className="block text-gray-700 font-medium mb-2">Choisir un animal :</label>
         <select
           value={selectedPetId || ''}
           onChange={(e) => setSelectedPetId(e.target.value)}
@@ -118,18 +186,19 @@ export const NutritionModule = ({ token }: NutritionModuleProps) => {
         </select>
       </div>
 
-      {/* Weight Chart */}
+      {/* Weight chart */}
       <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
         <h2 className="text-lg font-semibold text-gray-800 mb-4">
           Évolution du poids de {selectedPet.name}
         </h2>
         <div className="h-64 w-full">
-          <NutritionChart />
+          <NutritionChart petId={selectedPet._id} token={token} />
         </div>
       </div>
 
-      {/* Nutrition Features */}
+      {/* Features grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* Suivi du poids */}
         <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
           <div className="flex items-center mb-4">
             <div className="p-2 bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] rounded-full mr-3">
@@ -140,24 +209,46 @@ export const NutritionModule = ({ token }: NutritionModuleProps) => {
           <p className="text-gray-600 mb-4">
             Enregistrez et suivez l'évolution du poids de {selectedPet.name}.
           </p>
-          <button className="text-[#FFB8C2] font-medium hover:underline">
-            Ajouter une mesure
-          </button>
-        </div>
 
-        <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
-          <div className="flex items-center mb-4">
-            <div className="p-2 bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] rounded-full mr-3">
-              <UtensilsIcon size={24} className="text-white" />
-            </div>
-            <h3 className="text-lg font-semibold text-gray-800">Calculateur de rations</h3>
+          {/* Input for weight */}
+          <div className="mb-4">
+            <label className="text-[#FFB8C2] font-medium cursor-not-allowed opacity-50">
+             Ajouter une mesure
+            </label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Nouveau poids (kg)
+            </label>','
+            <input
+              type="number"
+              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]"
+              value={weight}
+              onChange={(e) => setWeight(Number(e.target.value))}
+              placeholder={`Poids de ${selectedPet.name}`}
+            />
           </div>
-          <p className="text-gray-600 mb-4">
-            Calculez la quantité idéale de nourriture pour {selectedPet.name}.
-          </p>
-          <button className="text-[#FFB8C2] font-medium hover:underline">Calculer</button>
+
+
+{/* List of weights with delete icons */}
+<div className="mt-4 space-y-1">
+  {weights.length === 0 && <p className="text-gray-500">Aucune mesure enregistrée.</p>}
+  {weights.map((w) => (
+    <div key={w._id} className="flex justify-between items-center border-b py-1">
+      <span className="text-gray-500">{new Date(w.date).toLocaleDateString()}: {w.weight} kg</span>
+      <button
+        onClick={() => handleDeleteWeight(w._id)}
+        className="text-red-500 hover:text-red-700 p-1 rounded"
+        title="Supprimer la mesure"
+      >
+        <Trash2Icon size={16} />
+      </button>
+    </div>
+  ))}
+</div>
         </div>
 
+      
+
+        {/* Recommandations */}
         <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
           <div className="flex items-center mb-4">
             <div className="p-2 bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] rounded-full mr-3">
@@ -172,7 +263,7 @@ export const NutritionModule = ({ token }: NutritionModuleProps) => {
         </div>
       </div>
 
-      {/* Ration Calculator Form */}
+      {/* Ration calculator */}
       <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
         <h2 className="text-lg font-semibold text-gray-800 mb-4">Calculateur de rations</h2>
         <form className="space-y-4" onSubmit={calculateRation}>
@@ -189,9 +280,7 @@ export const NutritionModule = ({ token }: NutritionModuleProps) => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Âge
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Âge</label>
               <input
                 type="number"
                 className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]"
@@ -243,31 +332,6 @@ export const NutritionModule = ({ token }: NutritionModuleProps) => {
           </p>
         )}
       </div>
-
-      {/* Current Diet */}
-      {selectedPet.currentDiet && (
-        <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-          <h2 className="text-lg font-semibold text-gray-800 mb-4">
-            Régime alimentaire actuel
-          </h2>
-          <div className="space-y-4">
-            {selectedPet.currentDiet.map((item, index) => (
-              <div key={index} className="flex justify-between items-center border-b pb-3">
-                <div>
-                  <p className="font-medium text-gray-800">{item.name}</p>
-                  <p className="text-sm text-gray-500">{item.description}</p>
-                </div>
-                <div className="text-xl font-semibold text-gray-800">{item.amount}</div>
-              </div>
-            ))}
-            <div className="pt-2">
-              <p className="text-sm text-gray-600">
-                <span className="font-medium">Recommandation :</span> Ce régime est adapté pour maintenir le poids actuel et assurer une bonne santé du pelage.
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

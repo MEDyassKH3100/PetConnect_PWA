@@ -1,4 +1,6 @@
 {
+  "/api/adoption/route": "app/api/adoption/route.js",
+  "/api/pets/[id]/weights/route": "app/api/pets/[id]/weights/route.js",
   "/api/pets/route": "app/api/pets/route.js",
   "/api/profile/route": "app/api/profile/route.js",
   "/home/page": "app/home/page.js"

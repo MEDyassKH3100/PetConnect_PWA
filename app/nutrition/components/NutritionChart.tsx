@@ -1,70 +1,65 @@
 'use client';
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend,
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
 } from 'chart.js';
 
-// Enregistrement des composants Chart.js
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend,
-);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-export const NutritionChart = () => {
-    const data = {
-        labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil'],
-        datasets: [
-            {
-                label: 'Poids (kg)',
-                data: [24.2, 24.5, 25.1, 25.3, 25.5, 25.4, 25.5],
-                borderColor: '#FFB8C2', // Couleur rose pour matcher votre palette
-                backgroundColor: 'rgba(245, 245, 220, 0.5)', // Beige clair avec transparence
-                tension: 0.3,
-            },
-            {
-                label: 'Poids idéal',
-                data: [24.8, 24.8, 24.8, 24.8, 24.8, 24.8, 24.8],
-                borderColor: '#F5F5DC', // Beige pour la ligne idéale
-                backgroundColor: 'rgba(255, 184, 194, 0.5)', // Rose avec transparence
-                borderDash: [5, 5],
-                tension: 0,
-            },
-        ],
+interface WeightLog {
+  date: string;
+  weight: number;
+}
+
+interface NutritionChartProps {
+  petId: string;
+  token: string;
+}
+
+export const NutritionChart = ({ petId, token }: NutritionChartProps) => {
+  const [weights, setWeights] = useState<WeightLog[]>([]);
+
+  useEffect(() => {
+    const fetchWeights = async () => {
+      const res = await fetch(`/api/pets/${petId}/weights`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data = await res.json();
+      if (res.ok) setWeights(data.weights);
     };
+    fetchWeights();
+  }, [petId, token]);
 
-    const options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: {
-                position: 'top' as const,
-            },
-            tooltip: {
-                mode: 'index' as const,
-                intersect: false,
-            },
-        },
-        scales: {
-            y: {
-                min: 23,
-                max: 27,
-            },
-        },
-    };
+  const labels = weights.map((w) => new Date(w.date).toLocaleDateString());
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: 'Poids (kg)',
+        data: weights.map((w) => w.weight),
+        borderColor: '#FFB8C2',
+        backgroundColor: 'rgba(245, 245, 220, 0.4)',
+        tension: 0.3,
+      },
+    ],
+  };
 
-    return <Line data={data} options={options} />;
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { position: 'top' as const } },
+    scales: {
+      y: { beginAtZero: false },
+    },
+  };
+
+  return <Line data={data} options={options} />;
 };

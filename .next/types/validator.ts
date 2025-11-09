@@ -119,6 +119,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../app/api/groqChat/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/groqChat">> = Specific
+  const handler = {} as typeof import("../../app/api/groqChat/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../app/api/health/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/health">> = Specific
@@ -132,6 +141,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/nutrition">> = Specific
   const handler = {} as typeof import("../../app/api/nutrition/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../app/api/pets/[id]/weights/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/pets/[id]/weights">> = Specific
+  const handler = {} as typeof import("../../app/api/pets/[id]/weights/route.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check

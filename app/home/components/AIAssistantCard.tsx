@@ -27,11 +27,12 @@ export const AIAssistantCard = () => {
     setMessage('');
 
     try {
-      const res = await fetch('/api/groqChat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: userMessage }),
-      });
+const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/groqChat`, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ message: userMessage }),
+});
+
 
       if (!res.ok) {
         const text = await res.text();
@@ -112,3 +113,4 @@ export const AIAssistantCard = () => {
     </div>
   );
 };
+

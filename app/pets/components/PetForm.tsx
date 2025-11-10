@@ -48,34 +48,28 @@ export const PetForm = ({ pet, token, onSaved, onClose }: PetFormProps) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+ const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
   setLoading(true);
   setError('');
 
   try {
-    // Decode JWT token
     const decoded: any = jwtDecode(token);
     const userId = decoded.userId || decoded.id;
     if (!userId) throw new Error('Utilisateur non authentifié');
 
-    // Prepare request body
-    const body = { ...formData }; // ❌ Don't include owner here
-
-    // Choose HTTP method and URL
     const method = pet ? 'PATCH' : 'POST';
-    // For PATCH, pass id as search param
-    const url = pet ? `/api/pets?id=${pet._id}` : '/api/pets';
+    const url = '/api/pets'; // just POST or PATCH to same endpoint
+    const body = pet ? { ...formData, id: pet._id } : formData; // 👈 add id for PATCH
 
- const res = await fetch('/api/pets', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${token}`,
-  },
-  body: JSON.stringify(formData), // MUST be stringified
-});
-
+    const res = await fetch(url, {
+      method,
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(body),
+    });
 
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || 'Erreur serveur');
@@ -88,6 +82,7 @@ export const PetForm = ({ pet, token, onSaved, onClose }: PetFormProps) => {
     setLoading(false);
   }
 };
+
 
 
   return (

@@ -41,6 +41,7 @@ self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
+  
   // Stratégie de cache pour les ressources statiques
   if (STATIC_CACHE_URLS.includes(url.pathname)) {
     event.respondWith(

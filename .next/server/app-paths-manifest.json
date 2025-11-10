@@ -1,1 +1,7 @@
-{}
+{
+  "/api/health/[petId]/route": "app/api/health/[petId]/route.js",
+  "/api/health/pets/route": "app/api/health/pets/route.js",
+  "/api/pets/route": "app/api/pets/route.js",
+  "/api/profile/route": "app/api/profile/route.js",
+  "/home/page": "app/home/page.js"
+}

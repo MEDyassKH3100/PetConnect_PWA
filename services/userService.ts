@@ -103,32 +103,87 @@ export class UserService {
     };
   }
 
-  // 5. Verify OTP (Vérifier OTP reçu par email)
+  // 5. Generate OTP (Générer un OTP pour forgot password)
+  static async generateOTP(
+    email: string
+  ): Promise<{ otp: string; message: string }> {
+    await connectDB();
+
+    const user = await User.findOne({ email: email.toLowerCase() });
+    if (!user) {
+      throw new Error("Aucun utilisateur trouvé avec cet email");
+    }
+
+    // Générer un OTP à 6 chiffres
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    const otpExpires = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
+
+    user.otp = otp;
+    user.otpExpires = otpExpires;
+    await user.save();
+
+    return {
+      otp,
+      message: "Un code OTP a été généré",
+    };
+  }
+
+  // 6. Verify OTP (Vérifier OTP reçu par email)
   static async verifyOTP(
     email: string,
     otp: string
-  ): Promise<{ user: IUser; message: string }> {
+  ): Promise<{ user: IUser; resetToken: string; message: string }> {
     await connectDB();
 
     const user = await User.findOne({
+<<<<<<< Updated upstream
       email,
       otp,
       otpExpires: { $gt: new Date() },
     });
+=======
+      email: email.toLowerCase(),
+    }).select("+otp +otpExpires");
+>>>>>>> Stashed changes
 
     if (!user) {
-      throw new Error("OTP invalide ou expiré");
+      throw new Error("Utilisateur non trouvé");
     }
 
-    user.isVerified = true;
+    if (!user.otp || !user.otpExpires) {
+      throw new Error("Aucun OTP n'a été généré pour cet utilisateur");
+    }
+
+    if (user.otp !== otp) {
+      throw new Error("OTP invalide");
+    }
+
+    if (user.otpExpires < new Date()) {
+      throw new Error("OTP expiré");
+    }
+
+    // Générer un token de réinitialisation
+    const resetToken = crypto.randomBytes(32).toString("hex");
+    const hashedToken = crypto
+      .createHash("sha256")
+      .update(resetToken)
+      .digest("hex");
+    const expires = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
+
+    user.resetPasswordToken = hashedToken;
+    user.resetPasswordExpires = expires;
     user.otp = undefined;
     user.otpExpires = undefined;
     await user.save();
 
-    return { user, message: "Compte vérifié avec succès" };
+    return {
+      user,
+      resetToken,
+      message: "OTP vérifié avec succès",
+    };
   }
 
-  // 6. Reset Password (Réinitialiser le mot de passe avec token)
+  // 7. Reset Password (Réinitialiser le mot de passe avec token)
   static async resetPassword(
     token: string,
     newPassword: string
@@ -154,7 +209,7 @@ export class UserService {
     return { user, message: "Mot de passe réinitialisé avec succès" };
   }
 
-  // 7. Change Password (Changer le mot de passe actuel)
+  // 8. Change Password (Changer le mot de passe actuel)
   static async changePassword(
     userId: string,
     currentPassword: string,
@@ -178,7 +233,7 @@ export class UserService {
     return { user, message: "Mot de passe changé avec succès" };
   }
 
-  // 8. Delete Profile (Supprimer le profil)
+  // 9. Delete Profile (Supprimer le profil)
   static async deleteProfile(userId: string): Promise<{ message: string }> {
     await connectDB();
 
@@ -190,14 +245,44 @@ export class UserService {
     return { message: "Profil supprimé avec succès" };
   }
 
+<<<<<<< Updated upstream
   // Méthodes utilitaires supplémentaires (optionnelles)
+=======
+  // 10. Get User by ID (Récupérer un utilisateur par ID)
+>>>>>>> Stashed changes
   static async getUserById(userId: string): Promise<IUser | null> {
     await connectDB();
     return User.findById(userId);
   }
 
+<<<<<<< Updated upstream
+=======
+  // 11. Get All Users (Admin only)
+>>>>>>> Stashed changes
   static async getAllUsers(): Promise<IUser[]> {
     await connectDB();
     return User.find({}).sort({ createdAt: -1 });
   }
+<<<<<<< Updated upstream
+=======
+
+  // 12. Get User by Email
+  static async getUserByEmail(email: string): Promise<IUser | null> {
+    await connectDB();
+    return User.findOne({ email: email.toLowerCase() });
+  }
+
+  // 13. Update User Role (Admin only)
+  static async updateUserRole(
+    userId: string,
+    role: "user" | "admin" | "vet"
+  ): Promise<IUser | null> {
+    await connectDB();
+    return User.findByIdAndUpdate(
+      userId,
+      { role },
+      { new: true, runValidators: true }
+    );
+  }
+>>>>>>> Stashed changes
 }

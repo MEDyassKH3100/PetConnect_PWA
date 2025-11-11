@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+<<<<<<< Updated upstream
 import "./globals.css";
+=======
+import ServiceWorkerRegistration from "./components/ServiceWorkerRegistration";
+import "../styles/globals.css";
+import { ReduxProvider } from "@/Provider/ReduxProvider";
+>>>>>>> Stashed changes
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,11 +29,50 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+<<<<<<< Updated upstream
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+=======
+    <html lang="fr">
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#0070f3" />
+      </head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <ServiceWorkerRegistration />
+        <ReduxProvider>
+          {children}
+        </ReduxProvider>
+        {/* Désinscrire le Service Worker en développement */}
+        {process.env.NODE_ENV === 'development' && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                if ('serviceWorker' in navigator) {
+                  navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                    for(let registration of registrations) {
+                      console.log('Unregistering Service Worker in development mode');
+                      registration.unregister();
+                    }
+                  });
+                  // Vider tous les caches
+                  caches.keys().then(function(names) {
+                    for (let name of names) {
+                      console.log('Deleting cache:', name);
+                      caches.delete(name);
+                    }
+                  });
+                }
+              `,
+            }}
+          />
+        )}
+>>>>>>> Stashed changes
       </body>
     </html>
   );

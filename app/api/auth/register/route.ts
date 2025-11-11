@@ -1,4 +1,4 @@
-import { UserService } from "@/models/User";
+import { UserService } from "@/services/userService";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(request: NextRequest) {

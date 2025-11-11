@@ -1,0 +1,19 @@
+[00:00:00.537] Server  LOG      ✓ Ready in 388ms
+[00:00:05.320] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:05.443] Browser LOG     Service Worker registered successfully: {}
+[00:00:37.573] Server  LOG     Connexion à la base de données réussie
+[00:00:38.222] Browser LOG     ✅ Token valide, accès autorisé
+[00:00:38.222] Browser LOG     ✅ Token valide, accès autorisé
+[00:00:39.565] Browser LOG     🔍 Chargement du profil utilisateur...
+[00:00:39.565] Browser LOG     🔍 Chargement du profil utilisateur...
+[00:00:39.565] Browser LOG     ✅ Profil chargé: {"message":"Profil récupéré avec succès","user":{"_id":"691248843303734dedbefd22","createdAt":"2025-11-10T20:18:12.406Z","email":"mohamedyassine.khlaf@esprit.tn","firstName":"Mohamed Yassine","isVerified":false,"lastName":"Khlaf","role":"user","updatedAt":"2025-11-10T21:59:54.644Z"}}
+[00:00:39.565] Browser LOG     ✅ Profil chargé: {"message":"Profil récupéré avec succès","user":{"_id":"691248843303734dedbefd22","createdAt":"2025-11-10T20:18:12.406Z","email":"mohamedyassine.khlaf@esprit.tn","firstName":"Mohamed Yassine","isVerified":false,"lastName":"Khlaf","role":"user","updatedAt":"2025-11-10T21:59:54.644Z"}}
+[00:00:50.451] Browser LOG     🔍 Chargement du profil utilisateur...
+[00:00:50.451] Browser LOG     🔍 Chargement du profil utilisateur...
+[00:00:50.451] Browser LOG     ✅ Profil chargé: {"message":"Profil récupéré avec succès","user":{"_id":"691248843303734dedbefd22","createdAt":"2025-11-10T20:18:12.406Z","email":"mohamedyassine.khlaf@esprit.tn","firstName":"Mohamed Yassine","isVerified":false,"lastName":"Khlaf","role":"user","updatedAt":"2025-11-10T21:59:54.644Z"}}
+[00:00:50.451] Browser LOG     ✅ Profil chargé: {"message":"Profil récupéré avec succès","user":{"_id":"691248843303734dedbefd22","createdAt":"2025-11-10T20:18:12.406Z","email":"mohamedyassine.khlaf@esprit.tn","firstName":"Mohamed Yassine","isVerified":false,"lastName":"Khlaf","role":"user","updatedAt":"2025-11-10T21:59:54.644Z"}}
+[00:00:57.091] Browser LOG     🔍 Chargement du profil utilisateur...
+[00:00:57.091] Browser LOG     🔍 Chargement du profil utilisateur...
+[00:00:57.091] Browser LOG     ✅ Profil chargé: {"message":"Profil récupéré avec succès","user":{"_id":"691248843303734dedbefd22","createdAt":"2025-11-10T20:18:12.406Z","email":"mohamedyassine.khlaf@esprit.tn","firstName":"Mohamed Yassine","isVerified":false,"lastName":"Khlaf","role":"user","updatedAt":"2025-11-10T21:59:54.644Z"}}
+[00:00:57.091] Browser LOG     ✅ Profil chargé: {"message":"Profil récupéré avec succès","user":{"_id":"691248843303734dedbefd22","createdAt":"2025-11-10T20:18:12.406Z","email":"mohamedyassine.khlaf@esprit.tn","firstName":"Mohamed Yassine","isVerified":false,"lastName":"Khlaf","role":"user","updatedAt":"2025-11-10T21:59:54.644Z"}}
+[00:17:12.461] Server  LOG      ✓ Compiled in 77ms

@@ -1,9 +1,8 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { UtensilsIcon, ScaleIcon, ClipboardIcon } from 'lucide-react';
+import { UtensilsIcon, ScaleIcon, ClipboardIcon, Trash2Icon } from 'lucide-react';
 import { NutritionChart } from './components/NutritionChart';
-import { Trash2Icon } from 'lucide-react';
 
 interface Pet {
   _id: string;
@@ -95,10 +94,13 @@ export const NutritionModule = ({ token }: NutritionModuleProps) => {
     return <p className="text-gray-500">Vous n'avez aucun animal enregistré.</p>;
   }
 
-  // Add weight (currently disabled in UI)
+  // Add new weight
   const handleAddWeight = async () => {
-    const newWeight = prompt(`Entrer le nouveau poids de ${selectedPet.name} (kg):`);
-    if (!newWeight) return;
+    if (!weight || isNaN(Number(weight))) {
+      alert('Veuillez entrer un poids valide !');
+      return;
+    }
+
     try {
       const res = await fetch(`/api/pets/${selectedPet._id}/weights`, {
         method: 'POST',
@@ -106,22 +108,26 @@ export const NutritionModule = ({ token }: NutritionModuleProps) => {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({ weight: Number(newWeight) }),
+        body: JSON.stringify({ weight: Number(weight) }),
       });
+
       const data = await res.json();
       if (res.ok) {
         alert('✅ Mesure ajoutée avec succès !');
-        fetchWeights(selectedPet._id); // refresh weights
-      } else alert(`Erreur: ${data.error}`);
+        setWeight(''); // reset input
+        fetchWeights(selectedPet._id); // refresh weights + chart
+      } else {
+        alert(`Erreur: ${data.error}`);
+      }
     } catch {
       alert('Erreur lors de l’ajout de la mesure.');
     }
   };
 
-  // Delete weight
+  // Delete a weight
   const handleDeleteWeight = async (weightId: string) => {
     if (!token) return;
-    if (!confirm("Voulez-vous vraiment supprimer cette mesure ?")) return;
+    if (!confirm('Voulez-vous vraiment supprimer cette mesure ?')) return;
 
     try {
       const res = await fetch(`/api/pets/${selectedPet._id}/weights`, {
@@ -135,8 +141,10 @@ export const NutritionModule = ({ token }: NutritionModuleProps) => {
       const data = await res.json();
       if (res.ok) {
         alert('Mesure supprimée avec succès !');
-        fetchWeights(selectedPet._id); // refresh weights
-      } else alert(`Erreur: ${data.error}`);
+        fetchWeights(selectedPet._id);
+      } else {
+        alert(`Erreur: ${data.error}`);
+      }
     } catch {
       alert('Erreur lors de la suppression de la mesure.');
     }
@@ -162,6 +170,7 @@ export const NutritionModule = ({ token }: NutritionModuleProps) => {
         factor = 1.4;
         break;
     }
+
     const ration = (weight as number) * factor * 10;
     setRecommendedRation(`${ration.toFixed(0)} g/jour (${foodType})`);
   };
@@ -192,7 +201,7 @@ export const NutritionModule = ({ token }: NutritionModuleProps) => {
           Évolution du poids de {selectedPet.name}
         </h2>
         <div className="h-64 w-full">
-          <NutritionChart petId={selectedPet._id} token={token} />
+        <NutritionChart weights={weights} />
         </div>
       </div>
 
@@ -210,11 +219,8 @@ export const NutritionModule = ({ token }: NutritionModuleProps) => {
             Enregistrez et suivez l'évolution du poids de {selectedPet.name}.
           </p>
 
-          {/* Input for weight */}
+          {/* Input + Button */}
           <div className="mb-4">
-            <label className="text-[#FFB8C2] font-medium cursor-not-allowed opacity-50">
-             Ajouter une mesure
-            </label>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Nouveau poids (kg)
             </label>
@@ -225,28 +231,33 @@ export const NutritionModule = ({ token }: NutritionModuleProps) => {
               onChange={(e) => setWeight(Number(e.target.value))}
               placeholder={`Poids de ${selectedPet.name}`}
             />
+            <button
+              onClick={handleAddWeight}
+              className="mt-3 w-full bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] text-white px-4 py-2 rounded-lg hover:from-[#FFB8C2] hover:to-[#F5F5DC] transition-all"
+            >
+              ➕ Ajouter une mesure
+            </button>
           </div>
 
-
-{/* List of weights with delete icons */}
-<div className="mt-4 space-y-1">
-  {weights.length === 0 && <p className="text-gray-500">Aucune mesure enregistrée.</p>}
-  {weights.map((w) => (
-    <div key={w._id} className="flex justify-between items-center border-b py-1">
-      <span className="text-gray-500">{new Date(w.date).toLocaleDateString()}: {w.weight} kg</span>
-      <button
-        onClick={() => handleDeleteWeight(w._id)}
-        className="text-red-500 hover:text-red-700 p-1 rounded"
-        title="Supprimer la mesure"
-      >
-        <Trash2Icon size={16} />
-      </button>
-    </div>
-  ))}
-</div>
+          {/* List of weights */}
+          <div className="mt-4 space-y-1">
+            {weights.length === 0 && <p className="text-gray-500">Aucune mesure enregistrée.</p>}
+            {weights.map((w) => (
+              <div key={w._id} className="flex justify-between items-center border-b py-1">
+                <span className="text-gray-500">
+                  {new Date(w.date).toLocaleDateString()}: {w.weight} kg
+                </span>
+                <button
+                  onClick={() => handleDeleteWeight(w._id)}
+                  className="text-red-500 hover:text-red-700 p-1 rounded"
+                  title="Supprimer la mesure"
+                >
+                  <Trash2Icon size={16} />
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
-
-      
 
         {/* Recommandations */}
         <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow">

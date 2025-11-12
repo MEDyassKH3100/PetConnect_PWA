@@ -2,8 +2,6 @@
 
 import React, { useState } from 'react';
 import { XIcon, SaveIcon, UploadIcon } from 'lucide-react';
-import { jwtDecode } from 'jwt-decode';
-
 
 interface PetFormProps {
   pet?: {
@@ -49,45 +47,36 @@ export const PetForm = ({ pet, token, onSaved, onClose }: PetFormProps) => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setLoading(true);
-  setError('');
+    e.preventDefault();
+    setLoading(true);
+    setError('');
 
-  try {
-    // Decode JWT token
-    const decoded: any = jwtDecode(token);
-    const userId = decoded.userId || decoded.id;
-    if (!userId) throw new Error('Utilisateur non authentifié');
+    try {
+      if (!token) throw new Error('Utilisateur non authentifié');
 
-    // Prepare request body
-    const body = { ...formData }; // ❌ Don't include owner here
+      const method = pet ? 'PATCH' : 'POST';
+      const url = pet ? `/api/pets?id=${encodeURIComponent(pet!._id!)}` : '/api/pets';
 
-    // Choose HTTP method and URL
-    const method = pet ? 'PATCH' : 'POST';
-    // For PATCH, pass id as search param
-    const url = pet ? `/api/pets?id=${pet._id}` : '/api/pets';
+      const res = await fetch(url, {
+        method,
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(formData),
+      });
 
- const res = await fetch('/api/pets', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${token}`,
-  },
-  body: JSON.stringify(formData), // MUST be stringified
-});
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Erreur serveur');
 
-
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Erreur serveur');
-
-    onSaved();
-    onClose();
-  } catch (err: any) {
-    setError(err.message);
-  } finally {
-    setLoading(false);
-  }
-};
+  onSaved();
+      onClose();
+    } catch (err: any) {
+      setError(err.message || 'Erreur inconnue');
+    } finally {
+      setLoading(false);
+    }
+  };
 
 
   return (

@@ -1,20 +1,15 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import {
-  CalendarIcon,
-  ClipboardListIcon,
-  ActivityIcon,
-  PlusIcon,
-  BrainIcon,
-} from 'lucide-react';
+import { useAuth } from '@/hooks/useAuth';
 import type {
   PetHealth,
   HealthRecord,
-  MedicalAppointment,
   Vaccination,
   VitalStats,
 } from '@/types/health';
+import { VaccinationTracker } from './components/VaccinationTracker';
+import { HealthRecordList } from './components/HealthRecordList';
 
 interface PetSummary {
   petId: string;
@@ -27,22 +22,24 @@ export const HealthModule = () => {
   const [selectedPetId, setSelectedPetId] = useState<string | null>(null);
   const [petHealth, setPetHealth] = useState<PetHealth | null>(null);
   const [loading, setLoading] = useState(false);
-
+  const [busy, setBusy] = useState(false);
+  const [message, setMessage] = useState<string | null>(null);
+  const [messageType, setMessageType] = useState<'success' | 'error' | null>(null);
   // form states
-  const [newPetName, setNewPetName] = useState('');
-  const [newPetSpecies, setNewPetSpecies] = useState('');
   const [recordNotes, setRecordNotes] = useState('');
   const [recordType, setRecordType] = useState('Consultation');
-  const [appDate, setAppDate] = useState('');
-  const [appTime, setAppTime] = useState('');
-  const [appType, setAppType] = useState('Consultation');
+  // appointment UI removed: appointments are handled in the central Rendez-vous module
   const [vaccName, setVaccName] = useState('');
   const [vaccDate, setVaccDate] = useState('');
   const [weight, setWeight] = useState<number | ''>('');
+  const { token, isAuthenticated, isLoading: authLoading } = useAuth();
 
   useEffect(() => {
-    fetchPets();
-  }, []);
+    // Fetch pets once auth state is known. If user is authenticated, load pets.
+    if (!authLoading) {
+      fetchPets();
+    }
+  }, [isAuthenticated, authLoading]);
 
   useEffect(() => {
     if (selectedPetId) fetchPetHealth(selectedPetId);
@@ -51,45 +48,52 @@ export const HealthModule = () => {
 
   async function fetchPets() {
     try {
-      const res = await fetch('/api/health/pets');
+      // Use central pets API provided by the 'mes animaux' module
+      if (!isAuthenticated) {
+        setMessage('Veuillez vous connecter pour voir vos animaux');
+        setMessageType('error');
+        return;
+      }
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+      if (token) headers['Authorization'] = `Bearer ${token}`;
+      const res = await fetch('/api/pets', { headers });
       if (!res.ok) throw new Error('Failed to load pets');
-      const list: PetSummary[] = await res.json();
+      const body = await res.json();
+      // central API returns { pets: [...] }
+      const list: PetSummary[] = (body?.pets || []).map((p: any) => ({
+        petId: p._id || p.id || p.petId,
+        name: p.name,
+        species: p.type || p.species || p.breed,
+      }));
       setPets(list);
       if (list.length && !selectedPetId) setSelectedPetId(list[0].petId);
     } catch (err) {
       console.error(err);
+      setMessage('Impossible de charger la liste des animaux');
+      setMessageType('error');
     }
   }
 
   async function fetchPetHealth(petId: string) {
     setLoading(true);
     try {
-      const res = await fetch(`/api/health/${petId}`);
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+      if (token) headers['Authorization'] = `Bearer ${token}`;
+      const res = await fetch(`/api/health/${petId}`, { headers });
       if (!res.ok) throw new Error('Failed to load pet');
       const data: PetHealth = await res.json();
       setPetHealth(data);
       setWeight(data.vitalStats?.weight ?? '');
     } catch (err) {
       console.error(err);
+      setMessage('Impossible de charger les informations de santé');
+      setMessageType('error');
     } finally {
       setLoading(false);
     }
   }
 
-  async function createPet() {
-    if (!newPetName.trim()) return alert('Enter a name');
-    const res = await fetch('/api/health/pets', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: newPetName.trim(), species: newPetSpecies.trim() }),
-    });
-    if (!res.ok) return alert('Failed to create pet');
-    const created: PetSummary & { vitalStats?: VitalStats } = await res.json();
-    setPets((prev: PetSummary[]) => [created, ...prev]);
-    setNewPetName('');
-    setNewPetSpecies('');
-    setSelectedPetId(created.petId);
-  }
+  
 
   async function addRecord() {
     if (!selectedPetId) return;
@@ -102,44 +106,32 @@ export const HealthModule = () => {
         notes: recordNotes,
       },
     };
-    const res = await fetch(`/api/health/${selectedPetId}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
-    if (!res.ok) return alert('Failed to add record');
+    setBusy(true);
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+      if (token) headers['Authorization'] = `Bearer ${token}`;
+      const res = await fetch(`/api/health/${selectedPetId}`, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify(payload),
+      });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      setMessage(err?.error || 'Échec lors de l\'ajout du dossier');
+      setMessageType('error');
+      setBusy(false);
+      return;
+    }
     const added: HealthRecord = await res.json();
     setPetHealth((prev: PetHealth | null) =>
       prev ? { ...prev, healthRecords: [added, ...(prev.healthRecords || [])] } : prev
     );
     setRecordNotes('');
+    setMessage('Dossier ajouté');
+    setMessageType('success');
+    setBusy(false);
   }
 
-  async function addAppointment() {
-    if (!selectedPetId) return;
-    const payload = {
-      action: 'addAppointment',
-      payload: {
-        date: appDate,
-        time: appTime,
-        type: appType,
-        practitioner: '',
-        notes: '',
-      },
-    };
-    const res = await fetch(`/api/health/${selectedPetId}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
-    if (!res.ok) return alert('Failed to add appointment');
-    const added: MedicalAppointment = await res.json();
-    setPetHealth((prev: PetHealth | null) =>
-      prev ? { ...prev, appointments: [added, ...(prev.appointments || [])] } : prev
-    );
-    setAppDate('');
-    setAppTime('');
-  }
+  // appointment creation removed from Health module — handled by the Appointments module
 
   async function addVaccination() {
     if (!selectedPetId) return;
@@ -152,18 +144,30 @@ export const HealthModule = () => {
         status: 'up-to-date',
       },
     };
-    const res = await fetch(`/api/health/${selectedPetId}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
-    if (!res.ok) return alert('Failed to add vaccination');
+    setBusy(true);
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+      if (token) headers['Authorization'] = `Bearer ${token}`;
+      const res = await fetch(`/api/health/${selectedPetId}`, {
+        method: 'POST',
+        headers,
+        body: JSON.stringify(payload),
+      });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      setMessage(err?.error || 'Échec lors de l\'ajout de la vaccination');
+      setMessageType('error');
+      setBusy(false);
+      return;
+    }
     const added: Vaccination = await res.json();
     setPetHealth((prev: PetHealth | null) =>
       prev ? { ...prev, vaccinations: [added, ...(prev.vaccinations || [])] } : prev
     );
     setVaccName('');
     setVaccDate('');
+    setMessage('Vaccination ajoutée');
+    setMessageType('success');
+    setBusy(false);
   }
 
   async function updateWeight() {
@@ -172,38 +176,96 @@ export const HealthModule = () => {
       action: 'updateVital',
       payload: { weight: weight === '' ? undefined : Number(weight), lastWeightDate: new Date().toISOString().split('T')[0] },
     };
+    setBusy(true);
     const res = await fetch(`/api/health/${selectedPetId}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     });
-    if (!res.ok) return alert('Failed to update weight');
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      setMessage(err?.error || 'Échec lors de la mise à jour du poids');
+      setMessageType('error');
+      setBusy(false);
+      return;
+    }
     const updated = await res.json();
     setPetHealth((prev: PetHealth | null) => (prev ? { ...prev, vitalStats: updated } : prev));
+    setMessage('Poids mis à jour');
+    setMessageType('success');
+    setBusy(false);
+  }
+
+  // delete handlers
+  async function handleDeleteRecord(id: string) {
+    if (!selectedPetId) return;
+    if (!confirm('Confirmer la suppression du dossier ?')) return;
+    setBusy(true);
+    try {
+        const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+        if (token) headers['Authorization'] = `Bearer ${token}`;
+        const res = await fetch(`/api/health/${selectedPetId}`, {
+          method: 'POST',
+          headers,
+          body: JSON.stringify({ action: 'deleteRecord', payload: { id } }),
+        });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        setMessage(err?.error || 'Échec lors de la suppression du dossier');
+        setMessageType('error');
+        return;
+      }
+      const deleted = await res.json();
+      setPetHealth((prev) => prev ? { ...prev, healthRecords: (prev.healthRecords || []).filter((r) => r.id !== deleted.id) } : prev);
+      setMessage('Dossier supprimé');
+      setMessageType('success');
+    } catch (err) {
+      console.error('deleteRecord failed', err);
+      setMessage('Erreur lors de la suppression');
+      setMessageType('error');
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  // appointment deletion removed from Health module — use the central appointments module
+
+  async function handleDeleteVaccination(id: string) {
+    if (!selectedPetId) return;
+    if (!confirm('Confirmer la suppression de la vaccination ?')) return;
+    setBusy(true);
+    try {
+        const headers: Record<string, string> = { 'Content-Type': 'application/json' };
+        if (token) headers['Authorization'] = `Bearer ${token}`;
+        const res = await fetch(`/api/health/${selectedPetId}`, {
+          method: 'POST',
+          headers,
+          body: JSON.stringify({ action: 'deleteVaccination', payload: { id } }),
+        });
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        setMessage(err?.error || 'Échec lors de la suppression de la vaccination');
+        setMessageType('error');
+        return;
+      }
+      const deleted = await res.json();
+      setPetHealth((prev) => prev ? { ...prev, vaccinations: (prev.vaccinations || []).filter((v) => v.id !== deleted.id) } : prev);
+      setMessage('Vaccination supprimée');
+      setMessageType('success');
+    } catch (err) {
+      console.error('deleteVaccination failed', err);
+      setMessage('Erreur lors de la suppression');
+      setMessageType('error');
+    } finally {
+      setBusy(false);
+    }
   }
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-gray-800">Module Santé</h1>
-        <div className="flex items-center space-x-2">
-          <input
-            value={newPetName}
-            onChange={(e) => setNewPetName(e.target.value)}
-            placeholder="Nouveau animal (nom)"
-            className="px-3 py-2 border rounded"
-          />
-          <input
-            value={newPetSpecies}
-            onChange={(e) => setNewPetSpecies(e.target.value)}
-            placeholder="Espèce"
-            className="px-3 py-2 border rounded"
-          />
-          <button onClick={createPet} className="flex items-center space-x-1 bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] text-white px-3 py-2 rounded-lg">
-            <PlusIcon size={16} />
-            <span>Ajouter</span>
-          </button>
-        </div>
+        <p className="text-sm text-gray-500">Gérer dossiers de santé, vaccinations et rendez-vous</p>
       </div>
 
       <div className="flex items-center space-x-4">
@@ -220,10 +282,15 @@ export const HealthModule = () => {
             </option>
           ))}
         </select>
-        <button onClick={fetchPets} className="px-3 py-2 border rounded">Rafraîchir</button>
+        {/* Refresh button removed per request - pets are managed in the Pets module */}
       </div>
 
       {loading && <div>Chargement...</div>}
+      {message && (
+        <div className={`p-2 rounded ${messageType === 'error' ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800'}`}>
+          {message}
+        </div>
+      )}
 
       {!petHealth && !loading && <div className="text-gray-500">Aucun animal sélectionné</div>}
 
@@ -240,7 +307,7 @@ export const HealthModule = () => {
               </div>
             </div>
 
-            <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="p-4 bg-gray-50 rounded">
                 <p className="text-sm text-gray-600">Poids</p>
                 <div className="flex items-center space-x-2 mt-2">
@@ -260,16 +327,19 @@ export const HealthModule = () => {
                 <p className="text-sm text-gray-600">Vaccinations</p>
                 <p className="text-lg font-semibold text-gray-800">{(petHealth.vaccinations || []).length}</p>
               </div>
+            </div>
 
-              <div className="p-4 bg-gray-50 rounded">
-                <p className="text-sm text-gray-600">Prochains RDV</p>
-                <p className="text-lg font-semibold text-gray-800">{(petHealth.appointments || []).length}</p>
+            {/* Detailed lists: vaccinations and appointments with delete support */}
+            <div className="grid grid-cols-1 gap-4 mt-4">
+              <div className="bg-white p-4 rounded-xl border">
+                <h3 className="font-medium text-gray-700 mb-2">Vaccinations</h3>
+                <VaccinationTracker vaccinations={petHealth.vaccinations || []} onDelete={handleDeleteVaccination} />
               </div>
             </div>
           </div>
 
           {/* Add quick items */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-white p-4 rounded-xl border">
               <h3 className="font-medium text-gray-700 mb-2">Ajouter dossier</h3>
               <select value={recordType} onChange={(e) => setRecordType(e.target.value)} className="mb-2 px-2 py-1 border rounded w-full">
@@ -282,13 +352,7 @@ export const HealthModule = () => {
               <button onClick={addRecord} className="px-3 py-2 bg-[#FFB8C2] text-white rounded">Ajouter</button>
             </div>
 
-            <div className="bg-white p-4 rounded-xl border">
-              <h3 className="font-medium text-gray-700 mb-2">Nouveau rendez-vous</h3>
-              <input type="date" value={appDate} onChange={(e) => setAppDate(e.target.value)} className="mb-2 px-2 py-1 border rounded w-full" />
-              <input type="time" value={appTime} onChange={(e) => setAppTime(e.target.value)} className="mb-2 px-2 py-1 border rounded w-full" />
-              <input value={appType} onChange={(e) => setAppType(e.target.value)} placeholder="Type" className="mb-2 px-2 py-1 border rounded w-full" />
-              <button onClick={addAppointment} className="px-3 py-2 bg-[#FFB8C2] text-white rounded">Ajouter RDV</button>
-            </div>
+            {/* appointment creation removed from Health module */}
 
             <div className="bg-white p-4 rounded-xl border">
               <h3 className="font-medium text-gray-700 mb-2">Ajouter vaccination</h3>
@@ -301,28 +365,7 @@ export const HealthModule = () => {
           {/* Records table */}
           <div className="bg-white p-6 rounded-xl border">
             <h2 className="text-lg font-semibold text-gray-800 mb-4">Dossier médical récent</h2>
-            <div className="overflow-x-auto">
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
-                  <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Praticien</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Notes</th>
-                  </tr>
-                </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
-                  {(petHealth.healthRecords || []).map((r: HealthRecord) => (
-                    <tr key={r.id}>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{r.date}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">{r.type}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{r.practitioner}</td>
-                      <td className="px-6 py-4 text-sm text-gray-500">{r.notes}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            <HealthRecordList records={petHealth.healthRecords || []} onDelete={handleDeleteRecord} />
           </div>
         </div>
       )}

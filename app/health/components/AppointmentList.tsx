@@ -6,9 +6,10 @@ import { CalendarIcon } from 'lucide-react';
 
 interface AppointmentListProps {
   appointments: MedicalAppointment[];
+  onDelete?: (id: string) => void;
 }
 
-export const AppointmentList = ({ appointments }: AppointmentListProps) => {
+export const AppointmentList = ({ appointments, onDelete }: AppointmentListProps) => {
   return (
     <div className="space-y-4">
       {appointments.map((appointment) => (
@@ -28,6 +29,18 @@ export const AppointmentList = ({ appointments }: AppointmentListProps) => {
               <p className="text-sm text-gray-500 mt-1">{appointment.notes}</p>
             )}
           </div>
+          {typeof onDelete === 'function' && (
+            <div className="ml-4">
+              <button
+                type="button"
+                onClick={() => onDelete(appointment.id)}
+                className="px-2 py-1 text-sm text-red-600 hover:underline"
+                aria-label={`Supprimer rendez-vous ${appointment.id}`}
+              >
+                Supprimer
+              </button>
+            </div>
+          )}
         </div>
       ))}
     </div>

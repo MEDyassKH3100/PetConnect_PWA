@@ -5,9 +5,10 @@ import { HealthRecord } from '@/types/health';
 
 interface HealthRecordListProps {
   records: HealthRecord[];
+  onDelete?: (id: string) => void;
 }
 
-export const HealthRecordList = ({ records }: HealthRecordListProps) => {
+export const HealthRecordList = ({ records, onDelete }: HealthRecordListProps) => {
   return (
     <div className="overflow-x-auto">
       <table className="min-w-full divide-y divide-gray-200">
@@ -40,6 +41,18 @@ export const HealthRecordList = ({ records }: HealthRecordListProps) => {
                 {record.practitioner}
               </td>
               <td className="px-6 py-4 text-sm text-gray-500">{record.notes}</td>
+              <td className="px-4 py-4 whitespace-nowrap text-right text-sm">
+                {typeof onDelete === 'function' && (
+                    <button
+                      type="button"
+                      onClick={() => onDelete(record.id)}
+                      className="px-2 py-1 text-sm text-red-600 hover:underline"
+                      aria-label={`Supprimer dossier ${record.id}`}
+                    >
+                      Supprimer
+                    </button>
+                )}
+              </td>
             </tr>
           ))}
         </tbody>

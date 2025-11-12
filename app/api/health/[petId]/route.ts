@@ -1,122 +1,78 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { promises as fs } from 'fs';
-import path from 'path';
+import {
+  getPetById,
+  addRecord,
+  addAppointment,
+  addVaccination,
+  deleteRecord,
+  deleteAppointment,
+  deleteVaccination,
+  updateVital,
+  HTTPError,
+} from '../../../../services/healthService';
 
-const DB_PATH = path.join(process.cwd(), 'data', 'health.json');
-
-async function readDB() {
+export async function GET(request: NextRequest, { params }: { params: any }) {
   try {
-    const raw = await fs.readFile(DB_PATH, 'utf8');
-    return JSON.parse(raw);
-  } catch (err) {
-    const init = { pets: [] };
-    await fs.mkdir(path.dirname(DB_PATH), { recursive: true });
-    await fs.writeFile(DB_PATH, JSON.stringify(init, null, 2), 'utf8');
-    return init;
-  }
-}
-
-async function writeDB(db: any) {
-  await fs.writeFile(DB_PATH, JSON.stringify(db, null, 2), 'utf8');
-}
-
-export async function GET(request: NextRequest, context: { params?: any }) {
-  try {
-    // Important: await context.params before using it (Next.js requirement)
-    const routeParams = await context.params;
-    const petId = routeParams?.petId;
+    // `params` may be a promise in Next.js route handlers; await it before accessing properties
+    const petId = (await params)?.petId;
     if (!petId) return NextResponse.json({ error: 'Missing petId' }, { status: 400 });
-
-    const db = await readDB();
-    const pet = (db.pets || []).find((p: any) => p.petId === petId);
-    if (!pet) return NextResponse.json({ error: 'Pet not found' }, { status: 404 });
+    const pet = await getPetById(petId);
     return NextResponse.json(pet);
-  } catch (err) {
+  } catch (err: any) {
     console.error('GET /api/health/[petId] error', err);
+    if (err instanceof HTTPError) return NextResponse.json({ error: err.message }, { status: err.status });
     return NextResponse.json({ error: 'Failed to fetch pet' }, { status: 500 });
   }
 }
 
-/*
-POST behavior: accept JSON with shape:
-{ action: 'addRecord'|'addAppointment'|'addVaccination'|'updateVital', payload: {...} }
-*/
-export async function POST(request: NextRequest, context: { params?: any }) {
+export async function POST(request: NextRequest, { params }: { params: any }) {
   try {
-    const routeParams = await context.params;
-    const petId = routeParams?.petId;
+    const petId = (await params)?.petId;
     if (!petId) return NextResponse.json({ error: 'Missing petId' }, { status: 400 });
 
     const body = await request.json();
     const { action, payload } = body || {};
-    if (!action || !payload) {
-      return NextResponse.json({ error: 'Missing action or payload' }, { status: 400 });
-    }
-
-    const db = await readDB();
-    const idx = (db.pets || []).findIndex((p: any) => p.petId === petId);
-    if (idx === -1) return NextResponse.json({ error: 'Pet not found' }, { status: 404 });
-
-    const pet = db.pets[idx];
-    const makeId = () => (global as any).crypto?.randomUUID?.() ?? Date.now().toString();
+    if (!action || payload === undefined) return NextResponse.json({ error: 'Missing action or payload' }, { status: 400 });
 
     if (action === 'addRecord') {
-      const record = {
-        id: makeId(),
-        date: payload.date || new Date().toISOString().split('T')[0],
-        type: payload.type || 'note',
-        practitioner: payload.practitioner || '',
-        notes: payload.notes || '',
-      };
-      pet.healthRecords = pet.healthRecords || [];
-      pet.healthRecords.unshift(record);
-      db.pets[idx] = pet;
-      await writeDB(db);
-      return NextResponse.json(record, { status: 201 });
+      const rec = await addRecord(petId, payload);
+      return NextResponse.json(rec, { status: 201 });
     }
 
     if (action === 'addAppointment') {
-      const appointment = {
-        id: makeId(),
-        date: payload.date,
-        time: payload.time,
-        type: payload.type || 'consultation',
-        practitioner: payload.practitioner || '',
-        notes: payload.notes || '',
-      };
-      pet.appointments = pet.appointments || [];
-      pet.appointments.unshift(appointment);
-      db.pets[idx] = pet;
-      await writeDB(db);
-      return NextResponse.json(appointment, { status: 201 });
+      const appt = await addAppointment(petId, payload);
+      return NextResponse.json(appt, { status: 201 });
     }
 
     if (action === 'addVaccination') {
-      const vaccination = {
-        id: makeId(),
-        name: payload.name,
-        date: payload.date,
-        nextDueDate: payload.nextDueDate,
-        status: payload.status || 'up-to-date',
-      };
-      pet.vaccinations = pet.vaccinations || [];
-      pet.vaccinations.unshift(vaccination);
-      db.pets[idx] = pet;
-      await writeDB(db);
-      return NextResponse.json(vaccination, { status: 201 });
+      const vac = await addVaccination(petId, payload);
+      return NextResponse.json(vac, { status: 201 });
     }
 
+      if (action === 'deleteRecord') {
+        const deleted = await deleteRecord(petId, payload?.id || payload?.recordId);
+        return NextResponse.json(deleted, { status: 200 });
+      }
+
+      if (action === 'deleteAppointment') {
+        const deleted = await deleteAppointment(petId, payload?.id || payload?.appointmentId);
+        return NextResponse.json(deleted, { status: 200 });
+      }
+
+      if (action === 'deleteVaccination') {
+        const deleted = await deleteVaccination(petId, payload?.id || payload?.vaccinationId);
+        return NextResponse.json(deleted, { status: 200 });
+      }
+
     if (action === 'updateVital') {
-      const stats = payload; // partial VitalStats
-      pet.vitalStats = Object.assign({}, pet.vitalStats || {}, stats);
-      db.pets[idx] = pet;
-      await writeDB(db);
-      return NextResponse.json(pet.vitalStats, { status: 200 });
+      const vit = await updateVital(petId, payload);
+      return NextResponse.json(vit, { status: 200 });
     }
 
     return NextResponse.json({ error: 'Unknown action' }, { status: 400 });
-  } catch (err) {
+  } catch (err: any) {
     console.error('POST /api/health/[petId] error', err);
+    if (err instanceof HTTPError) return NextResponse.json({ error: err.message }, { status: err.status });
     return NextResponse.json({ error: 'Failed to update pet' }, { status: 500 });
   }
 }

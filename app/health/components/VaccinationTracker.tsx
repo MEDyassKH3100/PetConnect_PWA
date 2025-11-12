@@ -6,9 +6,10 @@ import { CheckCircleIcon, AlertCircleIcon, ClockIcon } from 'lucide-react';
 
 interface VaccinationTrackerProps {
   vaccinations: Vaccination[];
+  onDelete?: (id: string) => void;
 }
 
-export const VaccinationTracker = ({ vaccinations }: VaccinationTrackerProps) => {
+export const VaccinationTracker = ({ vaccinations, onDelete }: VaccinationTrackerProps) => {
   const getStatusIcon = (status: Vaccination['status']) => {
     switch (status) {
       case 'up-to-date':
@@ -36,11 +37,14 @@ export const VaccinationTracker = ({ vaccinations }: VaccinationTrackerProps) =>
               </p>
             </div>
           </div>
-          <div className="text-right">
-            <p className="text-sm font-medium text-gray-900">
-              Prochaine dose
-            </p>
-            <p className="text-sm text-gray-500">{vaccination.nextDueDate}</p>
+          <div className="text-right flex items-center space-x-3">
+            <div>
+              <p className="text-sm font-medium text-gray-900">Prochaine dose</p>
+              <p className="text-sm text-gray-500">{vaccination.nextDueDate}</p>
+            </div>
+            {typeof onDelete === 'function' && (
+              <button type="button" onClick={() => onDelete(vaccination.id)} className="px-2 py-1 text-sm text-red-600 hover:underline" aria-label={`Supprimer vaccination ${vaccination.id}`}>Supprimer</button>
+            )}
           </div>
         </div>
       ))}

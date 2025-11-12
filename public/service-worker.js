@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 const CACHE_NAME = 'petcareverse-v1';
 const STATIC_CACHE_URLS = [
   '/',
@@ -154,4 +152,3 @@ self.addEventListener('notificationclick', (event) => {
     clients.openWindow(event.notification.data.url || '/')
   );
 });
->>>>>>> Stashed changes

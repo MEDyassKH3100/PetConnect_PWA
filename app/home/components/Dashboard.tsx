@@ -33,7 +33,7 @@ export const Dashboard = () => {
       <h1 className="text-2xl font-bold text-gray-800">Vue d'ensemble</h1>
 
       {/* Top row - AI Assistant and Reminders */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4" style={{ minHeight: '500px' }}>
         <AIAssistantCard />
         <ReminderWidget />
       </div>

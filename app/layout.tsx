@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-<<<<<<< Updated upstream
-import "./globals.css";
-=======
-import ServiceWorkerRegistration from "./components/ServiceWorkerRegistration";
 import "../styles/globals.css";
 import { ReduxProvider } from "@/Provider/ReduxProvider";
->>>>>>> Stashed changes
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,13 +24,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-<<<<<<< Updated upstream
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-=======
     <html lang="fr">
       <head>
         <link rel="manifest" href="/manifest.json" />
@@ -44,7 +32,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ServiceWorkerRegistration />
         <ReduxProvider>
           {children}
         </ReduxProvider>
@@ -72,7 +59,6 @@ export default function RootLayout({
             }}
           />
         )}
->>>>>>> Stashed changes
       </body>
     </html>
   );

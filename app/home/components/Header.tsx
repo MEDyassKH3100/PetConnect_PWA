@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import {
     SearchIcon,
@@ -17,18 +17,17 @@ import { useAppDispatch, useAppSelector } from '@/store/slices/hooks';
 import { fetchUserProfile, logout } from '@/store/slices/authSlice';
 
 type HeaderProps = {
-    toggleSidebar: () => void;
-    setActiveModule: (module: string) => void;
+    toggleSidebarAction: () => void;
+    setActiveModuleAction: (module: string) => void;
 };
 
-export const Header = ({ toggleSidebar, setActiveModule }: HeaderProps) => {
+export const Header = ({ toggleSidebarAction: toggleSidebar,
+    setActiveModuleAction: setActiveModule }: HeaderProps) => {
     const router = useRouter();
     const dispatch = useAppDispatch();
     const { user, isAuthenticated } = useAppSelector((state) => state.auth);
     const [showNotifications, setShowNotifications] = useState(false);
     const [showUserMenu, setShowUserMenu] = useState(false);
-<<<<<<< Updated upstream
-=======
 
     useEffect(() => {
         // Récupérer le profil utilisateur si authentifié
@@ -37,7 +36,6 @@ export const Header = ({ toggleSidebar, setActiveModule }: HeaderProps) => {
         }
     }, [isAuthenticated, user, dispatch]);
 
->>>>>>> Stashed changes
 
     return (
         <header className="bg-white border-b border-gray-200 shadow-sm">

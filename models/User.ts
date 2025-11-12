@@ -13,12 +13,15 @@ export interface IUser extends Document {
   avatar?: string;
   role: "user" | "admin" | "vet";
   isVerified: boolean;
+  emailVerificationToken?: string;
+  emailVerificationExpires?: Date;
   otp?: string;
   otpExpires?: Date;
   resetPasswordToken?: string;
   resetPasswordExpires?: Date;
   createdAt: Date;
   updatedAt: Date;
+  googleId?: string;
   comparePassword(candidatePassword: string): Promise<boolean>;
 }
 
@@ -39,13 +42,25 @@ const UserSchema = new Schema<IUser>(
     password: { type: String, required: true, minlength: 6, select: false },
     phone: { type: String, maxlength: 20 },
     address: { type: String, maxlength: 200 },
-    avatar: { type: String },
+    avatar: {
+      type: String,
+      default:
+        "https://ui-avatars.com/api/?name=User&background=FF9A3D&color=fff&size=200&bold=true",
+    },
     role: { type: String, enum: ["user", "admin", "vet"], default: "user" },
     isVerified: { type: Boolean, default: false },
+    emailVerificationToken: { type: String, select: false },
+    emailVerificationExpires: { type: Date, select: false },
     otp: { type: String, select: false },
     otpExpires: { type: Date, select: false },
     resetPasswordToken: { type: String, select: false },
     resetPasswordExpires: { type: Date, select: false },
+    googleId: {
+      type: String,
+      required: false,
+      unique: true,
+      sparse: true,
+    },
   },
   { timestamps: true }
 );

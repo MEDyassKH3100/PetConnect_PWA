@@ -1,6 +1,6 @@
-import { UserService } from "@/models/User";
 import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
+import { UserService } from "@/services/userService";
 
 export async function POST(request: NextRequest) {
   try {
@@ -14,24 +14,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const user = await UserService.login({ email, password });
+    // UserService.login retourne { user, token }
+    const result = await UserService.login(email, password);
 
-    if (!user) {
-      return NextResponse.json(
-        { error: "Email ou mot de passe incorrect" },
-        { status: 401 }
-      );
-    }
-
-    
-    const token = jwt.sign(
-      { id: user._id, email: user.email, role: user.role },
-      process.env.JWT_SECRET!,
-      { expiresIn: "7d" }
-    );
+    // Le token est déjà généré par UserService.login
+    // Pas besoin de le regénérer ici
 
     return NextResponse.json(
-      { message: "Connexion réussie", user, token },
+      {
+        message: "Connexion réussie",
+        user: result.user,
+        token: result.token,
+      },
       { status: 200 }
     );
   } catch (error: any) {

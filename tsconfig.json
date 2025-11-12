@@ -28,10 +28,6 @@
       ]
     }
   },
-<<<<<<< Updated upstream
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/page.tsx", "app/home/home_page.jsx"],
-  "exclude": ["node_modules"]
-=======
   "include": [
     "next-env.d.ts",
     "**/*.ts",
@@ -45,5 +41,4 @@
   "exclude": [
     "node_modules"
   ]
->>>>>>> Stashed changes
 }

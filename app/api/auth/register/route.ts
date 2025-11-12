@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Appeler le service
-    const user = await UserService.register({
+    const result = await UserService.register({
       firstName,
       lastName,
       email,
@@ -24,7 +24,11 @@ export async function POST(request: NextRequest) {
 
     // Succès
     return NextResponse.json(
-      { message: "Inscription réussie", user },
+      {
+        message: result.message,
+        user: result.user,
+        requiresVerification: true,
+      },
       { status: 201 }
     );
   } catch (error: any) {

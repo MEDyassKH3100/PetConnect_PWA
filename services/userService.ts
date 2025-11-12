@@ -2,6 +2,7 @@ import connectDB from "../lib/db";
 import User, { IUser } from "../models/User";
 import jwt from "jsonwebtoken";
 import crypto from "crypto";
+import nodemailer from "nodemailer";
 
 const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key";
 
@@ -14,7 +15,8 @@ export class UserService {
     password: string;
     phone?: string;
     address?: string;
-  }): Promise<IUser> {
+    avatar?: string;
+  }): Promise<{ user: IUser; message: string }> {
     await connectDB();
 
     const existingUser = await User.findOne({ email: userData.email });
@@ -22,9 +24,127 @@ export class UserService {
       throw new Error("Cet email est déjà utilisé");
     }
 
-    const user = new User(userData);
+    // Générer un avatar par défaut avec les initiales si non fourni
+    const initials = `${userData.firstName.charAt(0)}${userData.lastName.charAt(
+      0
+    )}`;
+    const defaultAvatar = `https://ui-avatars.com/api/?name=${encodeURIComponent(
+      initials
+    )}&background=FF9A3D&color=fff&size=200&bold=true&rounded=true`;
+
+    // Créer l'utilisateur (non vérifié par défaut)
+    const user = new User({
+      ...userData,
+      avatar: userData.avatar || defaultAvatar,
+    });
+
+    // Générer un token de vérification d'email
+    const verificationToken = crypto.randomBytes(32).toString("hex");
+    const hashedToken = crypto
+      .createHash("sha256")
+      .update(verificationToken)
+      .digest("hex");
+
+    user.emailVerificationToken = hashedToken;
+    user.emailVerificationExpires = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 heures
+
     await user.save();
-    return user;
+
+    // Envoyer l'email de vérification
+    try {
+      await this.sendVerificationEmail(
+        user.email,
+        verificationToken,
+        user.firstName
+      );
+    } catch (emailError) {
+      console.error("Erreur lors de l'envoi de l'email:", emailError);
+      // Ne pas bloquer l'inscription si l'email échoue
+    }
+
+    return {
+      user,
+      message:
+        "Inscription réussie ! Un email de vérification a été envoyé à votre adresse.",
+    };
+  }
+
+  // Envoyer l'email de vérification
+  static async sendVerificationEmail(
+    email: string,
+    token: string,
+    firstName: string
+  ): Promise<void> {
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    const verificationUrl = `${process.env.NEXT_PUBLIC_API_URL}/auth/verify-email?token=${token}`;
+
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: "🐾 Vérifiez votre compte PetConnect",
+      html: `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
+          <table role="presentation" style="width: 100%; border-collapse: collapse;">
+            <tr>
+              <td align="center" style="padding: 40px 0;">
+                <table role="presentation" style="width: 600px; border-collapse: collapse; background-color: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                  <!-- Header -->
+                  <tr>
+                    <td style="background-color: #FF9A3D; padding: 40px; text-align: center;">
+                      <h1 style="color: #ffffff; margin: 0; font-size: 32px;">🐾 PetConnect</h1>
+                    </td>
+                  </tr>
+                  <!-- Body -->
+                  <tr>
+                    <td style="padding: 40px 30px; background-color: #f9f9f9;">
+                      <h2 style="color: #333333; margin: 0 0 20px 0; font-size: 24px;">Bonjour ${firstName} !</h2>
+                      <p style="color: #666666; font-size: 16px; line-height: 1.6; margin: 0 0 30px 0;">
+                        Bienvenue sur PetConnect ! Pour compléter votre inscription, veuillez vérifier votre adresse email en cliquant sur le bouton ci-dessous :
+                      </p>
+                      <!-- Button -->
+                      <table role="presentation" style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                          <td align="center" style="padding: 20px 0;">
+                            <a href="${verificationUrl}" style="background-color: #FF9A3D; color: #ffffff; padding: 16px 50px; text-decoration: none; border-radius: 30px; font-weight: bold; font-size: 16px; display: inline-block; box-shadow: 0 4px 6px rgba(255, 154, 61, 0.3);">
+                              ✅ Vérifier mon email
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                      
+                    </td>
+                  </tr>
+                  <!-- Footer -->
+                  <tr>
+                    <td style="padding: 30px; background-color: #ffffff; border-top: 1px solid #eeeeee;">
+                      <p style="color: #999999; font-size: 12px; text-align: center; margin: 0;">
+                        Si vous n'avez pas créé de compte PetConnect, ignorez cet email.
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </body>
+        </html>
+      `,
+    };
+
+    await transporter.sendMail(mailOptions);
   }
 
   // 2. Login (Connexion)
@@ -42,6 +162,12 @@ export class UserService {
     const isPasswordValid = await user.comparePassword(password);
     if (!isPasswordValid) {
       throw new Error("Email ou mot de passe incorrect");
+    }
+    // Vérifier si l'email est vérifié (sauf pour les comptes Google)
+    if (!user.isVerified && !user.googleId) {
+      throw new Error(
+        "Veuillez vérifier votre email avant de vous connecter. Vérifiez votre boîte de réception."
+      );
     }
 
     const token = jwt.sign(
@@ -136,15 +262,8 @@ export class UserService {
     await connectDB();
 
     const user = await User.findOne({
-<<<<<<< Updated upstream
-      email,
-      otp,
-      otpExpires: { $gt: new Date() },
-    });
-=======
       email: email.toLowerCase(),
     }).select("+otp +otpExpires");
->>>>>>> Stashed changes
 
     if (!user) {
       throw new Error("Utilisateur non trouvé");
@@ -245,26 +364,17 @@ export class UserService {
     return { message: "Profil supprimé avec succès" };
   }
 
-<<<<<<< Updated upstream
-  // Méthodes utilitaires supplémentaires (optionnelles)
-=======
   // 10. Get User by ID (Récupérer un utilisateur par ID)
->>>>>>> Stashed changes
   static async getUserById(userId: string): Promise<IUser | null> {
     await connectDB();
     return User.findById(userId);
   }
 
-<<<<<<< Updated upstream
-=======
   // 11. Get All Users (Admin only)
->>>>>>> Stashed changes
   static async getAllUsers(): Promise<IUser[]> {
     await connectDB();
     return User.find({}).sort({ createdAt: -1 });
   }
-<<<<<<< Updated upstream
-=======
 
   // 12. Get User by Email
   static async getUserByEmail(email: string): Promise<IUser | null> {
@@ -284,5 +394,4 @@ export class UserService {
       { new: true, runValidators: true }
     );
   }
->>>>>>> Stashed changes
 }

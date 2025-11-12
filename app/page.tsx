@@ -61,71 +61,6 @@ export default function LandingPage() {
         </div>
       </nav>
 
-<<<<<<< Updated upstream
-      {/* Contenu scrollable (préservé exactement comme fourni) */}
-      <div className="pt-20 overflow-y-auto">
-        {/* Section Home (préservée exactement comme fournie, avec bouton ajusté) */}
-        <section id="home" className="min-h-screen flex flex-col md:flex-row items-center justify-center p-8 gap-8">
-          <div className="flex-1 text-center md:text-left">
-            <h1 className="text-3xl md:text-5xl font-bold text-gray-800 mb-4">Welcome to PetCareVerse</h1>
-            <p className="text-lg text-gray-600 mb-6">Votre plateforme complète pour le soin de vos animaux de compagnie. Découvrez nos services innovants pour la santé, la nutrition et bien plus.</p>
-            <button
-              className="bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] text-gray-800 px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition-transform shadow-lg"
-              onClick={() => { setIsLoginOpen(true); setIsRegister(false); }}
-            >
-              Get Started
-            </button>
-          </div>
-          <div className="flex-1">
-            <img src="/images/welcome_page/home-image.jpg" alt="Home" className="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg" />
-          </div>
-        </section>
-
-        {/* Section About Us (ajoutée pour compléter, basée sur votre fichier) */}
-        <section id="about" className="min-h-screen flex flex-col md:flex-row items-center justify-center p-8 gap-8 bg-gray-50">
-          <div className="flex-1">
-            <img src="/images/welcome_page/about-image.jpg" alt="About Us" className="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg" />
-          </div>
-          <div className="flex-1 text-center md:text-left">
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-800 mb-4">À Propos de Nous</h2>
-            <p className="text-lg text-gray-600 mb-6">PetCareVerse est une plateforme dédiée au bien-être animal, utilisant l'IA pour offrir des soins personnalisés à vos chats et chiens. Notre mission : un écosystème mondial pour les pets.</p>
-            <button className="bg-gradient-to-r from-[#C97BFF] to-[#FF9A3D] text-white px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform">En Savoir Plus</button>
-          </div>
-        </section>
-
-        {/* Section Services (ajoutée pour compléter, basée sur votre fichier) */}
-        <section id="services" className="min-h-screen flex flex-col md:flex-row items-center justify-center p-8 gap-8">
-          <div className="flex-1 text-center md:text-left">
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-800 mb-4">Nos Services</h2>
-            <p className="text-lg text-gray-600 mb-6">Santé, Nutrition, Éducation, Adoption – tout ce dont votre animal a besoin, centralisé dans une IA intelligente pour des conseils personnalisés.</p>
-            <button className="bg-gradient-to-r from-[#3D9EFF] to-[#C97BFF] text-white px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform">Explorer</button>
-          </div>
-          <div className="flex-1">
-            <img src="/images/welcome_page/services-image.jpg" alt="Services" className="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg" />
-          </div>
-        </section>
-
-        {/* Section Contact (ajoutée pour compléter, basée sur votre fichier) */}
-        <section id="contact" className="min-h-screen flex flex-col items-center justify-center p-8 bg-gray-50">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-800 mb-4">Contactez-Nous</h2>
-          <p className="text-lg text-gray-600 mb-6 text-center max-w-md">Besoin d'aide ? Envoyez-nous un message ou rejoignez notre communauté pour plus d'informations.</p>
-          <img src="/images/welcome_page/contact-image.jpg" alt="Contact" className="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg mb-6" />
-          <button className="bg-gradient-to-r from-[#FF9A3D] to-[#C97BFF] text-white px-6 py-3 rounded-full font-bold hover:scale-105 transition-transform">Nous Contacter</button>
-        </section>
-
-        {/* Ajoutez ici d'autres sections si présentes (ex. : témoignages, footer, etc.) – gardées intactes */}
-
-        {/* Popups d'authentification intégrés */}
-        {/* Popup de Login/Register */}
-        {isLoginOpen && (
-          <div className="fixed inset-0 bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] bg-opacity-80 backdrop-blur-md z-50 flex items-center justify-center p-4" onClick={() => setIsLoginOpen(false)}>
-            <div className="w-full max-w-md mx-auto bg-white p-8 rounded-xl shadow-md" onClick={(e) => e.stopPropagation()}>
-              {!isRegister ? (
-                <Login onSwitchToRegister={() => setIsRegister(true)} onOpenForgotPassword={() => setIsForgotPasswordOpen(true)} />
-              ) : (
-                <Register onSwitchToLogin={() => setIsRegister(false)} />
-              )}
-=======
       {/* Hero Section */}
       <section className="pt-24 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-[#F5F5DC] via-[#FFB8C2]/30 to-[#FF9A3D]/20">
         <div className="max-w-7xl mx-auto">
@@ -159,7 +94,6 @@ export default function LandingPage() {
                   priority
                 />
               </div>
->>>>>>> Stashed changes
             </div>
           </div>
         </div>

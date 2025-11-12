@@ -54,7 +54,7 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-const Header = ({ toggleSidebar, setActiveModule })=>{
+const Header = ({ toggleSidebarAction: toggleSidebar, setActiveModuleAction: setActiveModule })=>{
     _s();
     const router = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useRouter"])();
     const dispatch = (0, __TURBOPACK__imported__module__$5b$project$5d2f$store$2f$slices$2f$hooks$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useAppDispatch"])();
@@ -88,12 +88,12 @@ const Header = ({ toggleSidebar, setActiveModule })=>{
                             size: 24
                         }, void 0, false, {
                             fileName: "[project]/app/home/components/Header.tsx",
-                            lineNumber: 55,
+                            lineNumber: 48,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/app/home/components/Header.tsx",
-                        lineNumber: 51,
+                        lineNumber: 44,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -101,7 +101,7 @@ const Header = ({ toggleSidebar, setActiveModule })=>{
                         children: "PetConnect"
                     }, void 0, false, {
                         fileName: "[project]/app/home/components/Header.tsx",
-                        lineNumber: 59,
+                        lineNumber: 51,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -116,12 +116,12 @@ const Header = ({ toggleSidebar, setActiveModule })=>{
                                         className: "text-gray-400"
                                     }, void 0, false, {
                                         fileName: "[project]/app/home/components/Header.tsx",
-                                        lineNumber: 67,
+                                        lineNumber: 58,
                                         columnNumber: 29
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/app/home/components/Header.tsx",
-                                    lineNumber: 66,
+                                    lineNumber: 57,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -130,18 +130,18 @@ const Header = ({ toggleSidebar, setActiveModule })=>{
                                     className: "w-full py-2 pl-10 pr-4 bg-gray-100 rounded-full focus:outline-none focus:ring-2 focus:ring-[#FFB8C2] focus:bg-white"
                                 }, void 0, false, {
                                     fileName: "[project]/app/home/components/Header.tsx",
-                                    lineNumber: 69,
+                                    lineNumber: 60,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/home/components/Header.tsx",
-                            lineNumber: 65,
+                            lineNumber: 56,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/app/home/components/Header.tsx",
-                        lineNumber: 64,
+                        lineNumber: 55,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -153,12 +153,12 @@ const Header = ({ toggleSidebar, setActiveModule })=>{
                                     size: 20
                                 }, void 0, false, {
                                     fileName: "[project]/app/home/components/Header.tsx",
-                                    lineNumber: 81,
+                                    lineNumber: 71,
                                     columnNumber: 25
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/app/home/components/Header.tsx",
-                                lineNumber: 80,
+                                lineNumber: 70,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -175,20 +175,20 @@ const Header = ({ toggleSidebar, setActiveModule })=>{
                                                 size: 20
                                             }, void 0, false, {
                                                 fileName: "[project]/app/home/components/Header.tsx",
-                                                lineNumber: 93,
+                                                lineNumber: 82,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 className: "absolute top-0 right-0 h-2 w-2 rounded-full bg-orange-500"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/home/components/Header.tsx",
-                                                lineNumber: 94,
+                                                lineNumber: 83,
                                                 columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/home/components/Header.tsx",
-                                        lineNumber: 86,
+                                        lineNumber: 75,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     showNotifications && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -202,7 +202,7 @@ const Header = ({ toggleSidebar, setActiveModule })=>{
                                                         children: "Notifications"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/home/components/Header.tsx",
-                                                        lineNumber: 100,
+                                                        lineNumber: 89,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -211,84 +211,150 @@ const Header = ({ toggleSidebar, setActiveModule })=>{
                                                         children: "Voir tout"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/home/components/Header.tsx",
-                                                        lineNumber: 101,
+                                                        lineNumber: 90,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/home/components/Header.tsx",
-                                                lineNumber: 99,
+                                                lineNumber: 88,
                                                 columnNumber: 33
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "max-h-96 overflow-y-auto",
-                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                    className: "p-3 border-b hover:bg-gray-50",
-                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                        className: "flex items-start",
-                                                        children: [
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "flex-shrink-0 bg-orange-100 rounded-full p-2",
-                                                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$bell$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__BellIcon$3e$__["BellIcon"], {
-                                                                    size: 16,
-                                                                    className: "text-orange-500"
-                                                                }, void 0, false, {
-                                                                    fileName: "[project]/app/home/components/Header.tsx",
-                                                                    lineNumber: 113,
-                                                                    columnNumber: 49
-                                                                }, ("TURBOPACK compile-time value", void 0))
-                                                            }, void 0, false, {
-                                                                fileName: "[project]/app/home/components/Header.tsx",
-                                                                lineNumber: 112,
-                                                                columnNumber: 45
-                                                            }, ("TURBOPACK compile-time value", void 0)),
-                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                                                className: "ml-3",
-                                                                children: [
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                        className: "text-sm font-medium text-gray-800",
-                                                                        children: "Rappel de vaccin"
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "p-3 border-b hover:bg-gray-50",
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "flex items-start",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "flex-shrink-0 bg-orange-100 rounded-full p-2",
+                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$bell$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__BellIcon$3e$__["BellIcon"], {
+                                                                        size: 16,
+                                                                        className: "text-orange-500"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/home/components/Header.tsx",
-                                                                        lineNumber: 116,
+                                                                        lineNumber: 101,
                                                                         columnNumber: 49
-                                                                    }, ("TURBOPACK compile-time value", void 0)),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                        className: "text-xs text-gray-500",
-                                                                        children: "Vaccin contre la rage dans 2 jours"
+                                                                    }, ("TURBOPACK compile-time value", void 0))
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/home/components/Header.tsx",
+                                                                    lineNumber: 100,
+                                                                    columnNumber: 45
+                                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "ml-3",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                            className: "text-sm font-medium text-gray-800",
+                                                                            children: "Rappel de vaccin"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/home/components/Header.tsx",
+                                                                            lineNumber: 104,
+                                                                            columnNumber: 49
+                                                                        }, ("TURBOPACK compile-time value", void 0)),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                            className: "text-xs text-gray-500",
+                                                                            children: "Vaccin contre la rage dans 2 jours"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/home/components/Header.tsx",
+                                                                            lineNumber: 107,
+                                                                            columnNumber: 49
+                                                                        }, ("TURBOPACK compile-time value", void 0)),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                            className: "text-xs text-gray-400 mt-1",
+                                                                            children: "Il y a 1 heure"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/home/components/Header.tsx",
+                                                                            lineNumber: 110,
+                                                                            columnNumber: 49
+                                                                        }, ("TURBOPACK compile-time value", void 0))
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/app/home/components/Header.tsx",
+                                                                    lineNumber: 103,
+                                                                    columnNumber: 45
+                                                                }, ("TURBOPACK compile-time value", void 0))
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/app/home/components/Header.tsx",
+                                                            lineNumber: 99,
+                                                            columnNumber: 41
+                                                        }, ("TURBOPACK compile-time value", void 0))
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/home/components/Header.tsx",
+                                                        lineNumber: 98,
+                                                        columnNumber: 37
+                                                    }, ("TURBOPACK compile-time value", void 0)),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "p-3 hover:bg-gray-50",
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "flex items-start",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "flex-shrink-0 bg-green-100 rounded-full p-2",
+                                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$heart$2d$pulse$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__HeartPulseIcon$3e$__["HeartPulseIcon"], {
+                                                                        size: 16,
+                                                                        className: "text-green-500"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/home/components/Header.tsx",
                                                                         lineNumber: 119,
                                                                         columnNumber: 49
-                                                                    }, ("TURBOPACK compile-time value", void 0)),
-                                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                                                        className: "text-xs text-gray-400 mt-1",
-                                                                        children: "Il y a 1 heure"
-                                                                    }, void 0, false, {
-                                                                        fileName: "[project]/app/home/components/Header.tsx",
-                                                                        lineNumber: 122,
-                                                                        columnNumber: 49
                                                                     }, ("TURBOPACK compile-time value", void 0))
-                                                                ]
-                                                            }, void 0, true, {
-                                                                fileName: "[project]/app/home/components/Header.tsx",
-                                                                lineNumber: 115,
-                                                                columnNumber: 45
-                                                            }, ("TURBOPACK compile-time value", void 0))
-                                                        ]
-                                                    }, void 0, true, {
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/home/components/Header.tsx",
+                                                                    lineNumber: 118,
+                                                                    columnNumber: 45
+                                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                                    className: "ml-3",
+                                                                    children: [
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                            className: "text-sm font-medium text-gray-800",
+                                                                            children: "Bilan de santé"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/home/components/Header.tsx",
+                                                                            lineNumber: 122,
+                                                                            columnNumber: 49
+                                                                        }, ("TURBOPACK compile-time value", void 0)),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                            className: "text-xs text-gray-500",
+                                                                            children: "Résultats disponibles du dernier bilan"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/home/components/Header.tsx",
+                                                                            lineNumber: 125,
+                                                                            columnNumber: 49
+                                                                        }, ("TURBOPACK compile-time value", void 0)),
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                                            className: "text-xs text-gray-400 mt-1",
+                                                                            children: "Il y a 3 heures"
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/app/home/components/Header.tsx",
+                                                                            lineNumber: 128,
+                                                                            columnNumber: 49
+                                                                        }, ("TURBOPACK compile-time value", void 0))
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/app/home/components/Header.tsx",
+                                                                    lineNumber: 121,
+                                                                    columnNumber: 45
+                                                                }, ("TURBOPACK compile-time value", void 0))
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/app/home/components/Header.tsx",
+                                                            lineNumber: 117,
+                                                            columnNumber: 41
+                                                        }, ("TURBOPACK compile-time value", void 0))
+                                                    }, void 0, false, {
                                                         fileName: "[project]/app/home/components/Header.tsx",
-                                                        lineNumber: 111,
-                                                        columnNumber: 41
+                                                        lineNumber: 116,
+                                                        columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0))
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/home/components/Header.tsx",
-                                                    lineNumber: 110,
-                                                    columnNumber: 37
-                                                }, ("TURBOPACK compile-time value", void 0))
-                                            }, void 0, false, {
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "[project]/app/home/components/Header.tsx",
-                                                lineNumber: 108,
+                                                lineNumber: 97,
                                                 columnNumber: 33
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -299,24 +365,24 @@ const Header = ({ toggleSidebar, setActiveModule })=>{
                                                     children: "Voir toutes les notifications"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/home/components/Header.tsx",
-                                                    lineNumber: 130,
+                                                    lineNumber: 136,
                                                     columnNumber: 37
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             }, void 0, false, {
                                                 fileName: "[project]/app/home/components/Header.tsx",
-                                                lineNumber: 129,
+                                                lineNumber: 135,
                                                 columnNumber: 33
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/home/components/Header.tsx",
-                                        lineNumber: 98,
+                                        lineNumber: 87,
                                         columnNumber: 29
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/home/components/Header.tsx",
-                                lineNumber: 85,
+                                lineNumber: 74,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -331,22 +397,22 @@ const Header = ({ toggleSidebar, setActiveModule })=>{
                                         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                             className: "h-8 w-8 rounded-full bg-gray-200 overflow-hidden",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
-                                                src: user?.avatar || "https://via.placeholder.com/150",
-                                                alt: user ? `${user.firstName} ${user.lastName}` : "User",
+                                                src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80",
+                                                alt: "User",
                                                 className: "h-full w-full object-cover"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/home/components/Header.tsx",
-                                                lineNumber: 151,
+                                                lineNumber: 156,
                                                 columnNumber: 33
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/app/home/components/Header.tsx",
-                                            lineNumber: 150,
+                                            lineNumber: 155,
                                             columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/app/home/components/Header.tsx",
-                                        lineNumber: 143,
+                                        lineNumber: 148,
                                         columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     showUserMenu && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -357,24 +423,24 @@ const Header = ({ toggleSidebar, setActiveModule })=>{
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                         className: "font-medium text-gray-800",
-                                                        children: user ? `${user.firstName} ${user.lastName}` : "Utilisateur"
+                                                        children: "Utilisateur"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/home/components/Header.tsx",
-                                                        lineNumber: 162,
+                                                        lineNumber: 167,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                         className: "text-xs text-gray-500",
-                                                        children: user?.email || "user@example.com"
+                                                        children: "utilisateur@example.com"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/home/components/Header.tsx",
-                                                        lineNumber: 165,
+                                                        lineNumber: 168,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/home/components/Header.tsx",
-                                                lineNumber: 161,
+                                                lineNumber: 166,
                                                 columnNumber: 33
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -389,14 +455,14 @@ const Header = ({ toggleSidebar, setActiveModule })=>{
                                                                 className: "mr-2"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/home/components/Header.tsx",
-                                                                lineNumber: 174,
+                                                                lineNumber: 177,
                                                                 columnNumber: 41
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             "Mon profil"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/home/components/Header.tsx",
-                                                        lineNumber: 170,
+                                                        lineNumber: 173,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -408,14 +474,14 @@ const Header = ({ toggleSidebar, setActiveModule })=>{
                                                                 className: "mr-2"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/home/components/Header.tsx",
-                                                                lineNumber: 181,
+                                                                lineNumber: 184,
                                                                 columnNumber: 41
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             "Modifier profil"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/home/components/Header.tsx",
-                                                        lineNumber: 177,
+                                                        lineNumber: 180,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -427,14 +493,14 @@ const Header = ({ toggleSidebar, setActiveModule })=>{
                                                                 className: "mr-2"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/home/components/Header.tsx",
-                                                                lineNumber: 188,
+                                                                lineNumber: 191,
                                                                 columnNumber: 41
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             "Changer mot de passe"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/home/components/Header.tsx",
-                                                        lineNumber: 184,
+                                                        lineNumber: 187,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -446,14 +512,14 @@ const Header = ({ toggleSidebar, setActiveModule })=>{
                                                                 className: "mr-2"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/home/components/Header.tsx",
-                                                                lineNumber: 195,
+                                                                lineNumber: 198,
                                                                 columnNumber: 41
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             "Mes animaux"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/home/components/Header.tsx",
-                                                        lineNumber: 191,
+                                                        lineNumber: 194,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -465,20 +531,20 @@ const Header = ({ toggleSidebar, setActiveModule })=>{
                                                                 className: "mr-2"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/home/components/Header.tsx",
-                                                                lineNumber: 202,
+                                                                lineNumber: 205,
                                                                 columnNumber: 41
                                                             }, ("TURBOPACK compile-time value", void 0)),
                                                             "Paramètres"
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/home/components/Header.tsx",
-                                                        lineNumber: 198,
+                                                        lineNumber: 201,
                                                         columnNumber: 37
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/home/components/Header.tsx",
-                                                lineNumber: 169,
+                                                lineNumber: 172,
                                                 columnNumber: 33
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -495,43 +561,43 @@ const Header = ({ toggleSidebar, setActiveModule })=>{
                                                             className: "mr-2"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/home/components/Header.tsx",
-                                                            lineNumber: 214,
+                                                            lineNumber: 217,
                                                             columnNumber: 41
                                                         }, ("TURBOPACK compile-time value", void 0)),
                                                         "Déconnexion"
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/home/components/Header.tsx",
-                                                    lineNumber: 207,
+                                                    lineNumber: 210,
                                                     columnNumber: 37
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             }, void 0, false, {
                                                 fileName: "[project]/app/home/components/Header.tsx",
-                                                lineNumber: 206,
+                                                lineNumber: 209,
                                                 columnNumber: 33
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/home/components/Header.tsx",
-                                        lineNumber: 160,
+                                        lineNumber: 165,
                                         columnNumber: 29
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/home/components/Header.tsx",
-                                lineNumber: 142,
+                                lineNumber: 147,
                                 columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/home/components/Header.tsx",
-                        lineNumber: 78,
+                        lineNumber: 68,
                         columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/home/components/Header.tsx",
-                lineNumber: 49,
+                lineNumber: 42,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -546,12 +612,12 @@ const Header = ({ toggleSidebar, setActiveModule })=>{
                                 className: "text-gray-400"
                             }, void 0, false, {
                                 fileName: "[project]/app/home/components/Header.tsx",
-                                lineNumber: 228,
+                                lineNumber: 230,
                                 columnNumber: 25
                             }, ("TURBOPACK compile-time value", void 0))
                         }, void 0, false, {
                             fileName: "[project]/app/home/components/Header.tsx",
-                            lineNumber: 227,
+                            lineNumber: 229,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -560,24 +626,24 @@ const Header = ({ toggleSidebar, setActiveModule })=>{
                             className: "w-full py-2 pl-10 pr-4 bg-gray-100 rounded-full focus:outline-none focus:ring-2 focus:ring-[#FFB8C2] focus:bg-white"
                         }, void 0, false, {
                             fileName: "[project]/app/home/components/Header.tsx",
-                            lineNumber: 230,
+                            lineNumber: 232,
                             columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/home/components/Header.tsx",
-                    lineNumber: 226,
+                    lineNumber: 228,
                     columnNumber: 17
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/app/home/components/Header.tsx",
-                lineNumber: 225,
+                lineNumber: 227,
                 columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/app/home/components/Header.tsx",
-        lineNumber: 48,
+        lineNumber: 41,
         columnNumber: 9
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -1155,7 +1221,7 @@ const AIAssistantCard = ()=>{
         }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow max-w-md mx-auto flex flex-col",
+        className: "bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow h-full flex flex-col max-w-md mx-auto",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex items-center mb-4",
@@ -1168,12 +1234,12 @@ const AIAssistantCard = ()=>{
                         }, void 0, false, {
                             fileName: "[project]/app/home/components/AIAssistantCard.tsx",
                             lineNumber: 57,
-                            columnNumber: 11
+                            columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/app/home/components/AIAssistantCard.tsx",
                         lineNumber: 56,
-                        columnNumber: 9
+                        columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                         className: "text-lg font-semibold text-gray-800",
@@ -1181,33 +1247,32 @@ const AIAssistantCard = ()=>{
                     }, void 0, false, {
                         fileName: "[project]/app/home/components/AIAssistantCard.tsx",
                         lineNumber: 59,
-                        columnNumber: 9
+                        columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/home/components/AIAssistantCard.tsx",
                 lineNumber: 55,
-                columnNumber: 7
+                columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 ref: chatContainerRef,
-                className: "mb-4 border p-2 rounded-md bg-gray-50 flex-1 overflow-y-auto",
+                className: "flex-1 overflow-y-auto mb-4 space-y-2",
                 style: {
-                    maxHeight: '300px',
-                    minHeight: '300px'
+                    maxHeight: '300px'
                 },
                 children: chatHistory.map((msg, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: `p-2 rounded-lg mb-2 ${msg.role === 'assistant' ? 'bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] text-white' : 'bg-gray-100 text-gray-800'}`,
+                        className: `p-2 rounded-lg ${msg.role === 'assistant' ? 'bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] text-black' : 'bg-gray-100 text-gray-800'}`,
                         children: msg.content
                     }, idx, false, {
                         fileName: "[project]/app/home/components/AIAssistantCard.tsx",
-                        lineNumber: 69,
-                        columnNumber: 11
+                        lineNumber: 68,
+                        columnNumber: 21
                     }, ("TURBOPACK compile-time value", void 0)))
             }, void 0, false, {
                 fileName: "[project]/app/home/components/AIAssistantCard.tsx",
-                lineNumber: 63,
-                columnNumber: 7
+                lineNumber: 62,
+                columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
                 className: "flex space-x-2 mt-auto",
@@ -1224,8 +1289,8 @@ const AIAssistantCard = ()=>{
                         className: "flex-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]"
                     }, void 0, false, {
                         fileName: "[project]/app/home/components/AIAssistantCard.tsx",
-                        lineNumber: 90,
-                        columnNumber: 9
+                        lineNumber: 87,
+                        columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                         type: "button",
@@ -1236,13 +1301,13 @@ const AIAssistantCard = ()=>{
                             className: "text-gray-600"
                         }, void 0, false, {
                             fileName: "[project]/app/home/components/AIAssistantCard.tsx",
-                            lineNumber: 102,
-                            columnNumber: 11
+                            lineNumber: 99,
+                            columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/app/home/components/AIAssistantCard.tsx",
-                        lineNumber: 97,
-                        columnNumber: 9
+                        lineNumber: 94,
+                        columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                         type: "submit",
@@ -1252,28 +1317,28 @@ const AIAssistantCard = ()=>{
                             size: 20
                         }, void 0, false, {
                             fileName: "[project]/app/home/components/AIAssistantCard.tsx",
-                            lineNumber: 109,
-                            columnNumber: 11
+                            lineNumber: 106,
+                            columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/app/home/components/AIAssistantCard.tsx",
-                        lineNumber: 104,
-                        columnNumber: 9
+                        lineNumber: 101,
+                        columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/home/components/AIAssistantCard.tsx",
-                lineNumber: 83,
-                columnNumber: 7
+                lineNumber: 80,
+                columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/app/home/components/AIAssistantCard.tsx",
         lineNumber: 54,
-        columnNumber: 5
+        columnNumber: 9
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(AIAssistantCard, "nFdby1eYXWuDB3G49ArCFOvWqIk=");
+_s(AIAssistantCard, "/C9V4Z5rA4RNZQsW6hzodFXN9sQ=");
 _c = AIAssistantCard;
 var _c;
 __turbopack_context__.k.register(_c, "AIAssistantCard");
@@ -1867,11 +1932,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__XIcon$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/x.js [app-client] (ecmascript) <export default as XIcon>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$save$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__SaveIcon$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/save.js [app-client] (ecmascript) <export default as SaveIcon>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$upload$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__UploadIcon$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/upload.js [app-client] (ecmascript) <export default as UploadIcon>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$jwt$2d$decode$2f$build$2f$esm$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/jwt-decode/build/esm/index.js [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 'use client';
-;
 ;
 ;
 const PetForm = ({ pet, token, onSaved, onClose })=>{
@@ -1902,30 +1965,23 @@ const PetForm = ({ pet, token, onSaved, onClose })=>{
         setLoading(true);
         setError('');
         try {
-            // Decode JWT token
-            const decoded = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$jwt$2d$decode$2f$build$2f$esm$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jwtDecode"])(token);
-            const userId = decoded.userId || decoded.id;
-            if (!userId) throw new Error('Utilisateur non authentifié');
-            // Prepare request body
-            const body = {
-                ...formData
-            }; // ❌ Don't include owner here
-            // Choose HTTP method and URL
             const method = pet ? 'PATCH' : 'POST';
-            // For PATCH, pass id as search param
-            const url = pet ? `/api/pets?id=${pet._id}` : '/api/pets';
-            const res = await fetch('/api/pets', {
-                method: 'POST',
+            const url = '/api/pets';
+            const body = pet ? {
+                id: pet._id,
+                ...formData
+            } : formData;
+            const res = await fetch(url, {
+                method,
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`
                 },
-                body: JSON.stringify(formData)
+                body: JSON.stringify(body)
             });
             const data = await res.json();
             if (!res.ok) throw new Error(data.error || 'Erreur serveur');
-            onSaved();
-            onClose();
+            onSaved(); // refresh pet list
         } catch (err) {
             setError(err.message);
         } finally{
@@ -1943,7 +1999,7 @@ const PetForm = ({ pet, token, onSaved, onClose })=>{
                         children: pet ? 'Modifier les informations' : 'Ajouter un animal'
                     }, void 0, false, {
                         fileName: "[project]/app/pets/components/PetForm.tsx",
-                        lineNumber: 96,
+                        lineNumber: 87,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1954,18 +2010,18 @@ const PetForm = ({ pet, token, onSaved, onClose })=>{
                             className: "text-gray-500"
                         }, void 0, false, {
                             fileName: "[project]/app/pets/components/PetForm.tsx",
-                            lineNumber: 103,
+                            lineNumber: 91,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/app/pets/components/PetForm.tsx",
-                        lineNumber: 99,
+                        lineNumber: 90,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/pets/components/PetForm.tsx",
-                lineNumber: 95,
+                lineNumber: 86,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1973,7 +2029,7 @@ const PetForm = ({ pet, token, onSaved, onClose })=>{
                 children: error
             }, void 0, false, {
                 fileName: "[project]/app/pets/components/PetForm.tsx",
-                lineNumber: 107,
+                lineNumber: 95,
                 columnNumber: 17
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -1995,7 +2051,7 @@ const PetForm = ({ pet, token, onSaved, onClose })=>{
                                                 className: "w-full h-full object-cover"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/pets/components/PetForm.tsx",
-                                                lineNumber: 115,
+                                                lineNumber: 103,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 className: "flex flex-col items-center justify-center h-full",
@@ -2005,7 +2061,7 @@ const PetForm = ({ pet, token, onSaved, onClose })=>{
                                                         className: "text-gray-400 mb-2"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/pets/components/PetForm.tsx",
-                                                        lineNumber: 122,
+                                                        lineNumber: 110,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2013,13 +2069,13 @@ const PetForm = ({ pet, token, onSaved, onClose })=>{
                                                         children: "Glissez une image ou cliquez pour parcourir"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/pets/components/PetForm.tsx",
-                                                        lineNumber: 123,
+                                                        lineNumber: 111,
                                                         columnNumber: 19
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/pets/components/PetForm.tsx",
-                                                lineNumber: 121,
+                                                lineNumber: 109,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2030,22 +2086,24 @@ const PetForm = ({ pet, token, onSaved, onClose })=>{
                                                     const file = e.target.files?.[0];
                                                     if (file) {
                                                         const reader = new FileReader();
-                                                        reader.onload = ()=>setFormData((prev)=>({
+                                                        reader.onload = ()=>{
+                                                            setFormData((prev)=>({
                                                                     ...prev,
                                                                     image: reader.result
                                                                 }));
+                                                        };
                                                         reader.readAsDataURL(file);
                                                     }
                                                 }
                                             }, void 0, false, {
                                                 fileName: "[project]/app/pets/components/PetForm.tsx",
-                                                lineNumber: 128,
+                                                lineNumber: 116,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/pets/components/PetForm.tsx",
-                                        lineNumber: 113,
+                                        lineNumber: 101,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2053,13 +2111,13 @@ const PetForm = ({ pet, token, onSaved, onClose })=>{
                                         children: "Format JPG ou PNG, 5MB max"
                                     }, void 0, false, {
                                         fileName: "[project]/app/pets/components/PetForm.tsx",
-                                        lineNumber: 146,
+                                        lineNumber: 132,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/pets/components/PetForm.tsx",
-                                lineNumber: 112,
+                                lineNumber: 100,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2075,7 +2133,7 @@ const PetForm = ({ pet, token, onSaved, onClose })=>{
                                         required: true
                                     }, void 0, false, {
                                         fileName: "[project]/app/pets/components/PetForm.tsx",
-                                        lineNumber: 151,
+                                        lineNumber: 137,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -2089,7 +2147,7 @@ const PetForm = ({ pet, token, onSaved, onClose })=>{
                                                 children: "Chien"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/pets/components/PetForm.tsx",
-                                                lineNumber: 166,
+                                                lineNumber: 152,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -2097,7 +2155,7 @@ const PetForm = ({ pet, token, onSaved, onClose })=>{
                                                 children: "Chat"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/pets/components/PetForm.tsx",
-                                                lineNumber: 167,
+                                                lineNumber: 153,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -2105,7 +2163,7 @@ const PetForm = ({ pet, token, onSaved, onClose })=>{
                                                 children: "Lapin"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/pets/components/PetForm.tsx",
-                                                lineNumber: 168,
+                                                lineNumber: 154,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -2113,7 +2171,7 @@ const PetForm = ({ pet, token, onSaved, onClose })=>{
                                                 children: "Oiseau"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/pets/components/PetForm.tsx",
-                                                lineNumber: 169,
+                                                lineNumber: 155,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -2121,13 +2179,13 @@ const PetForm = ({ pet, token, onSaved, onClose })=>{
                                                 children: "Autre"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/pets/components/PetForm.tsx",
-                                                lineNumber: 170,
+                                                lineNumber: 156,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/pets/components/PetForm.tsx",
-                                        lineNumber: 160,
+                                        lineNumber: 146,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2139,7 +2197,7 @@ const PetForm = ({ pet, token, onSaved, onClose })=>{
                                         className: "w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]"
                                     }, void 0, false, {
                                         fileName: "[project]/app/pets/components/PetForm.tsx",
-                                        lineNumber: 172,
+                                        lineNumber: 158,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2153,7 +2211,7 @@ const PetForm = ({ pet, token, onSaved, onClose })=>{
                                         min: 0
                                     }, void 0, false, {
                                         fileName: "[project]/app/pets/components/PetForm.tsx",
-                                        lineNumber: 180,
+                                        lineNumber: 166,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -2167,7 +2225,7 @@ const PetForm = ({ pet, token, onSaved, onClose })=>{
                                                 children: "Mâle"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/pets/components/PetForm.tsx",
-                                                lineNumber: 196,
+                                                lineNumber: 182,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -2175,13 +2233,13 @@ const PetForm = ({ pet, token, onSaved, onClose })=>{
                                                 children: "Femelle"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/pets/components/PetForm.tsx",
-                                                lineNumber: 197,
+                                                lineNumber: 183,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/pets/components/PetForm.tsx",
-                                        lineNumber: 190,
+                                        lineNumber: 176,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2192,7 +2250,7 @@ const PetForm = ({ pet, token, onSaved, onClose })=>{
                                         className: "w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]"
                                     }, void 0, false, {
                                         fileName: "[project]/app/pets/components/PetForm.tsx",
-                                        lineNumber: 199,
+                                        lineNumber: 185,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2206,7 +2264,7 @@ const PetForm = ({ pet, token, onSaved, onClose })=>{
                                         className: "w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]"
                                     }, void 0, false, {
                                         fileName: "[project]/app/pets/components/PetForm.tsx",
-                                        lineNumber: 206,
+                                        lineNumber: 192,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -2218,7 +2276,7 @@ const PetForm = ({ pet, token, onSaved, onClose })=>{
                                         className: "w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]"
                                     }, void 0, false, {
                                         fileName: "[project]/app/pets/components/PetForm.tsx",
-                                        lineNumber: 216,
+                                        lineNumber: 202,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -2232,7 +2290,7 @@ const PetForm = ({ pet, token, onSaved, onClose })=>{
                                                 children: "Actif"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/pets/components/PetForm.tsx",
-                                                lineNumber: 230,
+                                                lineNumber: 216,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -2240,25 +2298,25 @@ const PetForm = ({ pet, token, onSaved, onClose })=>{
                                                 children: "Inactif"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/pets/components/PetForm.tsx",
-                                                lineNumber: 231,
+                                                lineNumber: 217,
                                                 columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/pets/components/PetForm.tsx",
-                                        lineNumber: 224,
+                                        lineNumber: 210,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/pets/components/PetForm.tsx",
-                                lineNumber: 150,
+                                lineNumber: 136,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/pets/components/PetForm.tsx",
-                        lineNumber: 110,
+                        lineNumber: 98,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2271,7 +2329,7 @@ const PetForm = ({ pet, token, onSaved, onClose })=>{
                                 children: "Annuler"
                             }, void 0, false, {
                                 fileName: "[project]/app/pets/components/PetForm.tsx",
-                                lineNumber: 237,
+                                lineNumber: 223,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2283,42 +2341,42 @@ const PetForm = ({ pet, token, onSaved, onClose })=>{
                                         size: 16
                                     }, void 0, false, {
                                         fileName: "[project]/app/pets/components/PetForm.tsx",
-                                        lineNumber: 251,
+                                        lineNumber: 235,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         children: pet ? 'Enregistrer' : 'Ajouter'
                                     }, void 0, false, {
                                         fileName: "[project]/app/pets/components/PetForm.tsx",
-                                        lineNumber: 252,
+                                        lineNumber: 236,
                                         columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/pets/components/PetForm.tsx",
-                                lineNumber: 244,
+                                lineNumber: 230,
                                 columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/pets/components/PetForm.tsx",
-                        lineNumber: 236,
+                        lineNumber: 222,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/pets/components/PetForm.tsx",
-                lineNumber: 109,
+                lineNumber: 97,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/app/pets/components/PetForm.tsx",
-        lineNumber: 94,
+        lineNumber: 85,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(PetForm, "nZQv3u1riFyaqI42ZBa0qfOK0u4=");
+_s(PetForm, "GSltZo25DAcf1lNmY+trwtkKXmo=");
 _c = PetForm;
 var _c;
 __turbopack_context__.k.register(_c, "PetForm");
@@ -2384,6 +2442,9 @@ const Dashboard = ()=>{
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "grid grid-cols-1 md:grid-cols-2 gap-4",
+                style: {
+                    minHeight: '500px'
+                },
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$home$2f$components$2f$AIAssistantCard$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AIAssistantCard"], {}, void 0, false, {
                         fileName: "[project]/app/home/components/Dashboard.tsx",
@@ -3368,48 +3429,59 @@ __turbopack_context__.s([
     ()=>NutritionChart
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$chartjs$2d$2$2f$dist$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-chartjs-2/dist/index.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$chart$2e$js$2f$dist$2f$chart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__ = __turbopack_context__.i("[project]/node_modules/chart.js/dist/chart.js [app-client] (ecmascript) <locals>");
-;
-var _s = __turbopack_context__.k.signature();
 'use client';
 ;
 ;
 ;
+// Enregistrement des composants Chart.js
 __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$chart$2e$js$2f$dist$2f$chart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["Chart"].register(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$chart$2e$js$2f$dist$2f$chart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["CategoryScale"], __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$chart$2e$js$2f$dist$2f$chart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["LinearScale"], __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$chart$2e$js$2f$dist$2f$chart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["PointElement"], __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$chart$2e$js$2f$dist$2f$chart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["LineElement"], __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$chart$2e$js$2f$dist$2f$chart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["Title"], __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$chart$2e$js$2f$dist$2f$chart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["Tooltip"], __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$chart$2e$js$2f$dist$2f$chart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$locals$3e$__["Legend"]);
-const NutritionChart = ({ petId, token })=>{
-    _s();
-    const [weights, setWeights] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "NutritionChart.useEffect": ()=>{
-            const fetchWeights = {
-                "NutritionChart.useEffect.fetchWeights": async ()=>{
-                    const res = await fetch(`/api/pets/${petId}/weights`, {
-                        headers: {
-                            Authorization: `Bearer ${token}`
-                        }
-                    });
-                    const data = await res.json();
-                    if (res.ok) setWeights(data.weights);
-                }
-            }["NutritionChart.useEffect.fetchWeights"];
-            fetchWeights();
-        }
-    }["NutritionChart.useEffect"], [
-        petId,
-        token
-    ]);
-    const labels = weights.map((w)=>new Date(w.date).toLocaleDateString());
+const NutritionChart = ()=>{
     const data = {
-        labels,
+        labels: [
+            'Jan',
+            'Fév',
+            'Mar',
+            'Avr',
+            'Mai',
+            'Juin',
+            'Juil'
+        ],
         datasets: [
             {
                 label: 'Poids (kg)',
-                data: weights.map((w)=>w.weight),
+                data: [
+                    24.2,
+                    24.5,
+                    25.1,
+                    25.3,
+                    25.5,
+                    25.4,
+                    25.5
+                ],
                 borderColor: '#FFB8C2',
-                backgroundColor: 'rgba(245, 245, 220, 0.4)',
+                backgroundColor: 'rgba(245, 245, 220, 0.5)',
                 tension: 0.3
+            },
+            {
+                label: 'Poids idéal',
+                data: [
+                    24.8,
+                    24.8,
+                    24.8,
+                    24.8,
+                    24.8,
+                    24.8,
+                    24.8
+                ],
+                borderColor: '#F5F5DC',
+                backgroundColor: 'rgba(255, 184, 194, 0.5)',
+                borderDash: [
+                    5,
+                    5
+                ],
+                tension: 0
             }
         ]
     };
@@ -3419,11 +3491,16 @@ const NutritionChart = ({ petId, token })=>{
         plugins: {
             legend: {
                 position: 'top'
+            },
+            tooltip: {
+                mode: 'index',
+                intersect: false
             }
         },
         scales: {
             y: {
-                beginAtZero: false
+                min: 23,
+                max: 27
             }
         }
     };
@@ -3432,11 +3509,10 @@ const NutritionChart = ({ petId, token })=>{
         options: options
     }, void 0, false, {
         fileName: "[project]/app/nutrition/components/NutritionChart.tsx",
-        lineNumber: 64,
-        columnNumber: 10
+        lineNumber: 69,
+        columnNumber: 12
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(NutritionChart, "hrX0vv/4qv/MEutk/LyZr4DRVv4=");
 _c = NutritionChart;
 var _c;
 __turbopack_context__.k.register(_c, "NutritionChart");
@@ -3452,179 +3528,15 @@ __turbopack_context__.s([
     ()=>NutritionModule
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$utensils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__UtensilsIcon$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/utensils.js [app-client] (ecmascript) <export default as UtensilsIcon>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$scale$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ScaleIcon$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/scale.js [app-client] (ecmascript) <export default as ScaleIcon>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$clipboard$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__ClipboardIcon$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/clipboard.js [app-client] (ecmascript) <export default as ClipboardIcon>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$nutrition$2f$components$2f$NutritionChart$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/nutrition/components/NutritionChart.tsx [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2Icon$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/trash-2.js [app-client] (ecmascript) <export default as Trash2Icon>");
-;
-var _s = __turbopack_context__.k.signature();
 'use client';
 ;
 ;
 ;
-;
-const NutritionModule = ({ token })=>{
-    _s();
-    const [pets, setPets] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
-    const [selectedPetId, setSelectedPetId] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(undefined);
-    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
-    const [weights, setWeights] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
-    // Ration calculator state
-    const [weight, setWeight] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
-    const [age, setAge] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
-    const [activityLevel, setActivityLevel] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('Sédentaire');
-    const [foodType, setFoodType] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('Croquettes sèches');
-    const [recommendedRation, setRecommendedRation] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
-    // Fetch all pets
-    const fetchPets = async ()=>{
-        if (!token) return;
-        try {
-            const res = await fetch('/api/pets', {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
-            const data = await res.json();
-            if (res.ok) {
-                setPets(data.pets);
-                if (data.pets.length > 0) setSelectedPetId(data.pets[0]._id);
-            } else setPets([]);
-        } catch  {
-            setPets([]);
-        } finally{
-            setLoading(false);
-        }
-    };
-    // Fetch weights for selected pet
-    const fetchWeights = async (petId)=>{
-        if (!token) return;
-        try {
-            const res = await fetch(`/api/pets/${petId}/weights`, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
-            const data = await res.json();
-            if (res.ok) setWeights(data.weights);
-            else setWeights([]);
-        } catch  {
-            setWeights([]);
-        }
-    };
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "NutritionModule.useEffect": ()=>{
-            fetchPets();
-        }
-    }["NutritionModule.useEffect"], [
-        token
-    ]);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "NutritionModule.useEffect": ()=>{
-            if (selectedPetId) fetchWeights(selectedPetId);
-        }
-    }["NutritionModule.useEffect"], [
-        selectedPetId,
-        token
-    ]);
-    const selectedPet = pets.find((p)=>p._id === selectedPetId);
-    if (loading) {
-        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "flex items-center justify-center min-h-screen",
-            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                className: "text-gray-500 text-lg",
-                children: "Chargement des animaux..."
-            }, void 0, false, {
-                fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                lineNumber: 89,
-                columnNumber: 9
-            }, ("TURBOPACK compile-time value", void 0))
-        }, void 0, false, {
-            fileName: "[project]/app/nutrition/NutritionModule.tsx",
-            lineNumber: 88,
-            columnNumber: 7
-        }, ("TURBOPACK compile-time value", void 0));
-    }
-    if (!selectedPet) {
-        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-            className: "text-gray-500",
-            children: "Vous n'avez aucun animal enregistré."
-        }, void 0, false, {
-            fileName: "[project]/app/nutrition/NutritionModule.tsx",
-            lineNumber: 95,
-            columnNumber: 12
-        }, ("TURBOPACK compile-time value", void 0));
-    }
-    // Add weight (currently disabled in UI)
-    const handleAddWeight = async ()=>{
-        const newWeight = prompt(`Entrer le nouveau poids de ${selectedPet.name} (kg):`);
-        if (!newWeight) return;
-        try {
-            const res = await fetch(`/api/pets/${selectedPet._id}/weights`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${token}`
-                },
-                body: JSON.stringify({
-                    weight: Number(newWeight)
-                })
-            });
-            const data = await res.json();
-            if (res.ok) {
-                alert('✅ Mesure ajoutée avec succès !');
-                fetchWeights(selectedPet._id); // refresh weights
-            } else alert(`Erreur: ${data.error}`);
-        } catch  {
-            alert('Erreur lors de l’ajout de la mesure.');
-        }
-    };
-    // Delete weight
-    const handleDeleteWeight = async (weightId)=>{
-        if (!token) return;
-        if (!confirm("Voulez-vous vraiment supprimer cette mesure ?")) return;
-        try {
-            const res = await fetch(`/api/pets/${selectedPet._id}/weights`, {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${token}`
-                },
-                body: JSON.stringify({
-                    weightId
-                })
-            });
-            const data = await res.json();
-            if (res.ok) {
-                alert('Mesure supprimée avec succès !');
-                fetchWeights(selectedPet._id); // refresh weights
-            } else alert(`Erreur: ${data.error}`);
-        } catch  {
-            alert('Erreur lors de la suppression de la mesure.');
-        }
-    };
-    // Simple ration calculation
-    const calculateRation = (e)=>{
-        e.preventDefault();
-        if (!weight || !age) return;
-        let factor = 1;
-        switch(activityLevel){
-            case 'Sédentaire':
-                factor = 0.8;
-                break;
-            case 'Modéré':
-                factor = 1;
-                break;
-            case 'Actif':
-                factor = 1.2;
-                break;
-            case 'Très actif':
-                factor = 1.4;
-                break;
-        }
-        const ration = weight * factor * 10;
-        setRecommendedRation(`${ration.toFixed(0)} g/jour (${foodType})`);
-    };
+const NutritionModule = ()=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "space-y-6",
         children: [
@@ -3633,82 +3545,37 @@ const NutritionModule = ({ token })=>{
                 children: "Module Nutrition"
             }, void 0, false, {
                 fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                lineNumber: 171,
-                columnNumber: 7
-            }, ("TURBOPACK compile-time value", void 0)),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "mb-6",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                        className: "block text-gray-700 font-medium mb-2",
-                        children: "Choisir un animal :"
-                    }, void 0, false, {
-                        fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                        lineNumber: 175,
-                        columnNumber: 9
-                    }, ("TURBOPACK compile-time value", void 0)),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
-                        value: selectedPetId || '',
-                        onChange: (e)=>setSelectedPetId(e.target.value),
-                        className: "w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]",
-                        children: pets.map((pet)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                value: pet._id,
-                                children: [
-                                    pet.name,
-                                    " (",
-                                    pet.breed,
-                                    ")"
-                                ]
-                            }, pet._id, true, {
-                                fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                lineNumber: 182,
-                                columnNumber: 13
-                            }, ("TURBOPACK compile-time value", void 0)))
-                    }, void 0, false, {
-                        fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                        lineNumber: 176,
-                        columnNumber: 9
-                    }, ("TURBOPACK compile-time value", void 0))
-                ]
-            }, void 0, true, {
-                fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                lineNumber: 174,
-                columnNumber: 7
+                lineNumber: 15,
+                columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "bg-white p-6 rounded-xl shadow-sm border border-gray-200",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                         className: "text-lg font-semibold text-gray-800 mb-4",
-                        children: [
-                            "Évolution du poids de ",
-                            selectedPet.name
-                        ]
-                    }, void 0, true, {
+                        children: "Évolution du poids"
+                    }, void 0, false, {
                         fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                        lineNumber: 191,
-                        columnNumber: 9
+                        lineNumber: 18,
+                        columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "h-64 w-full",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$nutrition$2f$components$2f$NutritionChart$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NutritionChart"], {
-                            petId: selectedPet._id,
-                            token: token
-                        }, void 0, false, {
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$nutrition$2f$components$2f$NutritionChart$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NutritionChart"], {}, void 0, false, {
                             fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                            lineNumber: 195,
-                            columnNumber: 11
+                            lineNumber: 22,
+                            columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                        lineNumber: 194,
-                        columnNumber: 9
+                        lineNumber: 21,
+                        columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                lineNumber: 190,
-                columnNumber: 7
+                lineNumber: 17,
+                columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "grid grid-cols-1 md:grid-cols-3 gap-4",
@@ -3726,137 +3593,106 @@ const NutritionModule = ({ token })=>{
                                             className: "text-white"
                                         }, void 0, false, {
                                             fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                            lineNumber: 205,
-                                            columnNumber: 15
+                                            lineNumber: 30,
+                                            columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                        lineNumber: 204,
-                                        columnNumber: 13
+                                        lineNumber: 29,
+                                        columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                                         className: "text-lg font-semibold text-gray-800",
                                         children: "Suivi du poids"
                                     }, void 0, false, {
                                         fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                        lineNumber: 207,
-                                        columnNumber: 13
+                                        lineNumber: 32,
+                                        columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                lineNumber: 203,
-                                columnNumber: 11
+                                lineNumber: 28,
+                                columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 className: "text-gray-600 mb-4",
-                                children: [
-                                    "Enregistrez et suivez l'évolution du poids de ",
-                                    selectedPet.name,
-                                    "."
-                                ]
-                            }, void 0, true, {
+                                children: "Enregistrez et suivez l'évolution du poids de votre animal"
+                            }, void 0, false, {
                                 fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                lineNumber: 209,
-                                columnNumber: 11
+                                lineNumber: 36,
+                                columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "mb-4",
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                        className: "text-[#FFB8C2] font-medium cursor-not-allowed opacity-50",
-                                        children: "Ajouter une mesure"
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                        lineNumber: 215,
-                                        columnNumber: 13
-                                    }, ("TURBOPACK compile-time value", void 0)),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
-                                        className: "block text-sm font-medium text-gray-700 mb-1",
-                                        children: "Nouveau poids (kg)"
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                        lineNumber: 218,
-                                        columnNumber: 13
-                                    }, ("TURBOPACK compile-time value", void 0)),
-                                    "','",
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                        type: "number",
-                                        className: "w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]",
-                                        value: weight,
-                                        onChange: (e)=>setWeight(Number(e.target.value)),
-                                        placeholder: `Poids de ${selectedPet.name}`
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                        lineNumber: 221,
-                                        columnNumber: 13
-                                    }, ("TURBOPACK compile-time value", void 0))
-                                ]
-                            }, void 0, true, {
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                className: "text-[#FFB8C2] font-medium hover:underline",
+                                children: "Ajouter une mesure"
+                            }, void 0, false, {
                                 fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                lineNumber: 214,
-                                columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0)),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "mt-4 space-y-1",
-                                children: [
-                                    weights.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-gray-500",
-                                        children: "Aucune mesure enregistrée."
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                        lineNumber: 233,
-                                        columnNumber: 28
-                                    }, ("TURBOPACK compile-time value", void 0)),
-                                    weights.map((w)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            className: "flex justify-between items-center border-b py-1",
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    className: "text-gray-500",
-                                                    children: [
-                                                        new Date(w.date).toLocaleDateString(),
-                                                        ": ",
-                                                        w.weight,
-                                                        " kg"
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                                    lineNumber: 236,
-                                                    columnNumber: 7
-                                                }, ("TURBOPACK compile-time value", void 0)),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                                    onClick: ()=>handleDeleteWeight(w._id),
-                                                    className: "text-red-500 hover:text-red-700 p-1 rounded",
-                                                    title: "Supprimer la mesure",
-                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2d$2$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2Icon$3e$__["Trash2Icon"], {
-                                                        size: 16
-                                                    }, void 0, false, {
-                                                        fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                                        lineNumber: 242,
-                                                        columnNumber: 9
-                                                    }, ("TURBOPACK compile-time value", void 0))
-                                                }, void 0, false, {
-                                                    fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                                    lineNumber: 237,
-                                                    columnNumber: 7
-                                                }, ("TURBOPACK compile-time value", void 0))
-                                            ]
-                                        }, w._id, true, {
-                                            fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                            lineNumber: 235,
-                                            columnNumber: 5
-                                        }, ("TURBOPACK compile-time value", void 0)))
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                lineNumber: 232,
-                                columnNumber: 1
+                                lineNumber: 39,
+                                columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                        lineNumber: 202,
-                        columnNumber: 9
+                        lineNumber: 27,
+                        columnNumber: 17
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex items-center mb-4",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "p-2 bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] rounded-full mr-3",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$utensils$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__UtensilsIcon$3e$__["UtensilsIcon"], {
+                                            size: 24,
+                                            className: "text-white"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/nutrition/NutritionModule.tsx",
+                                            lineNumber: 46,
+                                            columnNumber: 29
+                                        }, ("TURBOPACK compile-time value", void 0))
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/nutrition/NutritionModule.tsx",
+                                        lineNumber: 45,
+                                        columnNumber: 25
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                        className: "text-lg font-semibold text-gray-800",
+                                        children: "Calculateur de rations"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/nutrition/NutritionModule.tsx",
+                                        lineNumber: 48,
+                                        columnNumber: 25
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/nutrition/NutritionModule.tsx",
+                                lineNumber: 44,
+                                columnNumber: 21
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-gray-600 mb-4",
+                                children: "Calculez la quantité idéale de nourriture selon l'âge et l'activité"
+                            }, void 0, false, {
+                                fileName: "[project]/app/nutrition/NutritionModule.tsx",
+                                lineNumber: 52,
+                                columnNumber: 21
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                className: "text-[#FFB8C2] font-medium hover:underline",
+                                children: "Calculer"
+                            }, void 0, false, {
+                                fileName: "[project]/app/nutrition/NutritionModule.tsx",
+                                lineNumber: 55,
+                                columnNumber: 21
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/nutrition/NutritionModule.tsx",
+                        lineNumber: 43,
+                        columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow",
@@ -3871,59 +3707,55 @@ const NutritionModule = ({ token })=>{
                                             className: "text-white"
                                         }, void 0, false, {
                                             fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                            lineNumber: 255,
-                                            columnNumber: 15
+                                            lineNumber: 62,
+                                            columnNumber: 29
                                         }, ("TURBOPACK compile-time value", void 0))
                                     }, void 0, false, {
                                         fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                        lineNumber: 254,
-                                        columnNumber: 13
+                                        lineNumber: 61,
+                                        columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                                         className: "text-lg font-semibold text-gray-800",
                                         children: "Recommandations"
                                     }, void 0, false, {
                                         fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                        lineNumber: 257,
-                                        columnNumber: 13
+                                        lineNumber: 64,
+                                        columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                lineNumber: 253,
-                                columnNumber: 11
+                                lineNumber: 60,
+                                columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 className: "text-gray-600 mb-4",
-                                children: [
-                                    "Recevez des conseils nutritionnels personnalisés pour ",
-                                    selectedPet.name,
-                                    "."
-                                ]
-                            }, void 0, true, {
+                                children: "Recevez des conseils nutritionnels personnalisés"
+                            }, void 0, false, {
                                 fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                lineNumber: 259,
-                                columnNumber: 11
+                                lineNumber: 68,
+                                columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 className: "text-[#FFB8C2] font-medium hover:underline",
                                 children: "Consulter"
                             }, void 0, false, {
                                 fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                lineNumber: 262,
-                                columnNumber: 11
+                                lineNumber: 71,
+                                columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                        lineNumber: 252,
-                        columnNumber: 9
+                        lineNumber: 59,
+                        columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                lineNumber: 200,
-                columnNumber: 7
+                lineNumber: 26,
+                columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "bg-white p-6 rounded-xl shadow-sm border border-gray-200",
@@ -3933,12 +3765,11 @@ const NutritionModule = ({ token })=>{
                         children: "Calculateur de rations"
                     }, void 0, false, {
                         fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                        lineNumber: 268,
-                        columnNumber: 9
+                        lineNumber: 78,
+                        columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
                         className: "space-y-4",
-                        onSubmit: calculateRation,
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "grid grid-cols-1 md:grid-cols-2 gap-4",
@@ -3950,24 +3781,23 @@ const NutritionModule = ({ token })=>{
                                                 children: "Poids actuel (kg)"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                                lineNumber: 272,
-                                                columnNumber: 15
+                                                lineNumber: 84,
+                                                columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                                 type: "number",
                                                 className: "w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]",
-                                                value: weight,
-                                                onChange: (e)=>setWeight(Number(e.target.value))
+                                                placeholder: "25.5"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                                lineNumber: 275,
-                                                columnNumber: 15
+                                                lineNumber: 87,
+                                                columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                        lineNumber: 271,
-                                        columnNumber: 13
+                                        lineNumber: 83,
+                                        columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         children: [
@@ -3976,24 +3806,23 @@ const NutritionModule = ({ token })=>{
                                                 children: "Âge"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                                lineNumber: 283,
-                                                columnNumber: 15
+                                                lineNumber: 94,
+                                                columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                                 type: "number",
                                                 className: "w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]",
-                                                value: age,
-                                                onChange: (e)=>setAge(Number(e.target.value))
+                                                placeholder: "3"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                                lineNumber: 284,
-                                                columnNumber: 15
+                                                lineNumber: 97,
+                                                columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                        lineNumber: 282,
-                                        columnNumber: 13
+                                        lineNumber: 93,
+                                        columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         children: [
@@ -4002,53 +3831,51 @@ const NutritionModule = ({ token })=>{
                                                 children: "Niveau d'activité"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                                lineNumber: 292,
-                                                columnNumber: 15
+                                                lineNumber: 104,
+                                                columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
                                                 className: "w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]",
-                                                value: activityLevel,
-                                                onChange: (e)=>setActivityLevel(e.target.value),
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         children: "Sédentaire"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                                        lineNumber: 300,
-                                                        columnNumber: 17
+                                                        lineNumber: 108,
+                                                        columnNumber: 33
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         children: "Modéré"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                                        lineNumber: 301,
-                                                        columnNumber: 17
+                                                        lineNumber: 109,
+                                                        columnNumber: 33
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         children: "Actif"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                                        lineNumber: 302,
-                                                        columnNumber: 17
+                                                        lineNumber: 110,
+                                                        columnNumber: 33
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         children: "Très actif"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                                        lineNumber: 303,
-                                                        columnNumber: 17
+                                                        lineNumber: 111,
+                                                        columnNumber: 33
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                                lineNumber: 295,
-                                                columnNumber: 15
+                                                lineNumber: 107,
+                                                columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                        lineNumber: 291,
-                                        columnNumber: 13
+                                        lineNumber: 103,
+                                        columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         children: [
@@ -4057,59 +3884,57 @@ const NutritionModule = ({ token })=>{
                                                 children: "Type d'alimentation"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                                lineNumber: 307,
-                                                columnNumber: 15
+                                                lineNumber: 115,
+                                                columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
                                                 className: "w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]",
-                                                value: foodType,
-                                                onChange: (e)=>setFoodType(e.target.value),
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         children: "Croquettes sèches"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                                        lineNumber: 315,
-                                                        columnNumber: 17
+                                                        lineNumber: 119,
+                                                        columnNumber: 33
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         children: "Nourriture humide"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                                        lineNumber: 316,
-                                                        columnNumber: 17
+                                                        lineNumber: 120,
+                                                        columnNumber: 33
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         children: "Alimentation mixte"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                                        lineNumber: 317,
-                                                        columnNumber: 17
+                                                        lineNumber: 121,
+                                                        columnNumber: 33
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         children: "BARF / Raw feeding"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                                        lineNumber: 318,
-                                                        columnNumber: 17
+                                                        lineNumber: 122,
+                                                        columnNumber: 33
                                                     }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                                lineNumber: 310,
-                                                columnNumber: 15
+                                                lineNumber: 118,
+                                                columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                        lineNumber: 306,
-                                        columnNumber: 13
+                                        lineNumber: 114,
+                                        columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                lineNumber: 270,
-                                columnNumber: 11
+                                lineNumber: 82,
+                                columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 type: "submit",
@@ -4117,40 +3942,161 @@ const NutritionModule = ({ token })=>{
                                 children: "Calculer la ration"
                             }, void 0, false, {
                                 fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                                lineNumber: 322,
-                                columnNumber: 11
+                                lineNumber: 126,
+                                columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                        lineNumber: 269,
-                        columnNumber: 9
-                    }, ("TURBOPACK compile-time value", void 0)),
-                    recommendedRation && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "mt-3 text-gray-700 font-medium",
-                        children: [
-                            "Ration recommandée: ",
-                            recommendedRation
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                        lineNumber: 330,
-                        columnNumber: 11
+                        lineNumber: 81,
+                        columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/nutrition/NutritionModule.tsx",
-                lineNumber: 267,
-                columnNumber: 7
+                lineNumber: 77,
+                columnNumber: 13
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "bg-white p-6 rounded-xl shadow-sm border border-gray-200",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                        className: "text-lg font-semibold text-gray-800 mb-4",
+                        children: "Régime alimentaire actuel"
+                    }, void 0, false, {
+                        fileName: "[project]/app/nutrition/NutritionModule.tsx",
+                        lineNumber: 136,
+                        columnNumber: 17
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "space-y-4",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex justify-between items-center border-b pb-3",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "font-medium text-gray-800",
+                                                children: "Royal Canin Medium Adult"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/nutrition/NutritionModule.tsx",
+                                                lineNumber: 142,
+                                                columnNumber: 29
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-sm text-gray-500",
+                                                children: "Croquettes premium pour chiens adultes"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/nutrition/NutritionModule.tsx",
+                                                lineNumber: 145,
+                                                columnNumber: 29
+                                            }, ("TURBOPACK compile-time value", void 0))
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/nutrition/NutritionModule.tsx",
+                                        lineNumber: 141,
+                                        columnNumber: 25
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "text-xl font-semibold text-gray-800",
+                                        children: "300g/jour"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/nutrition/NutritionModule.tsx",
+                                        lineNumber: 149,
+                                        columnNumber: 25
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/nutrition/NutritionModule.tsx",
+                                lineNumber: 140,
+                                columnNumber: 21
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex justify-between items-center border-b pb-3",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "font-medium text-gray-800",
+                                                children: "Compléments oméga-3"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/nutrition/NutritionModule.tsx",
+                                                lineNumber: 153,
+                                                columnNumber: 29
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-sm text-gray-500",
+                                                children: "Huile de poisson"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/nutrition/NutritionModule.tsx",
+                                                lineNumber: 154,
+                                                columnNumber: 29
+                                            }, ("TURBOPACK compile-time value", void 0))
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/nutrition/NutritionModule.tsx",
+                                        lineNumber: 152,
+                                        columnNumber: 25
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "text-xl font-semibold text-gray-800",
+                                        children: "5ml/jour"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/nutrition/NutritionModule.tsx",
+                                        lineNumber: 156,
+                                        columnNumber: 25
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/nutrition/NutritionModule.tsx",
+                                lineNumber: 151,
+                                columnNumber: 21
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "pt-2",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    className: "text-sm text-gray-600",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "font-medium",
+                                            children: "Recommandation :"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/nutrition/NutritionModule.tsx",
+                                            lineNumber: 160,
+                                            columnNumber: 29
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        " Ce régime est adapté pour maintenir le poids actuel et assurer une bonne santé du pelage."
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/app/nutrition/NutritionModule.tsx",
+                                    lineNumber: 159,
+                                    columnNumber: 25
+                                }, ("TURBOPACK compile-time value", void 0))
+                            }, void 0, false, {
+                                fileName: "[project]/app/nutrition/NutritionModule.tsx",
+                                lineNumber: 158,
+                                columnNumber: 21
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/nutrition/NutritionModule.tsx",
+                        lineNumber: 139,
+                        columnNumber: 17
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/nutrition/NutritionModule.tsx",
+                lineNumber: 135,
+                columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/app/nutrition/NutritionModule.tsx",
-        lineNumber: 170,
-        columnNumber: 5
+        lineNumber: 14,
+        columnNumber: 9
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(NutritionModule, "xW07LaUP7m3K/9Y45h8Gg5FHvK4=");
 _c = NutritionModule;
 var _c;
 __turbopack_context__.k.register(_c, "NutritionModule");
@@ -5124,13 +5070,12 @@ __turbopack_context__.s([
     ()=>AdoptionCard
 ]);
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$heart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__HeartIcon$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/heart.js [app-client] (ecmascript) <export default as HeartIcon>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$map$2d$pin$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__MapPinIcon$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/map-pin.js [app-client] (ecmascript) <export default as MapPinIcon>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$bs$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-icons/bs/index.mjs [app-client] (ecmascript)");
 'use client';
 ;
 ;
-;
-const AdoptionCard = ({ name, type, breed, age, gender, location, distance, image, isFavorite, onToggleFavorite })=>{
+const AdoptionCard = ({ name, type, breed, age, gender, location, distance, image })=>{
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow",
         children: [
@@ -5143,24 +5088,23 @@ const AdoptionCard = ({ name, type, breed, age, gender, location, distance, imag
                         className: "w-full h-full object-cover"
                     }, void 0, false, {
                         fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
-                        lineNumber: 28,
-                        columnNumber: 9
+                        lineNumber: 30,
+                        columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        onClick: onToggleFavorite,
                         className: "absolute top-2 right-2 p-1.5 bg-white/80 rounded-full hover:bg-white",
-                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$bs$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["BsHeartFill"], {
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$heart$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__HeartIcon$3e$__["HeartIcon"], {
                             size: 20,
-                            className: `${isFavorite ? 'text-red-500' : 'text-gray-500 hover:text-red-500'}`
+                            className: "text-gray-500 hover:text-red-500"
                         }, void 0, false, {
                             fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
-                            lineNumber: 33,
-                            columnNumber: 11
+                            lineNumber: 32,
+                            columnNumber: 21
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
-                        lineNumber: 29,
-                        columnNumber: 9
+                        lineNumber: 31,
+                        columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3",
@@ -5170,28 +5114,28 @@ const AdoptionCard = ({ name, type, breed, age, gender, location, distance, imag
                                 children: name
                             }, void 0, false, {
                                 fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
-                                lineNumber: 41,
-                                columnNumber: 11
+                                lineNumber: 35,
+                                columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 className: "text-sm text-white/90",
                                 children: breed
                             }, void 0, false, {
                                 fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
-                                lineNumber: 42,
-                                columnNumber: 11
+                                lineNumber: 36,
+                                columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
-                        lineNumber: 40,
-                        columnNumber: 9
+                        lineNumber: 34,
+                        columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
-                lineNumber: 27,
-                columnNumber: 7
+                lineNumber: 29,
+                columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "p-4",
@@ -5207,36 +5151,36 @@ const AdoptionCard = ({ name, type, breed, age, gender, location, distance, imag
                                         children: type
                                     }, void 0, false, {
                                         fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
-                                        lineNumber: 48,
-                                        columnNumber: 13
+                                        lineNumber: 42,
+                                        columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full",
                                         children: gender
                                     }, void 0, false, {
                                         fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
-                                        lineNumber: 51,
-                                        columnNumber: 13
+                                        lineNumber: 45,
+                                        columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
-                                lineNumber: 47,
-                                columnNumber: 11
+                                lineNumber: 41,
+                                columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: "text-sm text-gray-500",
                                 children: age
                             }, void 0, false, {
                                 fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
-                                lineNumber: 55,
-                                columnNumber: 11
+                                lineNumber: 49,
+                                columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
-                        lineNumber: 46,
-                        columnNumber: 9
+                        lineNumber: 40,
+                        columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex items-center text-sm text-gray-500 mb-4",
@@ -5246,56 +5190,56 @@ const AdoptionCard = ({ name, type, breed, age, gender, location, distance, imag
                                 className: "mr-1"
                             }, void 0, false, {
                                 fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
-                                lineNumber: 58,
-                                columnNumber: 11
+                                lineNumber: 52,
+                                columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 children: location
                             }, void 0, false, {
                                 fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
-                                lineNumber: 59,
-                                columnNumber: 11
+                                lineNumber: 53,
+                                columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: "mx-1",
                                 children: "•"
                             }, void 0, false, {
                                 fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
-                                lineNumber: 60,
-                                columnNumber: 11
+                                lineNumber: 54,
+                                columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 children: distance
                             }, void 0, false, {
                                 fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
-                                lineNumber: 61,
-                                columnNumber: 11
+                                lineNumber: 55,
+                                columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
-                        lineNumber: 57,
-                        columnNumber: 9
+                        lineNumber: 51,
+                        columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                         className: "w-full py-2 bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] text-white rounded-md hover:from-[#FFB8C2] hover:to-[#F5F5DC] transition-colors",
                         children: "Voir le profil"
                     }, void 0, false, {
                         fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
-                        lineNumber: 63,
-                        columnNumber: 9
+                        lineNumber: 57,
+                        columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
-                lineNumber: 45,
-                columnNumber: 7
+                lineNumber: 39,
+                columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
-        lineNumber: 26,
-        columnNumber: 5
+        lineNumber: 28,
+        columnNumber: 9
     }, ("TURBOPACK compile-time value", void 0));
 };
 _c = AdoptionCard;
@@ -5317,59 +5261,15 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$search$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__SearchIcon$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/search.js [app-client] (ecmascript) <export default as SearchIcon>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$funnel$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__FilterIcon$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/funnel.js [app-client] (ecmascript) <export default as FilterIcon>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$adoption$2f$components$2f$AdoptionCard$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/adoption/components/AdoptionCard.tsx [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$bs$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/react-icons/bs/index.mjs [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 'use client';
 ;
 ;
 ;
-;
 const AdoptionModule = ()=>{
     _s();
     const [filterOpen, setFilterOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [showFavoritesOnly, setShowFavoritesOnly] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [searchTerm, setSearchTerm] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
-    const [pets, setPets] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
-    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
-    const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
-    const [favorites, setFavorites] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
-        "AdoptionModule.useEffect": ()=>{
-            const fetchPets = {
-                "AdoptionModule.useEffect.fetchPets": async ()=>{
-                    try {
-                        const res = await fetch('/api/adoption');
-                        if (!res.ok) throw new Error('Erreur lors du chargement des animaux');
-                        const data = await res.json();
-                        setPets(data);
-                    } catch (err) {
-                        setError(err.message);
-                    } finally{
-                        setLoading(false);
-                    }
-                }
-            }["AdoptionModule.useEffect.fetchPets"];
-            fetchPets();
-            // Charger les favoris depuis localStorage
-            const savedFavs = localStorage.getItem('favorites');
-            if (savedFavs) setFavorites(JSON.parse(savedFavs));
-        }
-    }["AdoptionModule.useEffect"], []);
-    const toggleFavorite = (petId)=>{
-        let updated;
-        if (favorites.includes(petId)) {
-            updated = favorites.filter((id)=>id !== petId);
-        } else {
-            updated = [
-                ...favorites,
-                petId
-            ];
-        }
-        setFavorites(updated);
-        localStorage.setItem('favorites', JSON.stringify(updated));
-    };
-    const displayedPets = pets.filter((pet)=>pet.name.toLowerCase().includes(searchTerm.toLowerCase()) || pet.breed.toLowerCase().includes(searchTerm.toLowerCase())).filter((pet)=>showFavoritesOnly ? favorites.includes(pet.id) : true);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "space-y-6",
         children: [
@@ -5378,50 +5278,48 @@ const AdoptionModule = ()=>{
                 children: "Module Adoption"
             }, void 0, false, {
                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                lineNumber: 58,
-                columnNumber: 7
+                lineNumber: 12,
+                columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "bg-white p-4 rounded-xl shadow-sm border border-gray-200 flex flex-col md:flex-row gap-4 items-center justify-between",
+                className: "bg-white p-4 rounded-xl shadow-sm border border-gray-200",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "relative flex-1",
+                        className: "flex flex-col md:flex-row gap-4",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "absolute inset-y-0 left-0 flex items-center pl-3",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$search$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__SearchIcon$3e$__["SearchIcon"], {
-                                    size: 18,
-                                    className: "text-gray-400"
-                                }, void 0, false, {
-                                    fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                    lineNumber: 64,
-                                    columnNumber: 13
-                                }, ("TURBOPACK compile-time value", void 0))
-                            }, void 0, false, {
+                                className: "relative flex-1",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "absolute inset-y-0 left-0 flex items-center pl-3",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$search$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__SearchIcon$3e$__["SearchIcon"], {
+                                            size: 18,
+                                            className: "text-gray-400"
+                                        }, void 0, false, {
+                                            fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                            lineNumber: 18,
+                                            columnNumber: 29
+                                        }, ("TURBOPACK compile-time value", void 0))
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                        lineNumber: 17,
+                                        columnNumber: 25
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "text",
+                                        placeholder: "Rechercher un animal...",
+                                        className: "w-full py-2 pl-10 pr-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                        lineNumber: 20,
+                                        columnNumber: 25
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                ]
+                            }, void 0, true, {
                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                lineNumber: 63,
-                                columnNumber: 11
+                                lineNumber: 16,
+                                columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                type: "text",
-                                placeholder: "Rechercher un animal...",
-                                value: searchTerm,
-                                onChange: (e)=>setSearchTerm(e.target.value),
-                                className: "w-full py-2 pl-10 pr-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]"
-                            }, void 0, false, {
-                                fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                lineNumber: 66,
-                                columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0))
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                        lineNumber: 62,
-                        columnNumber: 9
-                    }, ("TURBOPACK compile-time value", void 0)),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex gap-2",
-                        children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 className: "flex items-center justify-center space-x-2 px-4 py-2 bg-white border border-gray-300 rounded-md hover:bg-gray-50",
                                 onClick: ()=>setFilterOpen(!filterOpen),
@@ -5430,140 +5328,416 @@ const AdoptionModule = ()=>{
                                         size: 18
                                     }, void 0, false, {
                                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                        lineNumber: 80,
-                                        columnNumber: 13
+                                        lineNumber: 30,
+                                        columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         children: "Filtres"
                                     }, void 0, false, {
                                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                        lineNumber: 81,
-                                        columnNumber: 13
+                                        lineNumber: 31,
+                                        columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                lineNumber: 76,
-                                columnNumber: 11
-                            }, ("TURBOPACK compile-time value", void 0)),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                                className: `flex items-center justify-center px-4 py-2 border rounded-md ${showFavoritesOnly ? 'bg-pink-100 border-pink-400' : 'bg-white border-gray-300 hover:bg-gray-50'}`,
-                                onClick: ()=>setShowFavoritesOnly(!showFavoritesOnly),
-                                children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$react$2d$icons$2f$bs$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["BsHeartFill"], {
-                                        size: 18,
-                                        className: `${showFavoritesOnly ? 'text-red-500' : 'text-gray-500'}`
-                                    }, void 0, false, {
-                                        fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                        lineNumber: 92,
-                                        columnNumber: 13
-                                    }, ("TURBOPACK compile-time value", void 0)),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {}, void 0, false, {
-                                        fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                        lineNumber: 96,
-                                        columnNumber: 13
-                                    }, ("TURBOPACK compile-time value", void 0))
-                                ]
-                            }, void 0, true, {
-                                fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                lineNumber: 84,
-                                columnNumber: 11
+                                lineNumber: 26,
+                                columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                        lineNumber: 75,
-                        columnNumber: 9
-                    }, ("TURBOPACK compile-time value", void 0))
-                ]
-            }, void 0, true, {
-                fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                lineNumber: 61,
-                columnNumber: 7
-            }, ("TURBOPACK compile-time value", void 0)),
-            loading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                children: "Chargement des animaux..."
-            }, void 0, false, {
-                fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                lineNumber: 102,
-                columnNumber: 19
-            }, ("TURBOPACK compile-time value", void 0)),
-            error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                className: "text-red-500",
-                children: error
-            }, void 0, false, {
-                fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                lineNumber: 103,
-                columnNumber: 17
-            }, ("TURBOPACK compile-time value", void 0)),
-            !loading && !error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6",
-                children: [
-                    displayedPets.map((pet)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$adoption$2f$components$2f$AdoptionCard$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AdoptionCard"], {
-                            ...pet,
-                            isFavorite: favorites.includes(pet.id),
-                            onToggleFavorite: ()=>toggleFavorite(pet.id)
-                        }, pet.id, false, {
-                            fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                            lineNumber: 108,
-                            columnNumber: 13
-                        }, ("TURBOPACK compile-time value", void 0))),
-                    displayedPets.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "text-gray-500 col-span-full text-center mt-4",
-                        children: "Aucun animal à afficher"
-                    }, void 0, false, {
+                        lineNumber: 15,
+                        columnNumber: 17
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    filterOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "grid grid-cols-1 md:grid-cols-4 gap-4 mt-4 pt-4 border-t",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "block text-sm font-medium text-gray-700 mb-1",
+                                        children: "Type d'animal"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                        lineNumber: 37,
+                                        columnNumber: 29
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                        className: "w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "",
+                                                children: "Tous"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                                lineNumber: 41,
+                                                columnNumber: 33
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "dog",
+                                                children: "Chien"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                                lineNumber: 42,
+                                                columnNumber: 33
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "cat",
+                                                children: "Chat"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                                lineNumber: 43,
+                                                columnNumber: 33
+                                            }, ("TURBOPACK compile-time value", void 0))
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                        lineNumber: 40,
+                                        columnNumber: 29
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                lineNumber: 36,
+                                columnNumber: 25
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "block text-sm font-medium text-gray-700 mb-1",
+                                        children: "Âge"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                        lineNumber: 47,
+                                        columnNumber: 29
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                        className: "w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "",
+                                                children: "Tous"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                                lineNumber: 51,
+                                                columnNumber: 33
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "baby",
+                                                children: "Bébé"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                                lineNumber: 52,
+                                                columnNumber: 33
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "young",
+                                                children: "Jeune"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                                lineNumber: 53,
+                                                columnNumber: 33
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "adult",
+                                                children: "Adulte"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                                lineNumber: 54,
+                                                columnNumber: 33
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "senior",
+                                                children: "Sénior"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                                lineNumber: 55,
+                                                columnNumber: 33
+                                            }, ("TURBOPACK compile-time value", void 0))
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                        lineNumber: 50,
+                                        columnNumber: 29
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                lineNumber: 46,
+                                columnNumber: 25
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "block text-sm font-medium text-gray-700 mb-1",
+                                        children: "Taille"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                        lineNumber: 59,
+                                        columnNumber: 29
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                        className: "w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "",
+                                                children: "Toutes"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                                lineNumber: 63,
+                                                columnNumber: 33
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "small",
+                                                children: "Petit"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                                lineNumber: 64,
+                                                columnNumber: 33
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "medium",
+                                                children: "Moyen"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                                lineNumber: 65,
+                                                columnNumber: 33
+                                            }, ("TURBOPACK compile-time value", void 0)),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                value: "large",
+                                                children: "Grand"
+                                            }, void 0, false, {
+                                                fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                                lineNumber: 66,
+                                                columnNumber: 33
+                                            }, ("TURBOPACK compile-time value", void 0))
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                        lineNumber: 62,
+                                        columnNumber: 29
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                lineNumber: 58,
+                                columnNumber: 25
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "block text-sm font-medium text-gray-700 mb-1",
+                                        children: "Localisation"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                        lineNumber: 70,
+                                        columnNumber: 29
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "text",
+                                        placeholder: "Code postal ou ville",
+                                        className: "w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]"
+                                    }, void 0, false, {
+                                        fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                        lineNumber: 73,
+                                        columnNumber: 29
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                lineNumber: 69,
+                                columnNumber: 25
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "md:col-span-4 flex justify-end",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    className: "px-4 py-2 bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] text-white rounded-md hover:from-[#FFB8C2] hover:to-[#F5F5DC]",
+                                    children: "Appliquer les filtres"
+                                }, void 0, false, {
+                                    fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                    lineNumber: 80,
+                                    columnNumber: 29
+                                }, ("TURBOPACK compile-time value", void 0))
+                            }, void 0, false, {
+                                fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                lineNumber: 79,
+                                columnNumber: 25
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, void 0, true, {
                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                        lineNumber: 116,
-                        columnNumber: 13
+                        lineNumber: 35,
+                        columnNumber: 21
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                lineNumber: 106,
-                columnNumber: 9
+                lineNumber: 14,
+                columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "bg-white p-6 rounded-xl shadow-sm border border-gray-200 mt-8",
+                className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$adoption$2f$components$2f$AdoptionCard$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AdoptionCard"], {
+                        name: "Luna",
+                        type: "Chien",
+                        breed: "Berger Allemand",
+                        age: "2 ans",
+                        gender: "Femelle",
+                        location: "Paris",
+                        distance: "5 km",
+                        image: "https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                    }, void 0, false, {
+                        fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                        lineNumber: 89,
+                        columnNumber: 17
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$adoption$2f$components$2f$AdoptionCard$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AdoptionCard"], {
+                        name: "Oscar",
+                        type: "Chat",
+                        breed: "Européen",
+                        age: "1 an",
+                        gender: "Mâle",
+                        location: "Lyon",
+                        distance: "10 km",
+                        image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                    }, void 0, false, {
+                        fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                        lineNumber: 99,
+                        columnNumber: 17
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$adoption$2f$components$2f$AdoptionCard$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AdoptionCard"], {
+                        name: "Rex",
+                        type: "Chien",
+                        breed: "Labrador",
+                        age: "4 ans",
+                        gender: "Mâle",
+                        location: "Marseille",
+                        distance: "8 km",
+                        image: "https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                    }, void 0, false, {
+                        fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                        lineNumber: 109,
+                        columnNumber: 17
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$adoption$2f$components$2f$AdoptionCard$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AdoptionCard"], {
+                        name: "Mia",
+                        type: "Chat",
+                        breed: "Siamois",
+                        age: "3 ans",
+                        gender: "Femelle",
+                        location: "Toulouse",
+                        distance: "15 km",
+                        image: "https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                    }, void 0, false, {
+                        fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                        lineNumber: 119,
+                        columnNumber: 17
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$adoption$2f$components$2f$AdoptionCard$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AdoptionCard"], {
+                        name: "Rocky",
+                        type: "Chien",
+                        breed: "Bulldog",
+                        age: "5 ans",
+                        gender: "Mâle",
+                        location: "Nice",
+                        distance: "20 km",
+                        image: "https://images.unsplash.com/photo-1583511655826-05700d52f4d9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                    }, void 0, false, {
+                        fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                        lineNumber: 129,
+                        columnNumber: 17
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$adoption$2f$components$2f$AdoptionCard$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AdoptionCard"], {
+                        name: "Bella",
+                        type: "Chien",
+                        breed: "Golden Retriever",
+                        age: "1 an",
+                        gender: "Femelle",
+                        location: "Bordeaux",
+                        distance: "12 km",
+                        image: "https://images.unsplash.com/photo-1633722715463-d30f4f325e24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+                    }, void 0, false, {
+                        fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                        lineNumber: 139,
+                        columnNumber: 17
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                lineNumber: 88,
+                columnNumber: 13
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "flex justify-center mt-8",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("nav", {
+                    className: "inline-flex rounded-md shadow",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                            className: "py-2 px-4 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 rounded-l-md",
+                            children: "Précédent"
+                        }, void 0, false, {
+                            fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                            lineNumber: 153,
+                            columnNumber: 21
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                            className: "py-2 px-4 border-t border-b border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50",
+                            children: "1"
+                        }, void 0, false, {
+                            fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                            lineNumber: 156,
+                            columnNumber: 21
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                            className: "py-2 px-4 border-t border-b border-gray-300 bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] text-white text-sm font-medium",
+                            children: "2"
+                        }, void 0, false, {
+                            fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                            lineNumber: 159,
+                            columnNumber: 21
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                            className: "py-2 px-4 border-t border-b border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50",
+                            children: "3"
+                        }, void 0, false, {
+                            fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                            lineNumber: 162,
+                            columnNumber: 21
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                            className: "py-2 px-4 border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 rounded-r-md",
+                            children: "Suivant"
+                        }, void 0, false, {
+                            fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                            lineNumber: 165,
+                            columnNumber: 21
+                        }, ("TURBOPACK compile-time value", void 0))
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                    lineNumber: 152,
+                    columnNumber: 17
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                lineNumber: 151,
+                columnNumber: 13
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "bg-white p-6 rounded-xl shadow-sm border border-gray-200",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
                         className: "text-lg font-semibold text-gray-800 mb-4",
                         children: "Intéressé par un animal ?"
                     }, void 0, false, {
                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                        lineNumber: 123,
-                        columnNumber: 9
+                        lineNumber: 172,
+                        columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
                         className: "space-y-4",
-                        onSubmit: async (e)=>{
-                            e.preventDefault();
-                            const formData = new FormData(e.currentTarget);
-                            const body = {
-                                name: formData.get('name'),
-                                email: formData.get('email'),
-                                phone: formData.get('phone'),
-                                animal: formData.get('animal'),
-                                message: formData.get('message')
-                            };
-                            console.log('Envoi au serveur:', body);
-                            try {
-                                const res = await fetch('/api/adoption-request', {
-                                    method: 'POST',
-                                    headers: {
-                                        'Content-Type': 'application/json'
-                                    },
-                                    body: JSON.stringify(body)
-                                });
-                                const data = await res.json();
-                                console.log('Réponse API:', data, 'Status:', res.status);
-                                if (!res.ok) throw new Error(data.error || 'Erreur envoi');
-                                alert('Votre demande a été envoyée avec succès !');
-                                e.target.reset();
-                            } catch (err) {
-                                console.error('Erreur front:', err);
-                                alert(err.message);
-                            }
-                        },
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "grid grid-cols-1 md:grid-cols-2 gap-4",
@@ -5575,24 +5749,22 @@ const AdoptionModule = ()=>{
                                                 children: "Nom"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                                lineNumber: 161,
-                                                columnNumber: 15
+                                                lineNumber: 178,
+                                                columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                name: "name",
                                                 type: "text",
-                                                required: true,
-                                                className: "w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#FFB8C2]"
+                                                className: "w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                                lineNumber: 162,
-                                                columnNumber: 15
+                                                lineNumber: 181,
+                                                columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                        lineNumber: 160,
-                                        columnNumber: 13
+                                        lineNumber: 177,
+                                        columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         children: [
@@ -5601,24 +5773,22 @@ const AdoptionModule = ()=>{
                                                 children: "Email"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                                lineNumber: 170,
-                                                columnNumber: 15
+                                                lineNumber: 187,
+                                                columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                name: "email",
                                                 type: "email",
-                                                required: true,
-                                                className: "w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#FFB8C2]"
+                                                className: "w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                                lineNumber: 171,
-                                                columnNumber: 15
+                                                lineNumber: 190,
+                                                columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                        lineNumber: 169,
-                                        columnNumber: 13
+                                        lineNumber: 186,
+                                        columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         children: [
@@ -5627,77 +5797,109 @@ const AdoptionModule = ()=>{
                                                 children: "Téléphone"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                                lineNumber: 179,
-                                                columnNumber: 15
+                                                lineNumber: 196,
+                                                columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                                name: "phone",
                                                 type: "tel",
-                                                required: true,
-                                                className: "w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#FFB8C2]"
+                                                className: "w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                                lineNumber: 180,
-                                                columnNumber: 15
+                                                lineNumber: 199,
+                                                columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                        lineNumber: 178,
-                                        columnNumber: 13
+                                        lineNumber: 195,
+                                        columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         children: [
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
                                                 className: "block text-sm font-medium text-gray-700 mb-1",
-                                                children: "Animal"
+                                                children: "Animal qui vous intéresse"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                                lineNumber: 188,
-                                                columnNumber: 15
+                                                lineNumber: 205,
+                                                columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
-                                                name: "animal",
-                                                required: true,
-                                                className: "w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#FFB8C2]",
+                                                className: "w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]",
                                                 children: [
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                         value: "",
                                                         children: "Sélectionnez un animal"
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                                        lineNumber: 194,
-                                                        columnNumber: 17
+                                                        lineNumber: 209,
+                                                        columnNumber: 33
                                                     }, ("TURBOPACK compile-time value", void 0)),
-                                                    pets.map((pet)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
-                                                            value: `${pet.name} - ${pet.breed}`,
-                                                            children: [
-                                                                pet.name,
-                                                                " - ",
-                                                                pet.breed
-                                                            ]
-                                                        }, pet.id, true, {
-                                                            fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                                            lineNumber: 196,
-                                                            columnNumber: 19
-                                                        }, ("TURBOPACK compile-time value", void 0)))
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "luna",
+                                                        children: "Luna - Berger Allemand"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                                        lineNumber: 210,
+                                                        columnNumber: 33
+                                                    }, ("TURBOPACK compile-time value", void 0)),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "oscar",
+                                                        children: "Oscar - Chat Européen"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                                        lineNumber: 211,
+                                                        columnNumber: 33
+                                                    }, ("TURBOPACK compile-time value", void 0)),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "rex",
+                                                        children: "Rex - Labrador"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                                        lineNumber: 212,
+                                                        columnNumber: 33
+                                                    }, ("TURBOPACK compile-time value", void 0)),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "mia",
+                                                        children: "Mia - Siamois"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                                        lineNumber: 213,
+                                                        columnNumber: 33
+                                                    }, ("TURBOPACK compile-time value", void 0)),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "rocky",
+                                                        children: "Rocky - Bulldog"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                                        lineNumber: 214,
+                                                        columnNumber: 33
+                                                    }, ("TURBOPACK compile-time value", void 0)),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "bella",
+                                                        children: "Bella - Golden Retriever"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/adoption/AdoptionModule.tsx",
+                                                        lineNumber: 215,
+                                                        columnNumber: 33
+                                                    }, ("TURBOPACK compile-time value", void 0))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                                lineNumber: 189,
-                                                columnNumber: 15
+                                                lineNumber: 208,
+                                                columnNumber: 29
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                        lineNumber: 187,
-                                        columnNumber: 13
+                                        lineNumber: 204,
+                                        columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                lineNumber: 159,
-                                columnNumber: 11
+                                lineNumber: 176,
+                                columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 children: [
@@ -5706,25 +5908,23 @@ const AdoptionModule = ()=>{
                                         children: "Message"
                                     }, void 0, false, {
                                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                        lineNumber: 205,
-                                        columnNumber: 13
+                                        lineNumber: 220,
+                                        columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
-                                        name: "message",
                                         rows: 4,
-                                        required: true,
-                                        className: "w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#FFB8C2]",
+                                        className: "w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]",
                                         placeholder: "Parlez-nous un peu de vous et de votre intérêt pour cet animal..."
                                     }, void 0, false, {
                                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                        lineNumber: 206,
-                                        columnNumber: 13
+                                        lineNumber: 223,
+                                        columnNumber: 25
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                lineNumber: 204,
-                                columnNumber: 11
+                                lineNumber: 219,
+                                columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 type: "submit",
@@ -5732,29 +5932,29 @@ const AdoptionModule = ()=>{
                                 children: "Envoyer la demande"
                             }, void 0, false, {
                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                                lineNumber: 214,
-                                columnNumber: 11
+                                lineNumber: 229,
+                                columnNumber: 21
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                        lineNumber: 124,
-                        columnNumber: 9
+                        lineNumber: 175,
+                        columnNumber: 17
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
-                lineNumber: 122,
-                columnNumber: 7
+                lineNumber: 171,
+                columnNumber: 13
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/app/adoption/AdoptionModule.tsx",
-        lineNumber: 57,
-        columnNumber: 5
+        lineNumber: 11,
+        columnNumber: 9
     }, ("TURBOPACK compile-time value", void 0));
 };
-_s(AdoptionModule, "zoKf1ogknr3OzxwoDFq+CRsoHZw=");
+_s(AdoptionModule, "gX9gWFjg3b23d41oVY1CtAn3o9k=");
 _c = AdoptionModule;
 var _c;
 __turbopack_context__.k.register(_c, "AdoptionModule");
@@ -7853,12 +8053,10 @@ const UserProfile = ()=>{
         localStorage.setItem('preferences', JSON.stringify(preferences));
         alert('Préférences sauvegardées ✅');
     };
-    // 📸 ---- Upload avatar ----
     const handleAvatarChange = async (e)=>{
         const file = e.target.files?.[0];
         if (!file) return;
         setLoading(true);
-        setError(null);
         try {
             const token = localStorage.getItem('token');
             const formData = new FormData();
@@ -7871,11 +8069,8 @@ const UserProfile = ()=>{
                 body: formData
             });
             const data = await response.json();
-            if (!response.ok) throw new Error(data.error || 'Erreur upload avatar');
-            setProfileData((prev)=>prev ? {
-                    ...prev,
-                    avatar: data.avatarUrl
-                } : prev);
+            if (!response.ok) throw new Error(data.error || 'Erreur upload');
+            setProfileData(data.user);
         } catch (err) {
             setError(err instanceof Error ? err.message : 'Erreur upload image');
         } finally{
@@ -7891,7 +8086,7 @@ const UserProfile = ()=>{
         children: "Chargement du profil..."
     }, void 0, false, {
         fileName: "[project]/app/profile/UserProfile.tsx",
-        lineNumber: 167,
+        lineNumber: 162,
         columnNumber: 12
     }, ("TURBOPACK compile-time value", void 0));
     if (!profileData) return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7899,7 +8094,7 @@ const UserProfile = ()=>{
         children: "Erreur de chargement du profil"
     }, void 0, false, {
         fileName: "[project]/app/profile/UserProfile.tsx",
-        lineNumber: 170,
+        lineNumber: 165,
         columnNumber: 12
     }, ("TURBOPACK compile-time value", void 0));
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7910,7 +8105,7 @@ const UserProfile = ()=>{
                 children: "Mon Profil"
             }, void 0, false, {
                 fileName: "[project]/app/profile/UserProfile.tsx",
-                lineNumber: 175,
+                lineNumber: 170,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7932,12 +8127,12 @@ const UserProfile = ()=>{
                                                 className: "h-full w-full object-cover"
                                             }, void 0, false, {
                                                 fileName: "[project]/app/profile/UserProfile.tsx",
-                                                lineNumber: 184,
+                                                lineNumber: 179,
                                                 columnNumber: 17
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/app/profile/UserProfile.tsx",
-                                            lineNumber: 183,
+                                            lineNumber: 178,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -7949,18 +8144,18 @@ const UserProfile = ()=>{
                                                 size: 16
                                             }, void 0, false, {
                                                 fileName: "[project]/app/profile/UserProfile.tsx",
-                                                lineNumber: 197,
+                                                lineNumber: 192,
                                                 columnNumber: 28
                                             }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$camera$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__CameraIcon$3e$__["CameraIcon"], {
                                                 size: 16
                                             }, void 0, false, {
                                                 fileName: "[project]/app/profile/UserProfile.tsx",
-                                                lineNumber: 197,
+                                                lineNumber: 192,
                                                 columnNumber: 77
                                             }, ("TURBOPACK compile-time value", void 0))
                                         }, void 0, false, {
                                             fileName: "[project]/app/profile/UserProfile.tsx",
-                                            lineNumber: 192,
+                                            lineNumber: 187,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -7971,13 +8166,13 @@ const UserProfile = ()=>{
                                             className: "hidden"
                                         }, void 0, false, {
                                             fileName: "[project]/app/profile/UserProfile.tsx",
-                                            lineNumber: 199,
+                                            lineNumber: 194,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/profile/UserProfile.tsx",
-                                    lineNumber: 182,
+                                    lineNumber: 177,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -7992,7 +8187,7 @@ const UserProfile = ()=>{
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/profile/UserProfile.tsx",
-                                            lineNumber: 209,
+                                            lineNumber: 204,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -8003,19 +8198,19 @@ const UserProfile = ()=>{
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/profile/UserProfile.tsx",
-                                            lineNumber: 212,
+                                            lineNumber: 207,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/profile/UserProfile.tsx",
-                                    lineNumber: 208,
+                                    lineNumber: 203,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/profile/UserProfile.tsx",
-                            lineNumber: 181,
+                            lineNumber: 176,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0)),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8029,7 +8224,7 @@ const UserProfile = ()=>{
                                             children: "Informations personnelles"
                                         }, void 0, false, {
                                             fileName: "[project]/app/profile/UserProfile.tsx",
-                                            lineNumber: 221,
+                                            lineNumber: 216,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -8038,13 +8233,13 @@ const UserProfile = ()=>{
                                             children: isEditing ? 'Annuler' : 'Modifier'
                                         }, void 0, false, {
                                             fileName: "[project]/app/profile/UserProfile.tsx",
-                                            lineNumber: 224,
+                                            lineNumber: 219,
                                             columnNumber: 15
                                         }, ("TURBOPACK compile-time value", void 0))
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/profile/UserProfile.tsx",
-                                    lineNumber: 220,
+                                    lineNumber: 215,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8062,7 +8257,7 @@ const UserProfile = ()=>{
                                                     children: field === 'firstName' ? 'Prénom' : field === 'lastName' ? 'Nom' : field === 'email' ? 'Email' : field === 'phone' ? 'Téléphone' : 'Adresse'
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/profile/UserProfile.tsx",
-                                                    lineNumber: 235,
+                                                    lineNumber: 230,
                                                     columnNumber: 19
                                                 }, ("TURBOPACK compile-time value", void 0)),
                                                 isEditing && field !== 'email' ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -8075,25 +8270,25 @@ const UserProfile = ()=>{
                                                     className: "w-full p-2 border rounded-md focus:ring-2 focus:ring-[#FFB8C2]"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/profile/UserProfile.tsx",
-                                                    lineNumber: 247,
+                                                    lineNumber: 242,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                                     className: "text-gray-800",
                                                     children: profileData[field] || '-'
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/profile/UserProfile.tsx",
-                                                    lineNumber: 256,
+                                                    lineNumber: 251,
                                                     columnNumber: 21
                                                 }, ("TURBOPACK compile-time value", void 0))
                                             ]
                                         }, field, true, {
                                             fileName: "[project]/app/profile/UserProfile.tsx",
-                                            lineNumber: 234,
+                                            lineNumber: 229,
                                             columnNumber: 17
                                         }, ("TURBOPACK compile-time value", void 0)))
                                 }, void 0, false, {
                                     fileName: "[project]/app/profile/UserProfile.tsx",
-                                    lineNumber: 232,
+                                    lineNumber: 227,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 isEditing && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -8105,37 +8300,37 @@ const UserProfile = ()=>{
                                             className: "animate-spin mr-2"
                                         }, void 0, false, {
                                             fileName: "[project]/app/profile/UserProfile.tsx",
-                                            lineNumber: 268,
+                                            lineNumber: 263,
                                             columnNumber: 28
                                         }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$save$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__SaveIcon$3e$__["SaveIcon"], {
                                             className: "mr-2"
                                         }, void 0, false, {
                                             fileName: "[project]/app/profile/UserProfile.tsx",
-                                            lineNumber: 268,
+                                            lineNumber: 263,
                                             columnNumber: 72
                                         }, ("TURBOPACK compile-time value", void 0)),
                                         saveSuccess ? 'Enregistré ✅' : 'Sauvegarder'
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/profile/UserProfile.tsx",
-                                    lineNumber: 263,
+                                    lineNumber: 258,
                                     columnNumber: 15
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/profile/UserProfile.tsx",
-                            lineNumber: 219,
+                            lineNumber: 214,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/profile/UserProfile.tsx",
-                    lineNumber: 179,
+                    lineNumber: 174,
                     columnNumber: 9
                 }, ("TURBOPACK compile-time value", void 0))
             }, void 0, false, {
                 fileName: "[project]/app/profile/UserProfile.tsx",
-                lineNumber: 178,
+                lineNumber: 173,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8146,7 +8341,7 @@ const UserProfile = ()=>{
                         children: "Sécurité"
                     }, void 0, false, {
                         fileName: "[project]/app/profile/UserProfile.tsx",
-                        lineNumber: 278,
+                        lineNumber: 273,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8162,7 +8357,7 @@ const UserProfile = ()=>{
                                         children: key === 'currentPassword' ? 'Mot de passe actuel' : key === 'newPassword' ? 'Nouveau mot de passe' : 'Confirmer le mot de passe'
                                     }, void 0, false, {
                                         fileName: "[project]/app/profile/UserProfile.tsx",
-                                        lineNumber: 282,
+                                        lineNumber: 277,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -8175,18 +8370,18 @@ const UserProfile = ()=>{
                                         className: "w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#FFB8C2]"
                                     }, void 0, false, {
                                         fileName: "[project]/app/profile/UserProfile.tsx",
-                                        lineNumber: 289,
+                                        lineNumber: 284,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, key, true, {
                                 fileName: "[project]/app/profile/UserProfile.tsx",
-                                lineNumber: 281,
+                                lineNumber: 276,
                                 columnNumber: 13
                             }, ("TURBOPACK compile-time value", void 0)))
                     }, void 0, false, {
                         fileName: "[project]/app/profile/UserProfile.tsx",
-                        lineNumber: 279,
+                        lineNumber: 274,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -8196,7 +8391,7 @@ const UserProfile = ()=>{
                         children: loading ? 'Mise à jour...' : 'Mettre à jour le mot de passe'
                     }, void 0, false, {
                         fileName: "[project]/app/profile/UserProfile.tsx",
-                        lineNumber: 300,
+                        lineNumber: 295,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     passwordMessage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -8204,13 +8399,13 @@ const UserProfile = ()=>{
                         children: passwordMessage
                     }, void 0, false, {
                         fileName: "[project]/app/profile/UserProfile.tsx",
-                        lineNumber: 308,
+                        lineNumber: 303,
                         columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/profile/UserProfile.tsx",
-                lineNumber: 277,
+                lineNumber: 272,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8221,7 +8416,7 @@ const UserProfile = ()=>{
                         children: "Préférences"
                     }, void 0, false, {
                         fileName: "[project]/app/profile/UserProfile.tsx",
-                        lineNumber: 314,
+                        lineNumber: 309,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     Object.entries(preferences).map(([key, value])=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -8233,12 +8428,12 @@ const UserProfile = ()=>{
                                         children: key === 'emailNotifications' ? 'Notifications par email' : key === 'pushNotifications' ? 'Notifications push' : 'Newsletter'
                                     }, void 0, false, {
                                         fileName: "[project]/app/profile/UserProfile.tsx",
-                                        lineNumber: 321,
+                                        lineNumber: 316,
                                         columnNumber: 15
                                     }, ("TURBOPACK compile-time value", void 0))
                                 }, void 0, false, {
                                     fileName: "[project]/app/profile/UserProfile.tsx",
-                                    lineNumber: 320,
+                                    lineNumber: 315,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0)),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -8251,13 +8446,13 @@ const UserProfile = ()=>{
                                     className: "h-5 w-5 accent-[#FFB8C2]"
                                 }, void 0, false, {
                                     fileName: "[project]/app/profile/UserProfile.tsx",
-                                    lineNumber: 329,
+                                    lineNumber: 324,
                                     columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             ]
                         }, key, true, {
                             fileName: "[project]/app/profile/UserProfile.tsx",
-                            lineNumber: 316,
+                            lineNumber: 311,
                             columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -8266,19 +8461,19 @@ const UserProfile = ()=>{
                         children: "Enregistrer les préférences"
                     }, void 0, false, {
                         fileName: "[project]/app/profile/UserProfile.tsx",
-                        lineNumber: 339,
+                        lineNumber: 334,
                         columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/profile/UserProfile.tsx",
-                lineNumber: 313,
+                lineNumber: 308,
                 columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/app/profile/UserProfile.tsx",
-        lineNumber: 173,
+        lineNumber: 168,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
@@ -9307,66 +9502,15 @@ function HomePage() {
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(true);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "HomePage.useEffect": ()=>{
-            const checkAuth = {
-                "HomePage.useEffect.checkAuth": async ()=>{
-                    // Vérifier la présence du token
-                    const token = localStorage.getItem('token');
-                    const refreshToken = localStorage.getItem('refreshToken');
-                    if (!token) {
-                        // Pas de token → rediriger vers login
-                        console.log('❌ Aucun token trouvé, redirection vers login');
-                        router.replace('/?showLogin=true&message=Veuillez vous connecter');
-                        return;
-                    }
-                    try {
-                        // Vérifier si le token est valide en faisant une requête test
-                        const response = await fetch('/api/profile', {
-                            headers: {
-                                'Authorization': `Bearer ${token}`
-                            }
-                        });
-                        if (response.ok) {
-                            // Token valide
-                            setUserToken(token);
-                            setLoading(false);
-                            console.log('✅ Token valide, accès autorisé');
-                        } else if (response.status === 401 && refreshToken) {
-                            // Token expiré, essayer de le rafraîchir
-                            console.log('⏳ Token expiré, tentative de rafraîchissement...');
-                            const refreshResponse = await fetch('/api/auth/refresh', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json'
-                                },
-                                body: JSON.stringify({
-                                    refreshToken
-                                })
-                            });
-                            if (refreshResponse.ok) {
-                                const data = await refreshResponse.json();
-                                localStorage.setItem('token', data.token);
-                                setUserToken(data.token);
-                                setLoading(false);
-                                console.log('✅ Token rafraîchi avec succès');
-                            } else {
-                                // Refresh token invalide, rediriger vers login
-                                console.log('❌ Refresh token invalide, redirection vers login');
-                                localStorage.clear();
-                                router.replace('/?showLogin=true&message=Session expirée, veuillez vous reconnecter');
-                            }
-                        } else {
-                            // Erreur d'authentification
-                            console.log('❌ Erreur d\'authentification');
-                            localStorage.clear();
-                            router.replace('/?showLogin=true&message=Session invalide');
-                        }
-                    } catch (error) {
-                        console.error('❌ Erreur lors de la vérification du token:', error);
-                        setLoading(false);
-                    }
-                }
-            }["HomePage.useEffect.checkAuth"];
-            checkAuth();
+            // Check for token in localStorage
+            const token = localStorage.getItem('token');
+            if (token) {
+                setUserToken(token); // store token in state
+                setLoading(false);
+            } else {
+                // No token → redirect to login
+                router.replace('/auth/login');
+            }
         }
     }["HomePage.useEffect"], [
         router
@@ -9380,12 +9524,12 @@ function HomePage() {
             children: "Loading..."
         }, void 0, false, {
             fileName: "[project]/app/home/page.tsx",
-            lineNumber: 91,
+            lineNumber: 44,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/home/page.tsx",
-        lineNumber: 90,
+        lineNumber: 43,
         columnNumber: 5
     }, this);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -9398,7 +9542,7 @@ function HomePage() {
                 setIsOpen: setIsSidebarOpen
             }, void 0, false, {
                 fileName: "[project]/app/home/page.tsx",
-                lineNumber: 98,
+                lineNumber: 51,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -9409,7 +9553,7 @@ function HomePage() {
                         setActiveModule: setActiveModule
                     }, void 0, false, {
                         fileName: "[project]/app/home/page.tsx",
-                        lineNumber: 108,
+                        lineNumber: 61,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -9417,74 +9561,72 @@ function HomePage() {
                         children: [
                             activeModule === 'dashboard' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$home$2f$components$2f$Dashboard$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dashboard"], {}, void 0, false, {
                                 fileName: "[project]/app/home/page.tsx",
-                                lineNumber: 112,
+                                lineNumber: 65,
                                 columnNumber: 44
                             }, this),
                             activeModule === 'health' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$health$2f$HealthModule$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["HealthModule"], {}, void 0, false, {
                                 fileName: "[project]/app/home/page.tsx",
-                                lineNumber: 113,
+                                lineNumber: 66,
                                 columnNumber: 41
                             }, this),
-                            activeModule === 'nutrition' && userToken && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$nutrition$2f$NutritionModule$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NutritionModule"], {
-                                token: userToken
-                            }, void 0, false, {
+                            activeModule === 'nutrition' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$nutrition$2f$NutritionModule$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["NutritionModule"], {}, void 0, false, {
                                 fileName: "[project]/app/home/page.tsx",
-                                lineNumber: 115,
-                                columnNumber: 3
+                                lineNumber: 67,
+                                columnNumber: 44
                             }, this),
                             activeModule === 'education' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$education$2f$EducationModule$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["EducationModule"], {}, void 0, false, {
                                 fileName: "[project]/app/home/page.tsx",
-                                lineNumber: 119,
+                                lineNumber: 68,
                                 columnNumber: 44
                             }, this),
                             activeModule === 'adoption' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$adoption$2f$AdoptionModule$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["AdoptionModule"], {}, void 0, false, {
                                 fileName: "[project]/app/home/page.tsx",
-                                lineNumber: 120,
+                                lineNumber: 69,
                                 columnNumber: 43
                             }, this),
                             activeModule === 'pets' && userToken && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$pets$2f$UserPets$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["UserPets"], {
                                 token: userToken
                             }, void 0, false, {
                                 fileName: "[project]/app/home/page.tsx",
-                                lineNumber: 121,
+                                lineNumber: 70,
                                 columnNumber: 52
                             }, this),
                             activeModule === 'appointments' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$appointments$2f$UserAppointments$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["UserAppointments"], {}, void 0, false, {
                                 fileName: "[project]/app/home/page.tsx",
-                                lineNumber: 122,
+                                lineNumber: 71,
                                 columnNumber: 47
                             }, this),
                             activeModule === 'notifications' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$notifications$2f$UserNotifications$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["UserNotifications"], {}, void 0, false, {
                                 fileName: "[project]/app/home/page.tsx",
-                                lineNumber: 123,
+                                lineNumber: 72,
                                 columnNumber: 48
                             }, this),
                             activeModule === 'profile' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$profile$2f$UserProfile$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["UserProfile"], {}, void 0, false, {
                                 fileName: "[project]/app/home/page.tsx",
-                                lineNumber: 124,
+                                lineNumber: 73,
                                 columnNumber: 42
                             }, this),
                             activeModule === 'settings' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$settings$2f$UserSettings$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["UserSettings"], {}, void 0, false, {
                                 fileName: "[project]/app/home/page.tsx",
-                                lineNumber: 125,
+                                lineNumber: 74,
                                 columnNumber: 43
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/home/page.tsx",
-                        lineNumber: 111,
+                        lineNumber: 64,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/home/page.tsx",
-                lineNumber: 106,
+                lineNumber: 59,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/home/page.tsx",
-        lineNumber: 96,
+        lineNumber: 49,
         columnNumber: 5
     }, this);
 }

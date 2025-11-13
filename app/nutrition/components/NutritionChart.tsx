@@ -1,5 +1,4 @@
 'use client';
-
 import React from 'react';
 import { Line } from 'react-chartjs-2';
 import {
@@ -13,35 +12,30 @@ import {
     Legend,
 } from 'chart.js';
 
-// Enregistrement des composants Chart.js
-ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend,
-);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-export const NutritionChart = () => {
+interface WeightLog {
+    date: string;
+    weight: number;
+}
+
+interface NutritionChartProps {
+    weights: WeightLog[];
+}
+
+export const NutritionChart = ({ weights }: NutritionChartProps) => {
+    const labels = weights.map((w) => new Date(w.date).toLocaleDateString());
     const data = {
-        labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Juin', 'Juil'],
+        labels,
         datasets: [
             {
                 label: 'Poids (kg)',
-                data: [24.2, 24.5, 25.1, 25.3, 25.5, 25.4, 25.5],
-                borderColor: '#FFB8C2', // Couleur rose pour matcher votre palette
-                backgroundColor: 'rgba(245, 245, 220, 0.5)', // Beige clair avec transparence
+                data: weights.map((w) => w.weight),
+                borderColor: '#FFB8C2',
+                backgroundColor: 'rgba(245, 245, 220, 0.4)',
                 tension: 0.3,
-            },
-            {
-                label: 'Poids idéal',
-                data: [24.8, 24.8, 24.8, 24.8, 24.8, 24.8, 24.8],
-                borderColor: '#F5F5DC', // Beige pour la ligne idéale
-                backgroundColor: 'rgba(255, 184, 194, 0.5)', // Rose avec transparence
-                borderDash: [5, 5],
-                tension: 0,
+                fill: true,
+                pointRadius: 4,
             },
         ],
     };
@@ -49,20 +43,9 @@ export const NutritionChart = () => {
     const options = {
         responsive: true,
         maintainAspectRatio: false,
-        plugins: {
-            legend: {
-                position: 'top' as const,
-            },
-            tooltip: {
-                mode: 'index' as const,
-                intersect: false,
-            },
-        },
+        plugins: { legend: { position: 'top' as const } },
         scales: {
-            y: {
-                min: 23,
-                max: 27,
-            },
+            y: { beginAtZero: false },
         },
     };
 

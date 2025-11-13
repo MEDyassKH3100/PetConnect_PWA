@@ -200,10 +200,19 @@ async function verifyToken(request) {
         return null;
     }
 }
-async function GET() {
+async function GET(request) {
     await (0, __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$db$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"])();
+    const decoded = await verifyToken(request); // verify the user
+    if (!decoded) return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+        error: "Unauthorized"
+    }, {
+        status: 401
+    });
     try {
-        const pets = await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$Pet$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].find();
+        // Fetch only pets belonging to this user
+        const pets = await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$Pet$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].find({
+            owner: decoded.userId
+        });
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
             pets
         });
@@ -225,10 +234,12 @@ async function POST(request) {
     });
     try {
         const body = await request.json();
+        console.log("Decoded user:", decoded);
+        console.log("Received body:", body);
         const newPet = new __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$Pet$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"]({
             ...body,
-            owner: decoded.id
-        });
+            owner: decoded.userId
+        }); // ✅ fix here
         await newPet.save();
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
             pet: newPet
@@ -236,6 +247,7 @@ async function POST(request) {
             status: 201
         });
     } catch (err) {
+        console.error("POST /api/pets error:", err);
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
             error: err.message
         }, {
@@ -252,21 +264,21 @@ async function PATCH(request) {
         status: 401
     });
     try {
-        const { searchParams } = new URL(request.url);
-        const id = searchParams.get("id");
+        const updates = await request.json();
+        const id = updates.id;
         if (!id) return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
             error: "Pet ID missing"
         }, {
             status: 400
         });
-        const updates = await request.json();
+        delete updates.id;
         const pet = await __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$Pet$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"].findById(id);
         if (!pet) return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
             error: "Pet not found"
         }, {
             status: 404
         });
-        if (pet.owner.toString() !== decoded.id) return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+        if (pet.owner.toString() !== decoded.userId) return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
             error: "Not allowed"
         }, {
             status: 403
@@ -306,7 +318,7 @@ async function DELETE(request) {
         }, {
             status: 404
         });
-        if (pet.owner.toString() !== decoded.id) return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
+        if (pet.owner.toString() !== decoded.userId) return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
             error: "Not allowed"
         }, {
             status: 403

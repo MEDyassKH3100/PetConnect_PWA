@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { CameraIcon, SaveIcon, Loader2 } from 'lucide-react';
+import { CameraIcon, SaveIcon, Loader2, Lock, Eye, EyeOff } from 'lucide-react';
 import { useAppSelector, useAppDispatch } from '@/store/slices/hooks';
 import { fetchUserProfile } from '@/store/slices/authSlice';
 import { apiClient } from '@/lib/api-client';
@@ -37,6 +37,12 @@ export const UserProfile = () => {
     confirmPassword: '',
   });
   const [passwordMessage, setPasswordMessage] = useState<string | null>(null);
+  const [showPasswords, setShowPasswords] = useState({
+    current: false,
+    new: false,
+    confirm: false,
+  });
+  const [actualPassword, setActualPassword] = useState<string>('');
 
   // Preferences
   const [preferences, setPreferences] = useState({
@@ -47,6 +53,13 @@ export const UserProfile = () => {
 
   const defaultAvatar =
     'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=250&q=80';
+  // Toggle password visibility
+  const togglePasswordVisibility = (field: 'current' | 'new' | 'confirm') => {
+    setShowPasswords(prev => ({
+      ...prev,
+      [field]: !prev[field]
+    }));
+  };
 
   useEffect(() => {
     if (isAuthenticated && !user) {
@@ -64,6 +77,8 @@ export const UserProfile = () => {
       const response = await apiClient.get('/api/profile');
       console.log('✅ Profil chargé:', response.data);
       setProfileData(response.data.user);
+      // Le mot de passe actuel doit être saisi par l'utilisateur pour des raisons de sécurité
+      // On ne pré-remplit pas ce champ
     } catch (err: any) {
       console.error('❌ Erreur chargement profil:', err);
       setError(err.response?.data?.error || err.message || 'Erreur de récupération');
@@ -270,38 +285,75 @@ export const UserProfile = () => {
 
       {/* ----------- Password Section ------------- */}
       <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-        <h2 className="text-lg font-semibold text-gray-800 mb-4">Sécurité</h2>
+        <div className="flex items-center gap-2 mb-4">
+          <Lock className="w-5 h-5 text-gray-600" />
+          <h2 className="text-lg font-semibold text-gray-800">Sécurité</h2>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {['currentPassword', 'newPassword', 'confirmPassword'].map((key) => (
+          {[
+            { key: 'currentPassword', label: 'Mot de passe actuel 🔒', field: 'current' }, { key: 'newPassword', label: 'Nouveau mot de passe', field: 'new' },
+            { key: 'confirmPassword', label: 'Confirmer le mot de passe', field: 'confirm' }
+          ].map(({ key, label, field }) => (
             <div key={key}>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                {key === 'currentPassword'
-                  ? 'Mot de passe actuel'
-                  : key === 'newPassword'
-                    ? 'Nouveau mot de passe'
-                    : 'Confirmer le mot de passe'}
+                {label}
               </label>
-              <input
-                type="password"
-                value={(passwordForm as any)[key]}
-                onChange={(e) =>
-                  setPasswordForm({ ...passwordForm, [key]: e.target.value })
-                }
-                className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#FFB8C2]"
-              />
+              <div className="relative">
+                <input
+                  type={showPasswords[field as keyof typeof showPasswords] ? 'text' : 'password'}
+                  value={(passwordForm as any)[key]}
+                  onChange={(e) =>
+                    setPasswordForm({ ...passwordForm, [key]: e.target.value })
+                  }
+                  className="w-full p-2 pr-10 border border-gray-300 rounded-md focus:ring-2 focus:ring-[#FFB8C2]"
+                  placeholder={key === 'currentPassword' ? 'Entrez votre mot de passe actuel' : 'Entrez votre mot de passe'}
+                />
+                <button
+                  type="button"
+                  onClick={() => togglePasswordVisibility(field as 'current' | 'new' | 'confirm')}
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700 focus:outline-none"
+                >
+                  {showPasswords[field as keyof typeof showPasswords] ? (
+                    <EyeOff className="w-4 h-4" />
+                  ) : (
+                    <Eye className="w-4 h-4" />
+                  )}
+                </button>
+              </div>
             </div>
           ))}
         </div>
+
+        {/* Message informatif */}
+        <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+          <p className="text-sm text-blue-700">
+            <strong>Mot de passe actuel</strong> : Saisissez votre mot de passe actuel pour confirmer votre identité          </p>
+          <p className="text-sm text-blue-700 mt-1">
+            👁️ Cliquez sur l'icône œil pour voir/masquer les mots de passe
+          </p>
+          <p className="text-sm text-blue-700 mt-1">
+            ⚙️ Remplissez tous les champs pour changer votre mot de passe en toute sécurité.          </p>
+        </div>
+
+        {passwordMessage && (
+          <div className={`mt-2 p-3 rounded-lg ${passwordMessage.includes('succès')
+            ? 'bg-green-50 border border-green-200 text-green-700'
+            : 'bg-red-50 border border-red-200 text-red-700'
+            }`}>
+            {passwordMessage}
+          </div>
+        )}
+
         <button
           onClick={handleChangePassword}
-          disabled={loading}
-          className="mt-4 bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] text-white px-4 py-2 rounded-lg hover:opacity-90"
-        >
+          disabled={loading || !passwordForm.currentPassword || !passwordForm.newPassword || !passwordForm.confirmPassword} className="mt-4 flex items-center gap-2 bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] text-white px-6 py-2 rounded-lg hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-opacity"        >
+          {loading ? (
+            <Loader2 className="w-4 h-4 animate-spin" />
+          ) : (
+            <Lock className="w-4 h-4" />
+          )}
           {loading ? 'Mise à jour...' : 'Mettre à jour le mot de passe'}
         </button>
-        {passwordMessage && (
-          <p className="mt-2 text-sm text-center text-gray-700">{passwordMessage}</p>
-        )}
       </div>
 
       {/* ----------- Preferences Section ------------- */}

@@ -137,6 +137,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../../app/api/appointments/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/appointments">> = Specific
+  const handler = {} as typeof import("../../../app/api/appointments/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../../app/api/auth/forgot-password/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/auth/forgot-password">> = Specific
@@ -209,6 +218,24 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
   type __Unused = __Check
 }
 
+// Validate ../../../app/api/health/[petId]/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/health/[petId]">> = Specific
+  const handler = {} as typeof import("../../../app/api/health/[petId]/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../app/api/health/pets/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/health/pets">> = Specific
+  const handler = {} as typeof import("../../../app/api/health/pets/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
 // Validate ../../../app/api/health/route.ts
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/health">> = Specific
@@ -222,6 +249,15 @@ type RouteHandlerConfig<Route extends AppRouteHandlerRoutes = AppRouteHandlerRou
 {
   type __IsExpected<Specific extends RouteHandlerConfig<"/api/nutrition">> = Specific
   const handler = {} as typeof import("../../../app/api/nutrition/route.js")
+  type __Check = __IsExpected<typeof handler>
+  // @ts-ignore
+  type __Unused = __Check
+}
+
+// Validate ../../../app/api/pets/[id]/weights/route.ts
+{
+  type __IsExpected<Specific extends RouteHandlerConfig<"/api/pets/[id]/weights">> = Specific
+  const handler = {} as typeof import("../../../app/api/pets/[id]/weights/route.js")
   type __Check = __IsExpected<typeof handler>
   // @ts-ignore
   type __Unused = __Check

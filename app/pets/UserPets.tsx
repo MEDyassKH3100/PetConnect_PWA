@@ -166,11 +166,10 @@ export const UserPets = ({ token }: UserPetsProps) => {
                   </div>
                   <div className="mt-4 flex justify-between items-center">
                     <span
-                      className={`px-2 py-1 text-xs font-medium rounded-full ${
-                        pet.status === 'Actif'
+                      className={`px-2 py-1 text-xs font-medium rounded-full ${pet.status === 'Actif'
                           ? 'bg-green-100 text-green-800'
                           : 'bg-gray-100 text-gray-800'
-                      }`}
+                        }`}
                     >
                       {pet.status}
                     </span>

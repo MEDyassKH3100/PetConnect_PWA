@@ -2,16 +2,12 @@
 
 import React from 'react';
 import { HeartIcon, MapPinIcon } from 'lucide-react';
+import { AdoptionPet } from '@/models/AdoptionPet';
+import { BsHeartFill } from 'react-icons/bs';
 
-type AdoptionCardProps = {
-    name: string;
-    type: string;
-    breed: string;
-    age: string;
-    gender: string;
-    location: string;
-    distance: string;
-    image: string;
+type AdoptionCardProps = AdoptionPet & {
+    isFavorite: boolean;
+    onToggleFavorite: () => void;
 };
 
 export const AdoptionCard = ({
@@ -23,13 +19,22 @@ export const AdoptionCard = ({
     location,
     distance,
     image,
+    isFavorite,
+    onToggleFavorite,
 }: AdoptionCardProps) => {
     return (
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
             <div className="relative h-48 overflow-hidden">
                 <img src={image} alt={name} className="w-full h-full object-cover" />
-                <button className="absolute top-2 right-2 p-1.5 bg-white/80 rounded-full hover:bg-white">
-                    <HeartIcon size={20} className="text-gray-500 hover:text-red-500" />
+                <button
+                    onClick={onToggleFavorite}
+                    className="absolute top-2 right-2 p-1.5 bg-white/80 rounded-full hover:bg-white"
+                >
+                    <BsHeartFill
+                        size={20}
+                        className={`${isFavorite ? 'text-red-500' : 'text-gray-500 hover:text-red-500'
+                            }`}
+                    />
                 </button>
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">
                     <h3 className="text-lg font-semibold text-white">{name}</h3>

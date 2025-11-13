@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-
 import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 import { Dashboard } from './components/Dashboard';
@@ -58,13 +57,14 @@ export default function HomePage() {
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* Header */}
-        <Header toggleSidebar={toggleSidebar} setActiveModule={setActiveModule} />
-
+        <Header toggleSidebarAction={toggleSidebar} setActiveModuleAction={setActiveModule} />
         {/* Modules */}
         <main className="flex-1 p-6 overflow-y-auto">
           {activeModule === 'dashboard' && <Dashboard />}
           {activeModule === 'health' && <HealthModule />}
-          {activeModule === 'nutrition' && <NutritionModule />}
+          {activeModule === 'nutrition' && userToken && (
+            <NutritionModule token={userToken} />
+          )}
           {activeModule === 'education' && <EducationModule />}
           {activeModule === 'adoption' && <AdoptionModule />}
           {activeModule === 'pets' && userToken && <UserPets token={userToken} />}

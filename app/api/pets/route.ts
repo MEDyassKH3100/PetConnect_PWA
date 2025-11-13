@@ -20,11 +20,15 @@ async function verifyToken(request: NextRequest) {
   }
 }
 
-
-export async function GET() {
+export async function GET(request: NextRequest) {
   await connectDB();
+  const decoded: any = await verifyToken(request); // verify the user
+  if (!decoded)
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
   try {
-    const pets = await Pet.find();
+    // Fetch only pets belonging to this user
+    const pets = await Pet.find({ owner: decoded.userId });
     return NextResponse.json({ pets });
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 });
@@ -34,14 +38,19 @@ export async function GET() {
 export async function POST(request: NextRequest) {
   await connectDB();
   const decoded: any = await verifyToken(request);
-  if (!decoded) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (!decoded)
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   try {
     const body = await request.json();
-    const newPet = new Pet({ ...body, owner: decoded.id });
+    console.log("Decoded user:", decoded);
+    console.log("Received body:", body);
+
+    const newPet = new Pet({ ...body, owner: decoded.userId }); // ✅ fix here
     await newPet.save();
     return NextResponse.json({ pet: newPet }, { status: 201 });
   } catch (err: any) {
+    console.error("POST /api/pets error:", err);
     return NextResponse.json({ error: err.message }, { status: 500 });
   }
 }
@@ -53,19 +62,17 @@ export async function PATCH(request: NextRequest) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   try {
-    
-    const { searchParams } = new URL(request.url);
-    const id = searchParams.get("id");
-
+    const updates = await request.json();
+    const id = updates.id;
     if (!id)
       return NextResponse.json({ error: "Pet ID missing" }, { status: 400 });
+    delete updates.id;
 
-    const updates = await request.json();
     const pet = await Pet.findById(id);
-
     if (!pet)
       return NextResponse.json({ error: "Pet not found" }, { status: 404 });
-    if (pet.owner.toString() !== decoded.id)
+
+    if (pet.owner.toString() !== decoded.userId)
       return NextResponse.json({ error: "Not allowed" }, { status: 403 });
 
     Object.assign(pet, updates);
@@ -77,20 +84,24 @@ export async function PATCH(request: NextRequest) {
   }
 }
 
-
 export async function DELETE(request: NextRequest) {
   await connectDB();
   const decoded: any = await verifyToken(request);
-  if (!decoded) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (!decoded)
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   try {
     const { searchParams } = new URL(request.url);
     const id = searchParams.get("id");
-    if (!id) return NextResponse.json({ error: "Pet ID missing" }, { status: 400 });
+    if (!id)
+      return NextResponse.json({ error: "Pet ID missing" }, { status: 400 });
 
     const pet = await Pet.findById(id);
-    if (!pet) return NextResponse.json({ error: "Pet not found" }, { status: 404 });
-    if (pet.owner.toString() !== decoded.id) return NextResponse.json({ error: "Not allowed" }, { status: 403 });
+    if (!pet)
+      return NextResponse.json({ error: "Pet not found" }, { status: 404 });
+
+    if (pet.owner.toString() !== decoded.userId)
+      return NextResponse.json({ error: "Not allowed" }, { status: 403 });
 
     await pet.deleteOne();
     return NextResponse.json({ message: "Pet deleted" });

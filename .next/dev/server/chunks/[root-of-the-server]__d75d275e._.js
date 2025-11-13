@@ -312,29 +312,45 @@ async function getUrgentReminders() {
             try {
                 const petHealth = await (0, __TURBOPACK__imported__module__$5b$project$5d2f$services$2f$healthService$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["getPetById"])(pet.petId);
                 // Vérifier les vaccinations
-                if (petHealth.vaccinations) {
+                if (petHealth.vaccinations && petHealth.vaccinations.length > 0) {
+                    console.log(`Analyse des vaccinations pour ${petHealth.name}:`, petHealth.vaccinations);
                     for (const vaccination of petHealth.vaccinations){
+                        console.log(`Vaccination ${vaccination.name}:`, {
+                            nextDueDate: vaccination.nextDueDate,
+                            status: vaccination.status,
+                            date: vaccination.date
+                        });
                         // Inclure tous les vaccins qui ont une date d'échéance ou qui ne sont pas à jour
                         if (vaccination.nextDueDate || vaccination.status !== "up-to-date") {
                             let daysUntil = 0;
                             let dateToUse = vaccination.nextDueDate;
+                            let isOverdue = false;
                             if (vaccination.nextDueDate) {
                                 const dueDate = new Date(vaccination.nextDueDate);
                                 const now = new Date();
+                                // Réinitialiser l'heure pour comparer seulement les dates
+                                dueDate.setHours(0, 0, 0, 0);
+                                now.setHours(0, 0, 0, 0);
                                 const diffTime = dueDate.getTime() - now.getTime();
                                 daysUntil = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-                            } else {
+                                console.log(`Calcul pour ${vaccination.name}: ${daysUntil} jours`);
+                            } else if (vaccination.status !== "up-to-date") {
                                 // Si pas de nextDueDate mais status pas à jour, considérer comme en retard
                                 daysUntil = -999; // Très en retard
                                 dateToUse = vaccination.date; // Utiliser la date du dernier vaccin
+                                isOverdue = true;
                             }
-                            // Inclure les rappels dans les 60 prochains jours ou en retard
-                            if (daysUntil <= 60) {
+                            // Inclure les rappels dans les 90 prochains jours ou en retard
+                            if (daysUntil <= 90 || isOverdue) {
                                 let urgencyLevel = "info";
-                                if (daysUntil <= 0) urgencyLevel = "critical";
-                                else if (daysUntil <= 7) urgencyLevel = "warning";
-                                else if (daysUntil <= 30) urgencyLevel = "info";
-                                reminders.push({
+                                if (daysUntil <= 0 || isOverdue) {
+                                    urgencyLevel = "critical";
+                                } else if (daysUntil <= 7) {
+                                    urgencyLevel = "warning";
+                                } else if (daysUntil <= 30) {
+                                    urgencyLevel = "info";
+                                }
+                                const reminder = {
                                     id: `vacc-${vaccination.id}`,
                                     type: "vaccination",
                                     title: `Vaccin ${vaccination.name}`,
@@ -342,7 +358,9 @@ async function getUrgentReminders() {
                                     date: dateToUse || vaccination.date,
                                     daysUntil,
                                     urgencyLevel
-                                });
+                                };
+                                console.log(`Ajout du rappel:`, reminder);
+                                reminders.push(reminder);
                             }
                         }
                     }

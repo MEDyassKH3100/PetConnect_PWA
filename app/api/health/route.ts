@@ -40,8 +40,19 @@ async function getUrgentReminders(): Promise<NextResponse> {
         const petHealth = await getPetById(pet.petId);
 
         // Vérifier les vaccinations
-        if (petHealth.vaccinations) {
+        if (petHealth.vaccinations && petHealth.vaccinations.length > 0) {
+          console.log(
+            `Analyse des vaccinations pour ${petHealth.name}:`,
+            petHealth.vaccinations
+          );
+
           for (const vaccination of petHealth.vaccinations) {
+            console.log(`Vaccination ${vaccination.name}:`, {
+              nextDueDate: vaccination.nextDueDate,
+              status: vaccination.status,
+              date: vaccination.date,
+            });
+
             // Inclure tous les vaccins qui ont une date d'échéance ou qui ne sont pas à jour
             if (
               vaccination.nextDueDate ||
@@ -49,34 +60,52 @@ async function getUrgentReminders(): Promise<NextResponse> {
             ) {
               let daysUntil = 0;
               let dateToUse = vaccination.nextDueDate;
+              let isOverdue = false;
 
               if (vaccination.nextDueDate) {
                 const dueDate = new Date(vaccination.nextDueDate);
                 const now = new Date();
+                // Réinitialiser l'heure pour comparer seulement les dates
+                dueDate.setHours(0, 0, 0, 0);
+                now.setHours(0, 0, 0, 0);
+
                 const diffTime = dueDate.getTime() - now.getTime();
                 daysUntil = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-              } else {
+
+                console.log(
+                  `Calcul pour ${vaccination.name}: ${daysUntil} jours`
+                );
+              } else if (vaccination.status !== "up-to-date") {
                 // Si pas de nextDueDate mais status pas à jour, considérer comme en retard
                 daysUntil = -999; // Très en retard
                 dateToUse = vaccination.date; // Utiliser la date du dernier vaccin
+                isOverdue = true;
               }
 
-              // Inclure les rappels dans les 60 prochains jours ou en retard
-              if (daysUntil <= 60) {
+              // Inclure les rappels dans les 90 prochains jours ou en retard
+              if (daysUntil <= 90 || isOverdue) {
                 let urgencyLevel: "critical" | "warning" | "info" = "info";
-                if (daysUntil <= 0) urgencyLevel = "critical";
-                else if (daysUntil <= 7) urgencyLevel = "warning";
-                else if (daysUntil <= 30) urgencyLevel = "info";
 
-                reminders.push({
+                if (daysUntil <= 0 || isOverdue) {
+                  urgencyLevel = "critical";
+                } else if (daysUntil <= 7) {
+                  urgencyLevel = "warning";
+                } else if (daysUntil <= 30) {
+                  urgencyLevel = "info";
+                }
+
+                const reminder = {
                   id: `vacc-${vaccination.id}`,
-                  type: "vaccination",
+                  type: "vaccination" as const,
                   title: `Vaccin ${vaccination.name}`,
                   petName: petHealth.name || "Animal",
                   date: dateToUse || vaccination.date,
                   daysUntil,
                   urgencyLevel,
-                });
+                };
+
+                console.log(`Ajout du rappel:`, reminder);
+                reminders.push(reminder);
               }
             }
           }
@@ -117,16 +146,22 @@ async function getUrgentReminders(): Promise<NextResponse> {
     }
 
     // Trier par urgence puis par date
-    const sortedReminders = reminders.sort((a, b) => {
-      // D'abord par niveau d'urgence
-      const urgencyOrder = { critical: 0, warning: 1, info: 2 };
-      const urgencyDiff =
-        urgencyOrder[a.urgencyLevel] - urgencyOrder[b.urgencyLevel];
-      if (urgencyDiff !== 0) return urgencyDiff;
+    const sortedReminders = reminders.sort(
+      (a: UrgentReminder, b: UrgentReminder) => {
+        // D'abord par niveau d'urgence
+        const urgencyOrder: Record<string, number> = {
+          critical: 0,
+          warning: 1,
+          info: 2,
+        };
+        const urgencyDiff =
+          urgencyOrder[a.urgencyLevel] - urgencyOrder[b.urgencyLevel];
+        if (urgencyDiff !== 0) return urgencyDiff;
 
-      // Puis par nombre de jours
-      return a.daysUntil - b.daysUntil;
-    });
+        // Puis par nombre de jours
+        return a.daysUntil - b.daysUntil;
+      }
+    );
 
     // Ne pas limiter ici, laisser la Sidebar gérer l'affichage
     // Mais garder un maximum raisonnable pour éviter la surcharge

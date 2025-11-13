@@ -100,6 +100,12 @@
       },
       "vaccinations": [
         {
+          "id": "ca087611-1fff-45f3-88a7-96f6a49cc511",
+          "name": "",
+          "date": "",
+          "status": "up-to-date"
+        },
+        {
           "id": "919ebf58-a5e1-4b96-9cbb-6688e1330752",
           "name": "vaccin 2",
           "date": "2025-11-16",

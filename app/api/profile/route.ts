@@ -96,3 +96,62 @@ export async function PUT(request: NextRequest) {
     );
   }
 }
+
+/**
+ * DELETE /api/profile
+ * Supprime le compte de l'utilisateur connecté et toutes ses données
+ */
+export async function DELETE(request: NextRequest) {
+  try {
+    console.log("\n🗑️ ===== SUPPRESSION COMPTE =====");
+
+    // Authentifier l'utilisateur
+    const authResult = await authenticateUser(request);
+    if (!authResult.authenticated || !authResult.userId) {
+      console.log("❌ Non authentifié");
+      return NextResponse.json({ error: "Non authentifié" }, { status: 401 });
+    }
+
+    console.log("✅ Utilisateur authentifié:", authResult.userId);
+
+    // Vérifier que l'utilisateur existe
+    const user = await UserService.getUserById(authResult.userId);
+    if (!user) {
+      console.log("❌ Utilisateur non trouvé");
+      return NextResponse.json(
+        { error: "Utilisateur non trouvé" },
+        { status: 404 }
+      );
+    }
+
+    console.log("🔍 Suppression du compte:", user.email);
+
+    // Supprimer le compte et toutes les données associées
+    const deleted = await UserService.deleteAccount(authResult.userId);
+
+    if (!deleted) {
+      console.log("❌ Erreur lors de la suppression");
+      return NextResponse.json(
+        { error: "Erreur lors de la suppression du compte" },
+        { status: 500 }
+      );
+    }
+
+    console.log("✅ Compte supprimé avec succès:", user.email);
+    console.log("==========================================\n");
+
+    return NextResponse.json(
+      { message: "Compte supprimé avec succès" },
+      { status: 200 }
+    );
+  } catch (error: any) {
+    console.error("\n❌ ===== ERREUR SUPPRESSION =====");
+    console.error("🚫 Message:", error.message);
+    console.error("==========================================\n");
+
+    return NextResponse.json(
+      { error: error.message || "Erreur serveur" },
+      { status: 500 }
+    );
+  }
+}

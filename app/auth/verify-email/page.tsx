@@ -1,11 +1,12 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { HeartPulse, CheckCircle, XCircle, Loader2 } from 'lucide-react';
 
-export default function VerifyEmailPage() {
+// Composant qui utilise useSearchParams
+function VerifyEmailContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading');
@@ -107,5 +108,36 @@ export default function VerifyEmailPage() {
                 </div>
             </div>
         </div>
+    );
+}
+
+// Composant Loading pour Suspense
+function LoadingFallback() {
+    return (
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#F5F5DC] via-white to-[#FFB8C2] p-4">
+            <div className="max-w-md w-full">
+                <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
+                    <div className="flex justify-center mb-6">
+                        <div className="bg-gradient-to-r from-[#FF9A3D] to-[#FFB8C2] p-4 rounded-full">
+                            <HeartPulse className="h-12 w-12 text-white" />
+                        </div>
+                    </div>
+                    <h1 className="text-3xl font-bold mb-4 bg-gradient-to-r from-[#FF9A3D] to-[#FFB8C2] bg-clip-text text-transparent">
+                        PetConnect
+                    </h1>
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#FF9A3D] mx-auto mb-4"></div>
+                    <p className="text-gray-600">Chargement...</p>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// Composant principal avec Suspense
+export default function VerifyEmailPage() {
+    return (
+        <Suspense fallback={<LoadingFallback />}>
+            <VerifyEmailContent />
+        </Suspense>
     );
 }

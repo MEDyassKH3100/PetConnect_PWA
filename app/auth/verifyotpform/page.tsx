@@ -1,11 +1,12 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Key, ArrowLeft, HeartPulse } from 'lucide-react';
 
-export default function VerifyOTPPage() {
+// Composant qui utilise useSearchParams
+function VerifyOTPContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const email = searchParams.get('email') || '';
@@ -260,5 +261,38 @@ export default function VerifyOTPPage() {
                 </div>
             </div>
         </div>
+    );
+}
+
+// Composant Loading pour Suspense
+function LoadingFallback() {
+    return (
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#F5F5DC] via-[#FFB8C2]/30 to-[#FF9A3D]/20 px-4 py-12">
+            <div className="w-full max-w-md">
+                <div className="bg-white p-8 rounded-xl shadow-lg">
+                    <div className="text-center mb-6">
+                        <div className="inline-flex items-center justify-center mb-4">
+                            <div className="bg-gradient-to-r from-[#FFB8C2] to-[#FF9A3D] rounded-full p-3">
+                                <HeartPulse size={32} className="text-white" />
+                            </div>
+                        </div>
+                        <h1 className="text-2xl font-bold text-gray-800 mb-2">
+                            Vérification du code
+                        </h1>
+                        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#FF9A3D] mx-auto mb-4"></div>
+                        <p className="text-gray-600">Chargement...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+// Composant principal avec Suspense
+export default function VerifyOTPPage() {
+    return (
+        <Suspense fallback={<LoadingFallback />}>
+            <VerifyOTPContent />
+        </Suspense>
     );
 }

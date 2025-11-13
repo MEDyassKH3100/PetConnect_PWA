@@ -1,11 +1,52 @@
 import jwt from "jsonwebtoken";
 import { NextRequest } from "next/server";
-import {
-  JWTPayload,
-  AuthenticatedUser,
-  extractToken,
-  isTokenExpired,
-} from "./auth";
+
+// Types
+export interface JWTPayload {
+  userId: string;
+  email: string;
+  role: string;
+  iat?: number;
+  exp?: number;
+}
+
+export interface AuthenticatedUser {
+  id: string;
+  email: string;
+  role: string;
+}
+
+// Fonction pour extraire le token
+export function extractToken(request: NextRequest): string | null {
+  // Essayer depuis les headers Authorization
+  const authHeader = request.headers.get("Authorization");
+  if (authHeader && authHeader.startsWith("Bearer ")) {
+    return authHeader.substring(7);
+  }
+
+  // Essayer depuis les cookies
+  const cookieToken = request.cookies.get("token")?.value;
+  if (cookieToken) {
+    return cookieToken;
+  }
+
+  return null;
+}
+
+// Fonction pour vérifier si le token est expiré
+export function isTokenExpired(token: string): boolean {
+  try {
+    const decoded = jwt.decode(token) as JWTPayload;
+    if (!decoded || !decoded.exp) {
+      return true;
+    }
+
+    const currentTime = Math.floor(Date.now() / 1000);
+    return decoded.exp < currentTime;
+  } catch {
+    return true;
+  }
+}
 
 // Fonctions pour obtenir JWT_SECRET et JWT_EXPIRES_IN
 function getJWTSecret(): string {

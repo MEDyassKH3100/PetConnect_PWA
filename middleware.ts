@@ -51,6 +51,14 @@ export function middleware(request: NextRequest) {
   return NextResponse.next();
 }
 
+// Export par défaut pour Next.js 16 proxy
+export default function proxy(request: NextRequest) {
+  return middleware(request);
+}
+
+// Export nommé pour compatibilité
+export { middleware as proxy };
+
 export const config = {
   matcher: [
     /*

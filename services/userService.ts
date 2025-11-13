@@ -1,6 +1,6 @@
 import connectDB from "../lib/db";
 import User, { IUser } from "../models/User";
-import { generateToken, generateRefreshToken } from "../lib/auth-server";
+import jwt from "jsonwebtoken";
 import crypto from "crypto";
 import nodemailer from "nodemailer";
 
@@ -19,10 +19,7 @@ export class UserService {
   }): Promise<{ user: IUser; message: string }> {
     await connectDB();
 
-    // Vérifier que l'email n'existe pas déjà
-    const existingUser = await User.findOne({
-      email: userData.email.toLowerCase(),
-    });
+    const existingUser = await User.findOne({ email: userData.email });
     if (existingUser) {
       throw new Error("Cet email est déjà utilisé");
     }
@@ -154,12 +151,10 @@ export class UserService {
   static async login(
     email: string,
     password: string
-  ): Promise<{ user: IUser; token: string; refreshToken: string }> {
+  ): Promise<{ user: IUser; token: string }> {
     await connectDB();
 
-    const user = await User.findOne({ email: email.toLowerCase() }).select(
-      "+password"
-    );
+    const user = await User.findOne({ email }).select("+password");
     if (!user) {
       throw new Error("Email ou mot de passe incorrect");
     }
@@ -181,7 +176,7 @@ export class UserService {
       { expiresIn: "7d" }
     );
 
-    return { user, token, refreshToken };
+    return { user, token };
   }
 
   // 3. Update Profile (Mettre à jour le profil)
@@ -208,7 +203,7 @@ export class UserService {
   ): Promise<{ resetToken: string; message: string }> {
     await connectDB();
 
-    const user = await User.findOne({ email: email.toLowerCase() });
+    const user = await User.findOne({ email });
     if (!user) {
       throw new Error("Aucun utilisateur trouvé avec cet email");
     }
@@ -223,6 +218,9 @@ export class UserService {
     user.resetPasswordToken = hashedToken;
     user.resetPasswordExpires = expires;
     await user.save();
+
+    // Ici, vous pourriez intégrer un service d'email pour envoyer le token par mail
+    // Exemple : await sendEmail(email, 'Réinitialisation de mot de passe', `Votre token: ${resetToken}`);
 
     return {
       resetToken,
@@ -322,11 +320,6 @@ export class UserService {
       throw new Error("Token invalide ou expiré");
     }
 
-    // Validation du nouveau mot de passe
-    if (newPassword.length < 6) {
-      throw new Error("Le mot de passe doit contenir au moins 6 caractères");
-    }
-
     user.password = newPassword;
     user.resetPasswordToken = undefined;
     user.resetPasswordExpires = undefined;
@@ -351,11 +344,6 @@ export class UserService {
     const isCurrentPasswordValid = await user.comparePassword(currentPassword);
     if (!isCurrentPasswordValid) {
       throw new Error("Mot de passe actuel incorrect");
-    }
-
-    // Validation du nouveau mot de passe
-    if (newPassword.length < 6) {
-      throw new Error("Le mot de passe doit contenir au moins 6 caractères");
     }
 
     user.password = newPassword;

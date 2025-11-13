@@ -21,14 +21,6 @@ type HeaderProps = {
     setActiveModuleAction: (module: string) => void;
 };
 
-interface UserProfile {
-    _id: string;
-    firstName: string;
-    lastName: string;
-    email: string;
-    avatar?: string;
-}
-
 export const Header = ({ toggleSidebarAction: toggleSidebar,
     setActiveModuleAction: setActiveModule }: HeaderProps) => {
     const router = useRouter();
@@ -55,8 +47,7 @@ export const Header = ({ toggleSidebarAction: toggleSidebar,
                 >
                     <MenuIcon size={24} />
                 </button>
-
-                {/* Logo/Home */}
+                {/* Logo/Home Link */}
                 <div className="text-lg font-bold text-gray-800 hidden md:block">
                     PetConnect
                 </div>
@@ -95,7 +86,7 @@ export const Header = ({ toggleSidebarAction: toggleSidebar,
                                 )}
                             </div>
                         </button>
-
+                        {/* User menu dropdown */}
                         {showUserMenu && (
                             <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
                                 <div className="p-3 border-b">
@@ -160,8 +151,7 @@ export const Header = ({ toggleSidebarAction: toggleSidebar,
                     </div>
                 </div>
             </div>
-
-            {/* Mobile search */}
+            {/* Mobile search - visible only on mobile */}
             <div className="px-4 pb-3 lg:hidden">
                 <div className="relative w-full">
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3">

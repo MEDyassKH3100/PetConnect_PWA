@@ -7,7 +7,6 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { email, password } = body;
 
-    // Validation des données d'entrée
     if (!email || !password) {
       return NextResponse.json(
         { error: "Email et mot de passe sont requis" },
@@ -31,17 +30,8 @@ export async function POST(request: NextRequest) {
     );
   } catch (error: any) {
     console.error("Erreur login:", error);
-
-    // Gestion des erreurs spécifiques
-    if (error.message.includes("Email ou mot de passe incorrect")) {
-      return NextResponse.json(
-        { error: "Email ou mot de passe incorrect" },
-        { status: 401 }
-      );
-    }
-
     return NextResponse.json(
-      { error: error.message || "Erreur serveur lors de la connexion" },
+      { error: error.message || "Erreur serveur" },
       { status: 500 }
     );
   }

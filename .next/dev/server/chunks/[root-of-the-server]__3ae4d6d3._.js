@@ -157,7 +157,8 @@ const UserSchema = new __TURBOPACK__imported__module__$5b$externals$5d2f$mongoos
         maxlength: 200
     },
     avatar: {
-        type: String
+        type: String,
+        default: "https://ui-avatars.com/api/?name=User&background=FF9A3D&color=fff&size=200&bold=true"
     },
     role: {
         type: String,
@@ -263,14 +264,18 @@ async function POST(request) {
         });
         if (!user) {
             // Créer un nouvel utilisateur
+            const firstName = given_name || "Utilisateur";
+            const lastName = family_name || "Google";
+            // Utiliser l'avatar Google ou générer un avatar avec les initiales
+            const defaultAvatar = picture || `https://ui-avatars.com/api/?name=${encodeURIComponent(firstName.charAt(0) + lastName.charAt(0))}&background=FF9A3D&color=fff&size=200&bold=true&rounded=true`;
             user = new __TURBOPACK__imported__module__$5b$project$5d2f$models$2f$User$2e$ts__$5b$app$2d$route$5d$__$28$ecmascript$29$__["default"]({
-                firstName: given_name || "Utilisateur",
-                lastName: family_name || "Google",
+                firstName,
+                lastName,
                 email,
-                avatar: picture,
+                avatar: defaultAvatar,
                 googleId,
                 password: "google-oauth-" + Math.random().toString(36),
-                isEmailVerified: true
+                isVerified: true
             });
             await user.save();
         } else {

@@ -1154,12 +1154,12 @@ const AIAssistantCard = ()=>{
                         }, void 0, false, {
                             fileName: "[project]/app/home/components/AIAssistantCard.tsx",
                             lineNumber: 57,
-                            columnNumber: 21
+                            columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/app/home/components/AIAssistantCard.tsx",
                         lineNumber: 56,
-                        columnNumber: 17
+                        columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
                         className: "text-lg font-semibold text-gray-800",
@@ -1167,13 +1167,13 @@ const AIAssistantCard = ()=>{
                     }, void 0, false, {
                         fileName: "[project]/app/home/components/AIAssistantCard.tsx",
                         lineNumber: 59,
-                        columnNumber: 17
+                        columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/home/components/AIAssistantCard.tsx",
                 lineNumber: 55,
-                columnNumber: 13
+                columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 ref: chatContainerRef,
@@ -1187,12 +1187,12 @@ const AIAssistantCard = ()=>{
                     }, idx, false, {
                         fileName: "[project]/app/home/components/AIAssistantCard.tsx",
                         lineNumber: 68,
-                        columnNumber: 21
+                        columnNumber: 11
                     }, ("TURBOPACK compile-time value", void 0)))
             }, void 0, false, {
                 fileName: "[project]/app/home/components/AIAssistantCard.tsx",
                 lineNumber: 62,
-                columnNumber: 13
+                columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
                 className: "flex space-x-2 mt-auto",
@@ -1210,7 +1210,7 @@ const AIAssistantCard = ()=>{
                     }, void 0, false, {
                         fileName: "[project]/app/home/components/AIAssistantCard.tsx",
                         lineNumber: 87,
-                        columnNumber: 17
+                        columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                         type: "button",
@@ -1222,12 +1222,12 @@ const AIAssistantCard = ()=>{
                         }, void 0, false, {
                             fileName: "[project]/app/home/components/AIAssistantCard.tsx",
                             lineNumber: 99,
-                            columnNumber: 21
+                            columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/app/home/components/AIAssistantCard.tsx",
                         lineNumber: 94,
-                        columnNumber: 17
+                        columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                         type: "submit",
@@ -1238,24 +1238,24 @@ const AIAssistantCard = ()=>{
                         }, void 0, false, {
                             fileName: "[project]/app/home/components/AIAssistantCard.tsx",
                             lineNumber: 106,
-                            columnNumber: 21
+                            columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/app/home/components/AIAssistantCard.tsx",
                         lineNumber: 101,
-                        columnNumber: 17
+                        columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/home/components/AIAssistantCard.tsx",
                 lineNumber: 80,
-                columnNumber: 13
+                columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/app/home/components/AIAssistantCard.tsx",
         lineNumber: 54,
-        columnNumber: 9
+        columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
 }),
@@ -3782,7 +3782,7 @@ const NutritionChart = ({ weights })=>{
     }, void 0, false, {
         fileName: "[project]/app/nutrition/components/NutritionChart.tsx",
         lineNumber: 52,
-        columnNumber: 12
+        columnNumber: 10
     }, ("TURBOPACK compile-time value", void 0));
 };
 }),
@@ -5320,7 +5320,7 @@ const AdoptionCard = ({ name, type, breed, age, gender, location, distance, imag
                     }, void 0, false, {
                         fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
                         lineNumber: 28,
-                        columnNumber: 17
+                        columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                         onClick: onToggleFavorite,
@@ -5331,12 +5331,12 @@ const AdoptionCard = ({ name, type, breed, age, gender, location, distance, imag
                         }, void 0, false, {
                             fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
                             lineNumber: 33,
-                            columnNumber: 21
+                            columnNumber: 11
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
                         lineNumber: 29,
-                        columnNumber: 17
+                        columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3",
@@ -5347,7 +5347,7 @@ const AdoptionCard = ({ name, type, breed, age, gender, location, distance, imag
                             }, void 0, false, {
                                 fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
                                 lineNumber: 40,
-                                columnNumber: 21
+                                columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                 className: "text-sm text-white/90",
@@ -5355,19 +5355,19 @@ const AdoptionCard = ({ name, type, breed, age, gender, location, distance, imag
                             }, void 0, false, {
                                 fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
                                 lineNumber: 41,
-                                columnNumber: 21
+                                columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
                         lineNumber: 39,
-                        columnNumber: 17
+                        columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
                 lineNumber: 27,
-                columnNumber: 13
+                columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "p-4",
@@ -5384,7 +5384,7 @@ const AdoptionCard = ({ name, type, breed, age, gender, location, distance, imag
                                     }, void 0, false, {
                                         fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
                                         lineNumber: 47,
-                                        columnNumber: 25
+                                        columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         className: "px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full",
@@ -5392,13 +5392,13 @@ const AdoptionCard = ({ name, type, breed, age, gender, location, distance, imag
                                     }, void 0, false, {
                                         fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
                                         lineNumber: 50,
-                                        columnNumber: 25
+                                        columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
                                 lineNumber: 46,
-                                columnNumber: 21
+                                columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: "text-sm text-gray-500",
@@ -5406,13 +5406,13 @@ const AdoptionCard = ({ name, type, breed, age, gender, location, distance, imag
                             }, void 0, false, {
                                 fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
                                 lineNumber: 54,
-                                columnNumber: 21
+                                columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
                         lineNumber: 45,
-                        columnNumber: 17
+                        columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex items-center text-sm text-gray-500 mb-4",
@@ -5423,14 +5423,14 @@ const AdoptionCard = ({ name, type, breed, age, gender, location, distance, imag
                             }, void 0, false, {
                                 fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
                                 lineNumber: 57,
-                                columnNumber: 21
+                                columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 children: location
                             }, void 0, false, {
                                 fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
                                 lineNumber: 58,
-                                columnNumber: 21
+                                columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: "mx-1",
@@ -5438,20 +5438,20 @@ const AdoptionCard = ({ name, type, breed, age, gender, location, distance, imag
                             }, void 0, false, {
                                 fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
                                 lineNumber: 59,
-                                columnNumber: 21
+                                columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 children: distance
                             }, void 0, false, {
                                 fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
                                 lineNumber: 60,
-                                columnNumber: 21
+                                columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
                         lineNumber: 56,
-                        columnNumber: 17
+                        columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                         className: "w-full py-2 bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] text-white rounded-md hover:from-[#FFB8C2] hover:to-[#F5F5DC] transition-colors",
@@ -5459,19 +5459,19 @@ const AdoptionCard = ({ name, type, breed, age, gender, location, distance, imag
                     }, void 0, false, {
                         fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
                         lineNumber: 62,
-                        columnNumber: 17
+                        columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
                 lineNumber: 44,
-                columnNumber: 13
+                columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/app/adoption/components/AdoptionCard.tsx",
         lineNumber: 26,
-        columnNumber: 9
+        columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
 }),
@@ -5543,7 +5543,7 @@ const AdoptionModule = ()=>{
             }, void 0, false, {
                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
                 lineNumber: 58,
-                columnNumber: 13
+                columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "bg-white p-4 rounded-xl shadow-sm border border-gray-200 flex flex-col md:flex-row gap-4 items-center justify-between",
@@ -5559,12 +5559,12 @@ const AdoptionModule = ()=>{
                                 }, void 0, false, {
                                     fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                     lineNumber: 64,
-                                    columnNumber: 25
+                                    columnNumber: 13
                                 }, ("TURBOPACK compile-time value", void 0))
                             }, void 0, false, {
                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                 lineNumber: 63,
-                                columnNumber: 21
+                                columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                 type: "text",
@@ -5575,13 +5575,13 @@ const AdoptionModule = ()=>{
                             }, void 0, false, {
                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                 lineNumber: 66,
-                                columnNumber: 21
+                                columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
                         lineNumber: 62,
-                        columnNumber: 17
+                        columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex gap-2",
@@ -5595,20 +5595,20 @@ const AdoptionModule = ()=>{
                                     }, void 0, false, {
                                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                         lineNumber: 80,
-                                        columnNumber: 25
+                                        columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                         children: "Filtres"
                                     }, void 0, false, {
                                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                         lineNumber: 81,
-                                        columnNumber: 25
+                                        columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                 lineNumber: 76,
-                                columnNumber: 21
+                                columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 className: `flex items-center justify-center px-4 py-2 border rounded-md ${showFavoritesOnly ? 'bg-pink-100 border-pink-400' : 'bg-white border-gray-300 hover:bg-gray-50'}`,
@@ -5620,37 +5620,37 @@ const AdoptionModule = ()=>{
                                     }, void 0, false, {
                                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                         lineNumber: 91,
-                                        columnNumber: 25
+                                        columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {}, void 0, false, {
                                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                         lineNumber: 95,
-                                        columnNumber: 25
+                                        columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                 lineNumber: 84,
-                                columnNumber: 21
+                                columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
                         lineNumber: 75,
-                        columnNumber: 17
+                        columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
                 lineNumber: 61,
-                columnNumber: 13
+                columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0)),
             loading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                 children: "Chargement des animaux..."
             }, void 0, false, {
                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
                 lineNumber: 101,
-                columnNumber: 25
+                columnNumber: 19
             }, ("TURBOPACK compile-time value", void 0)),
             error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                 className: "text-red-500",
@@ -5658,7 +5658,7 @@ const AdoptionModule = ()=>{
             }, void 0, false, {
                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
                 lineNumber: 102,
-                columnNumber: 23
+                columnNumber: 17
             }, ("TURBOPACK compile-time value", void 0)),
             !loading && !error && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6",
@@ -5670,7 +5670,7 @@ const AdoptionModule = ()=>{
                         }, pet.id, false, {
                             fileName: "[project]/app/adoption/AdoptionModule.tsx",
                             lineNumber: 107,
-                            columnNumber: 25
+                            columnNumber: 13
                         }, ("TURBOPACK compile-time value", void 0))),
                     displayedPets.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                         className: "text-gray-500 col-span-full text-center mt-4",
@@ -5678,13 +5678,13 @@ const AdoptionModule = ()=>{
                     }, void 0, false, {
                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
                         lineNumber: 115,
-                        columnNumber: 25
+                        columnNumber: 13
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
                 lineNumber: 105,
-                columnNumber: 17
+                columnNumber: 9
             }, ("TURBOPACK compile-time value", void 0)),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "bg-white p-6 rounded-xl shadow-sm border border-gray-200 mt-8",
@@ -5695,7 +5695,7 @@ const AdoptionModule = ()=>{
                     }, void 0, false, {
                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
                         lineNumber: 122,
-                        columnNumber: 17
+                        columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0)),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
                         className: "space-y-4",
@@ -5740,7 +5740,7 @@ const AdoptionModule = ()=>{
                                             }, void 0, false, {
                                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                                 lineNumber: 160,
-                                                columnNumber: 29
+                                                columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                                 name: "name",
@@ -5750,13 +5750,13 @@ const AdoptionModule = ()=>{
                                             }, void 0, false, {
                                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                                 lineNumber: 161,
-                                                columnNumber: 29
+                                                columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                         lineNumber: 159,
-                                        columnNumber: 25
+                                        columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         children: [
@@ -5766,7 +5766,7 @@ const AdoptionModule = ()=>{
                                             }, void 0, false, {
                                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                                 lineNumber: 169,
-                                                columnNumber: 29
+                                                columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                                 name: "email",
@@ -5776,13 +5776,13 @@ const AdoptionModule = ()=>{
                                             }, void 0, false, {
                                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                                 lineNumber: 170,
-                                                columnNumber: 29
+                                                columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                         lineNumber: 168,
-                                        columnNumber: 25
+                                        columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         children: [
@@ -5792,7 +5792,7 @@ const AdoptionModule = ()=>{
                                             }, void 0, false, {
                                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                                 lineNumber: 178,
-                                                columnNumber: 29
+                                                columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                                 name: "phone",
@@ -5802,13 +5802,13 @@ const AdoptionModule = ()=>{
                                             }, void 0, false, {
                                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                                 lineNumber: 179,
-                                                columnNumber: 29
+                                                columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                         lineNumber: 177,
-                                        columnNumber: 25
+                                        columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                         children: [
@@ -5818,7 +5818,7 @@ const AdoptionModule = ()=>{
                                             }, void 0, false, {
                                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                                 lineNumber: 187,
-                                                columnNumber: 29
+                                                columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0)),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
                                                 name: "animal",
@@ -5831,7 +5831,7 @@ const AdoptionModule = ()=>{
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                                         lineNumber: 193,
-                                                        columnNumber: 33
+                                                        columnNumber: 17
                                                     }, ("TURBOPACK compile-time value", void 0)),
                                                     pets.map((pet)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
                                                             value: `${pet.name} - ${pet.breed}`,
@@ -5843,25 +5843,25 @@ const AdoptionModule = ()=>{
                                                         }, pet.id, true, {
                                                             fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                                             lineNumber: 195,
-                                                            columnNumber: 37
+                                                            columnNumber: 19
                                                         }, ("TURBOPACK compile-time value", void 0)))
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                                 lineNumber: 188,
-                                                columnNumber: 29
+                                                columnNumber: 15
                                             }, ("TURBOPACK compile-time value", void 0))
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                         lineNumber: 186,
-                                        columnNumber: 25
+                                        columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                 lineNumber: 158,
-                                columnNumber: 21
+                                columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 children: [
@@ -5871,7 +5871,7 @@ const AdoptionModule = ()=>{
                                     }, void 0, false, {
                                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                         lineNumber: 204,
-                                        columnNumber: 25
+                                        columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0)),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
                                         name: "message",
@@ -5882,13 +5882,13 @@ const AdoptionModule = ()=>{
                                     }, void 0, false, {
                                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                         lineNumber: 205,
-                                        columnNumber: 25
+                                        columnNumber: 13
                                     }, ("TURBOPACK compile-time value", void 0))
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                 lineNumber: 203,
-                                columnNumber: 21
+                                columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                 type: "submit",
@@ -5897,25 +5897,25 @@ const AdoptionModule = ()=>{
                             }, void 0, false, {
                                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
                                 lineNumber: 213,
-                                columnNumber: 21
+                                columnNumber: 11
                             }, ("TURBOPACK compile-time value", void 0))
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/adoption/AdoptionModule.tsx",
                         lineNumber: 123,
-                        columnNumber: 17
+                        columnNumber: 9
                     }, ("TURBOPACK compile-time value", void 0))
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/adoption/AdoptionModule.tsx",
                 lineNumber: 121,
-                columnNumber: 13
+                columnNumber: 7
             }, ("TURBOPACK compile-time value", void 0))
         ]
     }, void 0, true, {
         fileName: "[project]/app/adoption/AdoptionModule.tsx",
         lineNumber: 57,
-        columnNumber: 9
+        columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
 }),
@@ -9424,15 +9424,64 @@ function HomePage() {
     const [userToken, setUserToken] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true);
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        // Check for token in localStorage
-        const token = localStorage.getItem('token');
-        if (token) {
-            setUserToken(token); // store token in state
-            setLoading(false);
-        } else {
-            // No token → redirect to login
-            router.replace('/auth/login');
-        }
+        const checkAuth = async ()=>{
+            // Vérifier la présence du token
+            const token = localStorage.getItem('token');
+            const refreshToken = localStorage.getItem('refreshToken');
+            if (!token) {
+                // Pas de token → rediriger vers login
+                console.log('❌ Aucun token trouvé, redirection vers login');
+                router.replace('/?showLogin=true&message=Veuillez vous connecter');
+                return;
+            }
+            try {
+                // Vérifier si le token est valide en faisant une requête test
+                const response = await fetch('/api/profile', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                if (response.ok) {
+                    // Token valide
+                    setUserToken(token);
+                    setLoading(false);
+                    console.log('✅ Token valide, accès autorisé');
+                } else if (response.status === 401 && refreshToken) {
+                    // Token expiré, essayer de le rafraîchir
+                    console.log('⏳ Token expiré, tentative de rafraîchissement...');
+                    const refreshResponse = await fetch('/api/auth/refresh', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            refreshToken
+                        })
+                    });
+                    if (refreshResponse.ok) {
+                        const data = await refreshResponse.json();
+                        localStorage.setItem('token', data.token);
+                        setUserToken(data.token);
+                        setLoading(false);
+                        console.log('✅ Token rafraîchi avec succès');
+                    } else {
+                        // Refresh token invalide, rediriger vers login
+                        console.log('❌ Refresh token invalide, redirection vers login');
+                        localStorage.clear();
+                        router.replace('/?showLogin=true&message=Session expirée, veuillez vous reconnecter');
+                    }
+                } else {
+                    // Erreur d'authentification
+                    console.log('❌ Erreur d\'authentification');
+                    localStorage.clear();
+                    router.replace('/?showLogin=true&message=Session invalide');
+                }
+            } catch (error) {
+                console.error('❌ Erreur lors de la vérification du token:', error);
+                setLoading(false);
+            }
+        };
+        checkAuth();
     }, [
         router
     ]);
@@ -9445,12 +9494,12 @@ function HomePage() {
             children: "Loading..."
         }, void 0, false, {
             fileName: "[project]/app/home/page.tsx",
-            lineNumber: 43,
+            lineNumber: 90,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/home/page.tsx",
-        lineNumber: 42,
+        lineNumber: 89,
         columnNumber: 5
     }, this);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -9463,7 +9512,7 @@ function HomePage() {
                 setIsOpen: setIsSidebarOpen
             }, void 0, false, {
                 fileName: "[project]/app/home/page.tsx",
-                lineNumber: 50,
+                lineNumber: 97,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -9474,7 +9523,7 @@ function HomePage() {
                         setActiveModuleAction: setActiveModule
                     }, void 0, false, {
                         fileName: "[project]/app/home/page.tsx",
-                        lineNumber: 60,
+                        lineNumber: 107,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
@@ -9482,74 +9531,74 @@ function HomePage() {
                         children: [
                             activeModule === 'dashboard' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$home$2f$components$2f$Dashboard$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Dashboard"], {}, void 0, false, {
                                 fileName: "[project]/app/home/page.tsx",
-                                lineNumber: 63,
+                                lineNumber: 110,
                                 columnNumber: 44
                             }, this),
                             activeModule === 'health' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$health$2f$HealthModule$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["HealthModule"], {}, void 0, false, {
                                 fileName: "[project]/app/home/page.tsx",
-                                lineNumber: 64,
+                                lineNumber: 111,
                                 columnNumber: 41
                             }, this),
                             activeModule === 'nutrition' && userToken && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$nutrition$2f$NutritionModule$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["NutritionModule"], {
                                 token: userToken
                             }, void 0, false, {
                                 fileName: "[project]/app/home/page.tsx",
-                                lineNumber: 66,
+                                lineNumber: 113,
                                 columnNumber: 13
                             }, this),
                             activeModule === 'education' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$education$2f$EducationModule$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["EducationModule"], {}, void 0, false, {
                                 fileName: "[project]/app/home/page.tsx",
-                                lineNumber: 68,
+                                lineNumber: 115,
                                 columnNumber: 44
                             }, this),
                             activeModule === 'adoption' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$adoption$2f$AdoptionModule$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AdoptionModule"], {}, void 0, false, {
                                 fileName: "[project]/app/home/page.tsx",
-                                lineNumber: 69,
+                                lineNumber: 116,
                                 columnNumber: 43
                             }, this),
                             activeModule === 'pets' && userToken && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$pets$2f$UserPets$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["UserPets"], {
                                 token: userToken
                             }, void 0, false, {
                                 fileName: "[project]/app/home/page.tsx",
-                                lineNumber: 70,
+                                lineNumber: 117,
                                 columnNumber: 52
                             }, this),
                             activeModule === 'appointments' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$appointments$2f$UserAppointments$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["UserAppointments"], {}, void 0, false, {
                                 fileName: "[project]/app/home/page.tsx",
-                                lineNumber: 71,
+                                lineNumber: 118,
                                 columnNumber: 47
                             }, this),
                             activeModule === 'notifications' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$notifications$2f$UserNotifications$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["UserNotifications"], {}, void 0, false, {
                                 fileName: "[project]/app/home/page.tsx",
-                                lineNumber: 72,
+                                lineNumber: 119,
                                 columnNumber: 48
                             }, this),
                             activeModule === 'profile' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$profile$2f$UserProfile$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["UserProfile"], {}, void 0, false, {
                                 fileName: "[project]/app/home/page.tsx",
-                                lineNumber: 73,
+                                lineNumber: 120,
                                 columnNumber: 42
                             }, this),
                             activeModule === 'settings' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$settings$2f$UserSettings$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["UserSettings"], {}, void 0, false, {
                                 fileName: "[project]/app/home/page.tsx",
-                                lineNumber: 74,
+                                lineNumber: 121,
                                 columnNumber: 43
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/home/page.tsx",
-                        lineNumber: 62,
+                        lineNumber: 109,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/home/page.tsx",
-                lineNumber: 58,
+                lineNumber: 105,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/home/page.tsx",
-        lineNumber: 48,
+        lineNumber: 95,
         columnNumber: 5
     }, this);
 }

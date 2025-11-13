@@ -262,18 +262,18 @@ export const HealthModule = () => {
     }
 
     return (
-        <div className="space-y-6">
-            <div className="flex items-center justify-between">
-                <h1 className="text-2xl font-bold text-gray-800">Module Santé</h1>
-                <p className="text-sm text-gray-500">Gérer dossiers de santé, vaccinations et rendez-vous</p>
+        <div className="space-y-4 sm:space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                <h1 className="text-xl sm:text-2xl font-bold text-gray-800">Module Santé</h1>
+                <p className="text-xs sm:text-sm text-gray-500">Gérer dossiers de santé, vaccinations et rendez-vous</p>
             </div>
 
-            <div className="flex items-center space-x-4">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
                 <label className="text-sm text-gray-600">Sélectionner animal:</label>
                 <select
                     value={selectedPetId ?? ''}
                     onChange={(e) => setSelectedPetId(e.target.value || null)}
-                    className="px-3 py-2 border rounded"
+                    className="w-full sm:w-auto px-3 py-2 border rounded"
                 >
                     <option value="">-- Choisir --</option>
                     {pets.map((p: PetSummary) => (
@@ -287,7 +287,7 @@ export const HealthModule = () => {
 
             {loading && <div>Chargement...</div>}
             {message && (
-                <div className={`p-2 rounded ${messageType === 'error' ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800'}`}>
+                <div className={`p-3 rounded text-sm ${messageType === 'error' ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800'}`}>
                     {message}
                 </div>
             )}
@@ -295,8 +295,8 @@ export const HealthModule = () => {
             {!petHealth && !loading && <div className="text-gray-500">Aucun animal sélectionné</div>}
 
             {petHealth && (
-                <div className="space-y-4">
-                    <div className="bg-white p-4 rounded-xl border border-gray-200">
+                <div className="space-y-3 sm:space-y-4">
+                    <div className="bg-white p-3 sm:p-4 rounded-xl border border-gray-200">
                         <div className="flex items-center justify-between">
                             <div>
                                 <h2 className="text-lg font-semibold text-gray-800">{petHealth.name || 'Animal'}</h2>

@@ -176,16 +176,16 @@ export const NutritionModule = ({ token }: NutritionModuleProps) => {
     };
 
     return (
-        <div className="space-y-6">
-            <h1 className="text-2xl font-bold text-gray-800">Module Nutrition</h1>
+        <div className="space-y-4 sm:space-y-6">
+            <h1 className="text-xl sm:text-2xl font-bold text-gray-800">Module Nutrition</h1>
 
             {/* Pet selector */}
-            <div className="mb-6">
-                <label className="block text-gray-700 font-medium mb-2">Choisir un animal :</label>
+            <div className="mb-4 sm:mb-6">
+                <label className="block text-gray-700 font-medium mb-2 text-sm sm:text-base">Choisir un animal :</label>
                 <select
                     value={selectedPetId || ''}
                     onChange={(e) => setSelectedPetId(e.target.value)}
-                    className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]"
+                    className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2] text-sm sm:text-base"
                 >
                     {pets.map((pet) => (
                         <option key={pet._id} value={pet._id}>
@@ -196,55 +196,55 @@ export const NutritionModule = ({ token }: NutritionModuleProps) => {
             </div>
 
             {/* Weight chart */}
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-                <h2 className="text-lg font-semibold text-gray-800 mb-4">
+            <div className="bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-gray-200">
+                <h2 className="text-base sm:text-lg font-semibold text-gray-800 mb-3 sm:mb-4">
                     Évolution du poids de {selectedPet.name}
                 </h2>
-                <div className="h-64 w-full">
+                <div className="h-48 sm:h-64 w-full">
                     <NutritionChart weights={weights} />
                 </div>
             </div>
 
             {/* Features grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-4">
                 {/* Suivi du poids */}
-                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+                <div className="bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
                     <div className="flex items-center mb-4">
                         <div className="p-2 bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] rounded-full mr-3">
                             <ScaleIcon size={24} className="text-white" />
                         </div>
-                        <h3 className="text-lg font-semibold text-gray-800">Suivi du poids</h3>
+                        <h3 className="text-base sm:text-lg font-semibold text-gray-800">Suivi du poids</h3>
                     </div>
-                    <p className="text-gray-600 mb-4">
+                    <p className="text-sm sm:text-base text-gray-600 mb-4">
                         Enregistrez et suivez l'évolution du poids de {selectedPet.name}.
                     </p>
 
                     {/* Input + Button */}
                     <div className="mb-4">
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
+                        <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
                             Nouveau poids (kg)
                         </label>
                         <input
                             type="number"
-                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]"
+                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2] text-sm sm:text-base"
                             value={weight}
                             onChange={(e) => setWeight(Number(e.target.value))}
                             placeholder={`Poids de ${selectedPet.name}`}
                         />
                         <button
                             onClick={handleAddWeight}
-                            className="mt-3 w-full bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] text-white px-4 py-2 rounded-lg hover:from-[#FFB8C2] hover:to-[#F5F5DC] transition-all"
+                            className="mt-2 sm:mt-3 w-full bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] text-white px-4 py-2 rounded-lg hover:from-[#FFB8C2] hover:to-[#F5F5DC] transition-all text-sm sm:text-base"
                         >
-                            ➕ Ajouter une mesure
+                            ➥ Ajouter une mesure
                         </button>
                     </div>
 
                     {/* List of weights */}
-                    <div className="mt-4 space-y-1">
-                        {weights.length === 0 && <p className="text-gray-500">Aucune mesure enregistrée.</p>}
+                    <div className="mt-4 space-y-1 max-h-48 overflow-y-auto">
+                        {weights.length === 0 && <p className="text-sm text-gray-500">Aucune mesure enregistrée.</p>}
                         {weights.map((w) => (
-                            <div key={w._id} className="flex justify-between items-center border-b py-1">
-                                <span className="text-gray-500">
+                            <div key={w._id} className="flex justify-between items-center border-b py-2">
+                                <span className="text-xs sm:text-sm text-gray-500">
                                     {new Date(w.date).toLocaleDateString()}: {w.weight} kg
                                 </span>
                                 <button
@@ -260,14 +260,14 @@ export const NutritionModule = ({ token }: NutritionModuleProps) => {
                 </div>
 
                 {/* Recommandations */}
-                <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+                <div className="bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
                     <div className="flex items-center mb-4">
                         <div className="p-2 bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] rounded-full mr-3">
                             <ClipboardIcon size={24} className="text-white" />
                         </div>
-                        <h3 className="text-lg font-semibold text-gray-800">Recommandations</h3>
+                        <h3 className="text-base sm:text-lg font-semibold text-gray-800">Recommandations</h3>
                     </div>
-                    <p className="text-gray-600 mb-4">
+                    <p className="text-sm sm:text-base text-gray-600 mb-4">
                         Recevez des conseils nutritionnels personnalisés pour {selectedPet.name}.
                     </p>
                     <button className="text-[#FFB8C2] font-medium hover:underline">Consulter</button>
@@ -275,26 +275,26 @@ export const NutritionModule = ({ token }: NutritionModuleProps) => {
             </div>
 
             {/* Ration calculator */}
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-                <h2 className="text-lg font-semibold text-gray-800 mb-4">Calculateur de rations</h2>
-                <form className="space-y-4" onSubmit={calculateRation}>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-gray-200">
+                <h2 className="text-base sm:text-lg font-semibold text-gray-800 mb-3 sm:mb-4">Calculateur de rations</h2>
+                <form className="space-y-3 sm:space-y-4" onSubmit={calculateRation}>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">
+                            <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">
                                 Poids actuel (kg)
                             </label>
                             <input
                                 type="number"
-                                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]"
+                                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2] text-sm sm:text-base"
                                 value={weight}
                                 onChange={(e) => setWeight(Number(e.target.value))}
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Âge</label>
+                            <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1">Âge</label>
                             <input
                                 type="number"
-                                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2]"
+                                className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFB8C2] text-sm sm:text-base"
                                 value={age}
                                 onChange={(e) => setAge(Number(e.target.value))}
                             />

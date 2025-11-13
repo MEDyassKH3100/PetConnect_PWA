@@ -168,16 +168,16 @@ export const EducationModule = () => {
     }
 
     return (
-        <div className="space-y-6">
-            <div className="flex justify-between items-center">
-                <h1 className="text-2xl font-bold text-gray-800">Module Éducation</h1>
+        <div className="space-y-4 sm:space-y-6">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3">
+                <h1 className="text-xl sm:text-2xl font-bold text-gray-800">Module Éducation</h1>
 
                 {/* Sélecteur d'animal */}
                 {pets.length > 0 && (
                     <select
                         value={selectedPet}
                         onChange={(e) => setSelectedPet(e.target.value)}
-                        className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FFB8C2] focus:border-transparent"
+                        className="w-full sm:w-auto px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FFB8C2] focus:border-transparent text-sm sm:text-base"
                     >
                         {pets.map(pet => (
                             <option key={pet._id} value={pet._id}>
@@ -189,8 +189,8 @@ export const EducationModule = () => {
             </div>
 
             {/* Progress Overview - Version dynamique */}
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-                <h2 className="text-lg font-semibold text-gray-800 mb-4">
+            <div className="bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-gray-200">
+                <h2 className="text-base sm:text-lg font-semibold text-gray-800 mb-3 sm:mb-4">
                     Progression du dressage
                     {pets.find(p => p._id === selectedPet) && (
                         <span className="text-sm font-normal text-gray-600 ml-2">

@@ -29,19 +29,19 @@ export const Dashboard = () => {
   }, []);
 
   return (
-    <div className="space-y-6">
-      <h1 className="text-2xl font-bold text-gray-800">Vue d'ensemble</h1>
+    <div className="space-y-4 sm:space-y-6">
+      <h1 className="text-xl sm:text-2xl font-bold text-gray-800">Vue d'ensemble</h1>
 
       {/* Top row - AI Assistant and Reminders */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4" style={{ minHeight: '500px' }}>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <AIAssistantCard />
         <ReminderWidget />
       </div>
 
       {/* Health Status Row */}
       <div>
-        <h2 className="text-lg font-semibold text-gray-700 mb-3">Statut Santé</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <h2 className="text-base sm:text-lg font-semibold text-gray-700 mb-3">Statut Santé</h2>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           <HealthStatusCard
             title="Vaccins"
             status="warning"
@@ -81,8 +81,8 @@ export const Dashboard = () => {
 
       {/* Modules Grid */}
       <div>
-        <h2 className="text-lg font-semibold text-gray-700 mb-3">Modules</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <h2 className="text-base sm:text-lg font-semibold text-gray-700 mb-3">Modules</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           <ModuleCard
             title="Santé"
             description="Carnet de santé, rappels et historique médical"
@@ -116,26 +116,26 @@ export const Dashboard = () => {
 
       {/* Quick Access Features */}
       <div>
-        <h2 className="text-lg font-semibold text-gray-700 mb-3">Accès rapide</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        <h2 className="text-base sm:text-lg font-semibold text-gray-700 mb-3">Accès rapide</h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
           {/* Example quick access buttons */}
-          <button className="flex flex-col items-center justify-center p-4 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+          <button className="flex flex-col items-center justify-center p-3 sm:p-4 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
             <div className="bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] p-2 rounded-full mb-2">
               <CalendarIcon size={20} className="text-white" />
             </div>
-            <span className="text-sm text-gray-700">Rendez-vous</span>
+            <span className="text-xs sm:text-sm text-gray-700">Rendez-vous</span>
           </button>
-          <button className="flex flex-col items-center justify-center p-4 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+          <button className="flex flex-col items-center justify-center p-3 sm:p-4 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
             <div className="bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] p-2 rounded-full mb-2">
               <ClipboardListIcon size={20} className="text-white" />
             </div>
-            <span className="text-sm text-gray-700">Dossier médical</span>
+            <span className="text-xs sm:text-sm text-gray-700">Dossier médical</span>
           </button>
-          <button className="flex flex-col items-center justify-center p-4 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+          <button className="flex flex-col items-center justify-center p-3 sm:p-4 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
             <div className="bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] p-2 rounded-full mb-2">
               <BrainIcon size={20} className="text-white" />
             </div>
-            <span className="text-sm text-gray-700">Diagnostic IA</span>
+            <span className="text-xs sm:text-sm text-gray-700">Diagnostic IA</span>
           </button>
           {/* Add more buttons as needed */}
         </div>

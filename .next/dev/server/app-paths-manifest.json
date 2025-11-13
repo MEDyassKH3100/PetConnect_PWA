@@ -1,11 +1,14 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
+  "/api/adoption/route": "app/api/adoption/route.js",
   "/api/appointments/route": "app/api/appointments/route.js",
   "/api/auth/login/route": "app/api/auth/login/route.js",
   "/api/health/[petId]/route": "app/api/health/[petId]/route.js",
   "/api/health/route": "app/api/health/route.js",
+  "/api/pets/[id]/weights/route": "app/api/pets/[id]/weights/route.js",
   "/api/pets/route": "app/api/pets/route.js",
   "/api/profile/route": "app/api/profile/route.js",
+  "/api/training/route": "app/api/training/route.js",
   "/auth/login/page": "app/auth/login/page.js",
   "/home/page": "app/home/page.js",
   "/page": "app/page.js"

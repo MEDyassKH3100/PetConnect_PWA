@@ -1,63 +1,55 @@
-[00:00:00.491] Server  ERROR    ⨯ The file "./proxy.ts" must export a function, either as a default export or as a named "proxy" export.
-This function is what Next.js runs for every request handled by this proxy (previously called middleware).
+[00:00:00.509] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[00:00:00.577] Server  LOG      ✓ Ready in 430ms
+[00:00:02.466] Server  LOG        Reload env: .env
+[00:00:03.167] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:03.181] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:04.196] Browser LOG     🔑 Google Client ID: 1062798411751-cpht215j99n8pr1vcrd07b8ojbeu5c2b.apps.googleusercontent.com
+[00:00:05.362] Browser LOG     🔑 Google Client ID: 1062798411751-cpht215j99n8pr1vcrd07b8ojbeu5c2b.apps.googleusercontent.com
+[00:00:05.362] Browser LOG     🔑 Google Client ID: 1062798411751-cpht215j99n8pr1vcrd07b8ojbeu5c2b.apps.googleusercontent.com
+[00:00:13.828] Server  LOG     Connexion à la base de données réussie
+[00:00:13.952] Server  ERROR   Erreur login: Error: Email ou mot de passe incorrect
+[00:00:14.064] Browser ERROR   ❌ Erreur de connexion: Email ou mot de passe incorrect
+[00:00:27.759] Server  LOG     
+📋 ===== RÉCUPÉRATION PROFIL =====
+[00:00:27.760] Server  LOG     ✅ Utilisateur authentifié: "6913dec3a3ffc28417708c24"
+[00:00:27.760] Server  LOG     ✅ Utilisateur authentifié: "6913dec3a3ffc28417708c24"
+[00:00:27.763] Server  LOG     ✅ Profil récupéré: "mohamedyassine.khlaf@esprit.tn"
+[00:00:27.763] Server  LOG     ==========================================
 
-Why this happens:
-- You are migrating from `middleware` to `proxy`, but haven't updated the exported function.
-- The file exists but doesn't export a function.
-- The export is not a function (e.g., an object or constant).
-- There's a syntax error preventing the export from being recognized.
+[00:00:27.768] Server  LOG     
+📋 ===== RÉCUPÉRATION PROFIL =====
+[00:00:27.768] Server  LOG     ✅ Utilisateur authentifié: "6913dec3a3ffc28417708c24"
+[00:00:27.769] Server  LOG     ✅ Utilisateur authentifié: "6913dec3a3ffc28417708c24"
+[00:00:27.770] Server  LOG     ✅ Profil récupéré: "mohamedyassine.khlaf@esprit.tn"
+[00:00:27.770] Server  LOG     ==========================================
 
-To fix it:
-- Ensure this file has either a default or "proxy" function export.
+[00:00:27.874] Browser LOG     ✅ Token valide, accès autorisé
+[00:00:27.874] Browser LOG     ✅ Token valide, accès autorisé
+[00:00:27.883] Server  LOG     Analyse des vaccinations pour REX: [{...},{...},{...}]
+[00:00:27.883] Server  LOG     Vaccination : {}
+[00:00:27.883] Server  LOG     Vaccination vaccin 2: {}
+[00:00:27.883] Server  LOG     Vaccination test vaccin: {}
+[00:00:27.895] Server  LOG     Analyse des vaccinations pour REX: [{...},{...},{...}]
+[00:00:27.895] Server  LOG     Vaccination : {}
+[00:00:27.895] Server  LOG     Vaccination vaccin 2: {}
+[00:00:27.895] Server  LOG     Vaccination test vaccin: {}
+[00:01:40.947] Server  LOG        Reload env: .env
+[00:01:40.993] Server  WARN     ⚠ Fast Refresh had to perform a full reload when ./node_modules/next/dist/client/image-component.js changed. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+[00:01:41.042] Server  LOG      ✓ Compiled in 17ms
+[00:01:41.234] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:41.315] Server  LOG     
+📋 ===== RÉCUPÉRATION PROFIL =====
+[00:01:41.316] Server  LOG     ✅ Utilisateur authentifié: "6913dec3a3ffc28417708c24"
+[00:01:41.316] Server  LOG     ✅ Utilisateur authentifié: "6913dec3a3ffc28417708c24"
+[00:01:41.318] Server  LOG     ✅ Profil récupéré: "mohamedyassine.khlaf@esprit.tn"
+[00:01:41.318] Server  LOG     ==========================================
 
-Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:00.557] Server  LOG      ✓ Ready in 423ms
-[00:00:00.666] Server  ERROR    ⨯ Error: The Proxy file "/proxy" must export a function named `proxy` or a default function.
-[00:00:01.099] Browser ERROR   uncaughtError: Error: ./proxy.ts
-Proxy is missing expected function export name
-This function is what Next.js runs for every request handled by this proxy (previously called middleware).
-
-Why this happens:
-- You are migrating from `middleware` to `proxy`, but haven't updated the exported function.
-- The file exists but doesn't export a function.
-- The export is not a function (e.g., an object or constant).
-- There's a syntax error preventing the export from being recognized.
-
-To fix it:
-- Ensure this file has either a default or "proxy" function export.
-
-Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-
-
-[00:00:01.610] Browser ERROR   ./proxy.ts
-Proxy is missing expected function export name
-This function is what Next.js runs for every request handled by this proxy (previously called middleware).
-
-Why this happens:
-- You are migrating from `middleware` to `proxy`, but haven't updated the exported function.
-- The file exists but doesn't export a function.
-- The export is not a function (e.g., an object or constant).
-- There's a syntax error preventing the export from being recognized.
-
-To fix it:
-- Ensure this file has either a default or "proxy" function export.
-
-Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:02.609] Browser ERROR   ./proxy.ts
-Proxy is missing expected function export name
-This function is what Next.js runs for every request handled by this proxy (previously called middleware).
-
-Why this happens:
-- You are migrating from `middleware` to `proxy`, but haven't updated the exported function.
-- The file exists but doesn't export a function.
-- The export is not a function (e.g., an object or constant).
-- There's a syntax error preventing the export from being recognized.
-
-To fix it:
-- Ensure this file has either a default or "proxy" function export.
-
-Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:29.348] Server  WARN     ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-[00:00:29.547] Server  LOG      ✓ Compiled in 154ms
-[00:00:30.024] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:30.609] Browser LOG     🔑 Google Client ID: 1062798411751-cpht215j99n8pr1vcrd07b8ojbeu5c2b.apps.googleusercontent.com
+[00:01:41.380] Server  LOG     Analyse des vaccinations pour REX: [{...},{...},{...}]
+[00:01:41.380] Server  LOG     Vaccination : {}
+[00:01:41.380] Server  LOG     Vaccination vaccin 2: {}
+[00:01:41.380] Server  LOG     Vaccination test vaccin: {}
+[00:01:41.386] Server  LOG     Analyse des vaccinations pour REX: [{...},{...},{...}]
+[00:01:41.386] Server  LOG     Vaccination : {}
+[00:01:41.386] Server  LOG     Vaccination vaccin 2: {}
+[00:01:41.386] Server  LOG     Vaccination test vaccin: {}
+[00:01:42.193] Browser LOG     ✅ Token valide, accès autorisé

@@ -17,14 +17,13 @@ function verifyToken(request: NextRequest) {
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   await connectDB();
-
   const decoded: any = verifyToken(request);
-  if (!decoded) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-
-  const id = params.id; // ✅ no await
+  if (!decoded)
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  const { id } = await params; // ✅ await params
 
   try {
     const weights = await WeightLog.find({ petId: id }).sort({ date: 1 });
@@ -34,17 +33,19 @@ export async function GET(
   }
 }
 
-
-
-export async function POST(request: NextRequest, { params }: { params: { id: string } }) {
+export async function POST(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
   await connectDB();
   const decoded: any = verifyToken(request);
-  if (!decoded) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-
-  const { id } = params;
+  if (!decoded)
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  const { id } = await params;
   try {
     const { weight } = await request.json();
-    if (!weight) return NextResponse.json({ error: "Weight required" }, { status: 400 });
+    if (!weight)
+      return NextResponse.json({ error: "Weight required" }, { status: 400 });
 
     const newLog = new WeightLog({ petId: id, weight, date: new Date() });
     await newLog.save();
@@ -55,19 +56,31 @@ export async function POST(request: NextRequest, { params }: { params: { id: str
   }
 }
 
-export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(
+  request: NextRequest,
+  { params }: { params: { id: string } }
+) {
   await connectDB();
   const decoded: any = verifyToken(request);
-  if (!decoded) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (!decoded)
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   try {
     const { weightId } = await request.json();
-    if (!weightId) return NextResponse.json({ error: "Weight ID required" }, { status: 400 });
+    if (!weightId)
+      return NextResponse.json(
+        { error: "Weight ID required" },
+        { status: 400 }
+      );
 
     const deleted = await WeightLog.findByIdAndDelete(weightId);
-    if (!deleted) return NextResponse.json({ error: "Weight not found" }, { status: 404 });
+    if (!deleted)
+      return NextResponse.json({ error: "Weight not found" }, { status: 404 });
 
-    return NextResponse.json({ message: "Weight deleted successfully", weight: deleted });
+    return NextResponse.json({
+      message: "Weight deleted successfully",
+      weight: deleted,
+    });
   } catch (err: any) {
     return NextResponse.json({ error: err.message }, { status: 500 });
   }

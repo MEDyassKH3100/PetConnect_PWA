@@ -99,7 +99,10 @@ export async function DELETE(request: Request) {
     const idParam = searchParams.get("id");
 
     if (!idParam) {
-      return NextResponse.json({ error: "Pet id is required." }, { status: 400 });
+      return NextResponse.json(
+        { error: "Pet id is required." },
+        { status: 400 }
+      );
     }
 
     const petId = parseInt(idParam, 10);

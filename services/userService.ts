@@ -2,6 +2,9 @@ import connectDB from "../lib/db";
 import User, { IUser } from "../models/User";
 import { generateToken, generateRefreshToken } from "../lib/auth-server";
 import crypto from "crypto";
+import nodemailer from "nodemailer";
+
+const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key";
 
 export class UserService {
   // 1. Register (Inscription)
@@ -12,7 +15,8 @@ export class UserService {
     password: string;
     phone?: string;
     address?: string;
-  }): Promise<IUser> {
+    avatar?: string;
+  }): Promise<{ user: IUser; message: string }> {
     await connectDB();
 
     // Vérifier que l'email n'existe pas déjà
@@ -23,21 +27,130 @@ export class UserService {
       throw new Error("Cet email est déjà utilisé");
     }
 
-    // Validation supplémentaire
-    if (userData.password.length < 6) {
-      throw new Error("Le mot de passe doit contenir au moins 6 caractères");
-    }
+    // Générer un avatar par défaut avec les initiales si non fourni
+    const initials = `${userData.firstName.charAt(0)}${userData.lastName.charAt(
+      0
+    )}`;
+    const defaultAvatar = `https://ui-avatars.com/api/?name=${encodeURIComponent(
+      initials
+    )}&background=FF9A3D&color=fff&size=200&bold=true&rounded=true`;
 
+    // Créer l'utilisateur (non vérifié par défaut)
     const user = new User({
       ...userData,
-      email: userData.email.toLowerCase(),
+      avatar: userData.avatar || defaultAvatar,
     });
 
+    // Générer un token de vérification d'email
+    const verificationToken = crypto.randomBytes(32).toString("hex");
+    const hashedToken = crypto
+      .createHash("sha256")
+      .update(verificationToken)
+      .digest("hex");
+
+    user.emailVerificationToken = hashedToken;
+    user.emailVerificationExpires = new Date(Date.now() + 24 * 60 * 60 * 1000); // 24 heures
+
     await user.save();
-    return user;
+
+    // Envoyer l'email de vérification
+    try {
+      await this.sendVerificationEmail(
+        user.email,
+        verificationToken,
+        user.firstName
+      );
+    } catch (emailError) {
+      console.error("Erreur lors de l'envoi de l'email:", emailError);
+      // Ne pas bloquer l'inscription si l'email échoue
+    }
+
+    return {
+      user,
+      message:
+        "Inscription réussie ! Un email de vérification a été envoyé à votre adresse.",
+    };
   }
 
-  // 2. Login (Connexion) - Version optimisée
+  // Envoyer l'email de vérification
+  static async sendVerificationEmail(
+    email: string,
+    token: string,
+    firstName: string
+  ): Promise<void> {
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    const verificationUrl = `${process.env.NEXT_PUBLIC_API_URL}/auth/verify-email?token=${token}`;
+
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: "🐾 Vérifiez votre compte PetConnect",
+      html: `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
+          <table role="presentation" style="width: 100%; border-collapse: collapse;">
+            <tr>
+              <td align="center" style="padding: 40px 0;">
+                <table role="presentation" style="width: 600px; border-collapse: collapse; background-color: #ffffff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                  <!-- Header -->
+                  <tr>
+                    <td style="background-color: #FF9A3D; padding: 40px; text-align: center;">
+                      <h1 style="color: #ffffff; margin: 0; font-size: 32px;">🐾 PetConnect</h1>
+                    </td>
+                  </tr>
+                  <!-- Body -->
+                  <tr>
+                    <td style="padding: 40px 30px; background-color: #f9f9f9;">
+                      <h2 style="color: #333333; margin: 0 0 20px 0; font-size: 24px;">Bonjour ${firstName} !</h2>
+                      <p style="color: #666666; font-size: 16px; line-height: 1.6; margin: 0 0 30px 0;">
+                        Bienvenue sur PetConnect ! Pour compléter votre inscription, veuillez vérifier votre adresse email en cliquant sur le bouton ci-dessous :
+                      </p>
+                      <!-- Button -->
+                      <table role="presentation" style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                          <td align="center" style="padding: 20px 0;">
+                            <a href="${verificationUrl}" style="background-color: #FF9A3D; color: #ffffff; padding: 16px 50px; text-decoration: none; border-radius: 30px; font-weight: bold; font-size: 16px; display: inline-block; box-shadow: 0 4px 6px rgba(255, 154, 61, 0.3);">
+                              ✅ Vérifier mon email
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                      
+                    </td>
+                  </tr>
+                  <!-- Footer -->
+                  <tr>
+                    <td style="padding: 30px; background-color: #ffffff; border-top: 1px solid #eeeeee;">
+                      <p style="color: #999999; font-size: 12px; text-align: center; margin: 0;">
+                        Si vous n'avez pas créé de compte PetConnect, ignorez cet email.
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </body>
+        </html>
+      `,
+    };
+
+    await transporter.sendMail(mailOptions);
+  }
+
+  // 2. Login (Connexion)
   static async login(
     email: string,
     password: string
@@ -55,19 +168,18 @@ export class UserService {
     if (!isPasswordValid) {
       throw new Error("Email ou mot de passe incorrect");
     }
+    // Vérifier si l'email est vérifié (sauf pour les comptes Google)
+    if (!user.isVerified && !user.googleId) {
+      throw new Error(
+        "Veuillez vérifier votre email avant de vous connecter. Vérifiez votre boîte de réception."
+      );
+    }
 
-    // Générer les tokens avec les utilitaires sécurisés
-    const token = generateToken({
-      userId: user._id.toString(),
-      email: user.email,
-      role: user.role,
-    });
-
-    const refreshToken = generateRefreshToken({
-      userId: user._id.toString(),
-      email: user.email,
-      role: user.role,
-    });
+    const token = jwt.sign(
+      { userId: user._id, email: user.email, role: user.role },
+      JWT_SECRET,
+      { expiresIn: "7d" }
+    );
 
     return { user, token, refreshToken };
   }
@@ -119,32 +231,80 @@ export class UserService {
     };
   }
 
-  // 5. Verify OTP (Vérifier OTP reçu par email)
+  // 5. Generate OTP (Générer un OTP pour forgot password)
+  static async generateOTP(
+    email: string
+  ): Promise<{ otp: string; message: string }> {
+    await connectDB();
+
+    const user = await User.findOne({ email: email.toLowerCase() });
+    if (!user) {
+      throw new Error("Aucun utilisateur trouvé avec cet email");
+    }
+
+    // Générer un OTP à 6 chiffres
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    const otpExpires = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
+
+    user.otp = otp;
+    user.otpExpires = otpExpires;
+    await user.save();
+
+    return {
+      otp,
+      message: "Un code OTP a été généré",
+    };
+  }
+
+  // 6. Verify OTP (Vérifier OTP reçu par email)
   static async verifyOTP(
     email: string,
     otp: string
-  ): Promise<{ user: IUser; message: string }> {
+  ): Promise<{ user: IUser; resetToken: string; message: string }> {
     await connectDB();
 
     const user = await User.findOne({
       email: email.toLowerCase(),
-      otp,
-      otpExpires: { $gt: new Date() },
-    });
+    }).select("+otp +otpExpires");
 
     if (!user) {
-      throw new Error("OTP invalide ou expiré");
+      throw new Error("Utilisateur non trouvé");
     }
 
-    user.isVerified = true;
+    if (!user.otp || !user.otpExpires) {
+      throw new Error("Aucun OTP n'a été généré pour cet utilisateur");
+    }
+
+    if (user.otp !== otp) {
+      throw new Error("OTP invalide");
+    }
+
+    if (user.otpExpires < new Date()) {
+      throw new Error("OTP expiré");
+    }
+
+    // Générer un token de réinitialisation
+    const resetToken = crypto.randomBytes(32).toString("hex");
+    const hashedToken = crypto
+      .createHash("sha256")
+      .update(resetToken)
+      .digest("hex");
+    const expires = new Date(Date.now() + 10 * 60 * 1000); // 10 minutes
+
+    user.resetPasswordToken = hashedToken;
+    user.resetPasswordExpires = expires;
     user.otp = undefined;
     user.otpExpires = undefined;
     await user.save();
 
-    return { user, message: "Compte vérifié avec succès" };
+    return {
+      user,
+      resetToken,
+      message: "OTP vérifié avec succès",
+    };
   }
 
-  // 6. Reset Password (Réinitialiser le mot de passe avec token)
+  // 7. Reset Password (Réinitialiser le mot de passe avec token)
   static async resetPassword(
     token: string,
     newPassword: string
@@ -175,7 +335,7 @@ export class UserService {
     return { user, message: "Mot de passe réinitialisé avec succès" };
   }
 
-  // 7. Change Password (Changer le mot de passe actuel)
+  // 8. Change Password (Changer le mot de passe actuel)
   static async changePassword(
     userId: string,
     currentPassword: string,
@@ -204,7 +364,7 @@ export class UserService {
     return { user, message: "Mot de passe changé avec succès" };
   }
 
-  // 8. Delete Profile (Supprimer le profil)
+  // 9. Delete Profile (Supprimer le profil)
   static async deleteProfile(userId: string): Promise<{ message: string }> {
     await connectDB();
 
@@ -216,25 +376,25 @@ export class UserService {
     return { message: "Profil supprimé avec succès" };
   }
 
-  // 9. Get User by ID (Récupérer un utilisateur par ID)
+  // 10. Get User by ID (Récupérer un utilisateur par ID)
   static async getUserById(userId: string): Promise<IUser | null> {
     await connectDB();
     return User.findById(userId);
   }
 
-  // 10. Get All Users (Admin only)
+  // 11. Get All Users (Admin only)
   static async getAllUsers(): Promise<IUser[]> {
     await connectDB();
     return User.find({}).sort({ createdAt: -1 });
   }
 
-  // 11. Get User by Email
+  // 12. Get User by Email
   static async getUserByEmail(email: string): Promise<IUser | null> {
     await connectDB();
     return User.findOne({ email: email.toLowerCase() });
   }
 
-  // 12. Update User Role (Admin only)
+  // 13. Update User Role (Admin only)
   static async updateUserRole(
     userId: string,
     role: "user" | "admin" | "vet"
@@ -245,5 +405,78 @@ export class UserService {
       { role },
       { new: true, runValidators: true }
     );
+  }
+
+  // 14. Delete Account (Suppression complète du compte)
+  static async deleteAccount(userId: string): Promise<boolean> {
+    await connectDB();
+
+    try {
+      console.log(`🗑️ Début de la suppression du compte: ${userId}`);
+
+      // 1. Supprimer l'utilisateur principal
+      const user = await User.findByIdAndDelete(userId);
+      if (!user) {
+        throw new Error("Utilisateur non trouvé");
+      }
+      console.log(`✅ Utilisateur supprimé: ${user.email}`);
+
+      // 2. Supprimer tous les animaux de l'utilisateur
+      // Note: Nous devrons importer le modèle Pet si disponible
+      try {
+        const Pet = require("../models/Pet").default;
+        const deletedPets = await Pet.deleteMany({ userId: userId });
+        console.log(`✅ ${deletedPets.deletedCount} animaux supprimés`);
+      } catch (error) {
+        console.log(
+          "ℹ️ Modèle Pet non disponible ou pas d'animaux à supprimer"
+        );
+      }
+
+      // 3. Supprimer les données de santé
+      try {
+        const fs = require("fs").promises;
+        const path = require("path");
+        const healthDbPath = path.join(process.cwd(), "data", "health.json");
+
+        const healthData = JSON.parse(await fs.readFile(healthDbPath, "utf8"));
+        healthData.pets = healthData.pets.filter(
+          (pet: any) => pet.userId !== userId
+        );
+        await fs.writeFile(healthDbPath, JSON.stringify(healthData, null, 2));
+        console.log("✅ Données de santé supprimées");
+      } catch (error) {
+        console.log("ℹ️ Pas de données de santé à supprimer");
+      }
+
+      // 4. Supprimer les sessions d'entraînement
+      try {
+        const TrainingSession = require("../models/TrainingSession").default;
+        const deletedSessions = await TrainingSession.deleteMany({
+          userId: userId,
+        });
+        console.log(
+          `✅ ${deletedSessions.deletedCount} sessions d'entraînement supprimées`
+        );
+      } catch (error) {
+        console.log("ℹ️ Pas de sessions d'entraînement à supprimer");
+      }
+
+      // 5. Supprimer les rendez-vous (si stockés en base)
+      // Note: Les rendez-vous semblent être en mémoire, donc pas de suppression nécessaire
+
+      console.log(
+        `🎉 Suppression complète du compte ${userId} terminée avec succès`
+      );
+      return true;
+    } catch (error: any) {
+      console.error(
+        `❌ Erreur lors de la suppression du compte ${userId}:`,
+        error.message
+      );
+      throw new Error(
+        `Erreur lors de la suppression du compte: ${error.message}`
+      );
+    }
   }
 }

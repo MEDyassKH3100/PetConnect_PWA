@@ -1,0 +1,133 @@
+{
+  "pets": [
+    {
+      "petId": "e86c1b08-a461-4e6e-ba76-a03da372daf6",
+      "name": "Animal-6914dee0",
+      "species": "Unknown",
+      "vitalStats": {},
+      "vaccinations": [],
+      "appointments": [],
+      "healthRecords": []
+    },
+    {
+      "petId": "97fe8733-7c20-478b-9f94-84a8207c3b39",
+      "name": "Animal-6914dee0",
+      "species": "Unknown",
+      "vitalStats": {},
+      "vaccinations": [],
+      "appointments": [],
+      "healthRecords": []
+    },
+    {
+      "petId": "92d3a933-a4ce-4730-bf1d-e839cee8d35c",
+      "name": "Animal-6914dee0",
+      "species": "Unknown",
+      "vitalStats": {},
+      "vaccinations": [],
+      "appointments": [],
+      "healthRecords": []
+    },
+    {
+      "petId": "734781cc-22e7-492d-a942-26e8a8c0b56e",
+      "name": "Animal-6914fa6c",
+      "species": "Unknown",
+      "vitalStats": {},
+      "vaccinations": [],
+      "appointments": [],
+      "healthRecords": []
+    },
+    {
+      "petId": "0c5a41fe-e642-4aba-b639-7125e84ac4df",
+      "name": "Animal-6914dee0",
+      "species": "Unknown",
+      "vitalStats": {},
+      "vaccinations": [],
+      "appointments": [],
+      "healthRecords": []
+    },
+    {
+      "petId": "3addb20d-92c7-4c90-a7e2-850002404110",
+      "name": "Animal-6914dee0",
+      "species": "Unknown",
+      "vitalStats": {},
+      "vaccinations": [],
+      "appointments": [],
+      "healthRecords": []
+    },
+    {
+      "petId": "eeed0a24-1e0a-4534-bede-767353c65fa8",
+      "name": "Animal-6914dee0",
+      "species": "Unknown",
+      "vitalStats": {},
+      "vaccinations": [],
+      "appointments": [],
+      "healthRecords": []
+    },
+    {
+      "petId": "6cb96a50-8fb7-4925-80b6-8edeff0478bc",
+      "name": "Animal-6914dee0",
+      "species": "Unknown",
+      "vitalStats": {},
+      "vaccinations": [],
+      "appointments": [],
+      "healthRecords": []
+    },
+    {
+      "petId": "ce3b1aff-0671-4feb-abe0-9f48caa8f309",
+      "name": "REX",
+      "species": "Chien",
+      "vitalStats": {},
+      "vaccinations": [],
+      "appointments": [],
+      "healthRecords": []
+    },
+    {
+      "petId": "2d9b1dd8-5701-4090-b892-c618d37f8796",
+      "name": "REX",
+      "species": "Chien",
+      "vitalStats": {},
+      "vaccinations": [],
+      "appointments": [],
+      "healthRecords": []
+    },
+    {
+      "petId": "6914dee02735f795c49041e3",
+      "name": "REX",
+      "species": "Chien",
+      "vitalStats": {
+        "weight": 7,
+        "lastWeightDate": "2025-11-12"
+      },
+      "vaccinations": [
+        {
+          "id": "ca087611-1fff-45f3-88a7-96f6a49cc511",
+          "name": "",
+          "date": "",
+          "status": "up-to-date"
+        },
+        {
+          "id": "919ebf58-a5e1-4b96-9cbb-6688e1330752",
+          "name": "vaccin 2",
+          "date": "2025-11-16",
+          "status": "up-to-date"
+        },
+        {
+          "id": "a44553d9-5e42-4c1e-9de4-82fdcf1ac7dd",
+          "name": "test vaccin",
+          "date": "2025-11-28",
+          "status": "up-to-date"
+        }
+      ],
+      "appointments": [],
+      "healthRecords": [
+        {
+          "id": "d1ffb102-5e8f-40db-96b4-ae854796e0cc",
+          "date": "2025-11-12",
+          "type": "Vaccination",
+          "practitioner": "",
+          "notes": "Test Dossier"
+        }
+      ]
+    }
+  ]
+}

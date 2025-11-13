@@ -6,6 +6,9 @@ const STATIC_CACHE_URLS = [
 ];
 const DYNAMIC_CACHE_NAME = 'petcareverse-dynamic-v1';
 
+// Détecter si on est en développement
+const isDevelopment = self.location.hostname === 'localhost' || self.location.hostname === '127.0.0.1';
+
 // Installer le service worker et mettre en cache les ressources statiques
 self.addEventListener('install', (event) => {
   console.log('Service Worker: Installing...');
@@ -38,6 +41,11 @@ self.addEventListener('activate', (event) => {
 
 // Intercepter les requêtes réseau et gérer le cache
 self.addEventListener('fetch', (event) => {
+  // En développement, ne pas utiliser le cache
+  if (isDevelopment) {
+    return;
+  }
+
   const { request } = event;
   const url = new URL(request.url);
 

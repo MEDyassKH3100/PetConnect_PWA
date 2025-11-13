@@ -51,7 +51,7 @@ export const AIAssistantCard = () => {
   };
 
   return (
-    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow max-w-md mx-auto flex flex-col">
+    <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-shadow h-full flex flex-col max-w-md mx-auto">
       <div className="flex items-center mb-4">
         <div className="p-2 bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] rounded-full mr-3">
           <MessageSquareIcon size={24} className="text-white" />
@@ -59,27 +59,24 @@ export const AIAssistantCard = () => {
         <h3 className="text-lg font-semibold text-gray-800">Assistant IA PetConnect</h3>
       </div>
 
-      {/* Fixed height chat container */}
       <div
         ref={chatContainerRef}
-        className="mb-4 border p-2 rounded-md bg-gray-50 flex-1 overflow-y-auto"
-        style={{ maxHeight: '300px', minHeight: '300px' }} // strictly fixed height
+        className="flex-1 overflow-y-auto mb-4 space-y-2"
+        style={{ maxHeight: '300px' }}  // Hauteur maximale pour le défilement
       >
         {chatHistory.map((msg, idx) => (
           <div
             key={idx}
-            className={`p-2 rounded-lg mb-2 ${
-              msg.role === 'assistant'
-                ? 'bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] text-white'
-                : 'bg-gray-100 text-gray-800'
-            }`}
+            className={`p-2 rounded-lg ${msg.role === 'assistant'
+              ? 'bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] text-black'
+              : 'bg-gray-100 text-gray-800'
+              }`}
           >
             {msg.content}
           </div>
         ))}
       </div>
 
-      {/* Input form */}
       <form
         className="flex space-x-2 mt-auto"
         onSubmit={(e) => {

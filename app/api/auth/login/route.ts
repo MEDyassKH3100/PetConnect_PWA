@@ -1,5 +1,6 @@
-import { UserService } from "@/services/userService";
 import { NextRequest, NextResponse } from "next/server";
+import jwt from "jsonwebtoken";
+import { UserService } from "@/services/userService";
 
 export async function POST(request: NextRequest) {
   try {
@@ -14,29 +15,17 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Validation format email basique
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      return NextResponse.json(
-        { error: "Format d'email invalide" },
-        { status: 400 }
-      );
-    }
+    // UserService.login retourne { user, token }
+    const result = await UserService.login(email, password);
 
-    // Utiliser UserService pour l'authentification
-    const authResult = await UserService.login(email, password);
+    // Le token est déjà généré par UserService.login
+    // Pas besoin de le regénérer ici
 
-    // Créer une réponse sécurisée (sans le mot de passe)
-    const { password: _, ...userWithoutPassword } = authResult.user.toObject();
-
-    // Succès de la connexion
     return NextResponse.json(
       {
         message: "Connexion réussie",
-        user: userWithoutPassword,
-        token: authResult.token,
-        refreshToken: authResult.refreshToken,
-        expiresIn: "7d",
+        user: result.user,
+        token: result.token,
       },
       { status: 200 }
     );

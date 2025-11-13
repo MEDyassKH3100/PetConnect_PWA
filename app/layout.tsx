@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import ServiceWorkerRegistration from "./components/ServiceWorkerRegistration";
 import "../styles/globals.css";
-import { AuthProvider } from "@/hooks/useAuth";
+import { ReduxProvider } from "@/Provider/ReduxProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fr">
       <head>
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#0070f3" />
@@ -33,10 +32,33 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ServiceWorkerRegistration />
-        <AuthProvider>
-          {children} {/* Now all children can use useAuth */}
-        </AuthProvider>
+        <ReduxProvider>
+          {children}
+        </ReduxProvider>
+        {/* Désinscrire le Service Worker en développement */}
+        {process.env.NODE_ENV === 'development' && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                if ('serviceWorker' in navigator) {
+                  navigator.serviceWorker.getRegistrations().then(function(registrations) {
+                    for(let registration of registrations) {
+                      console.log('Unregistering Service Worker in development mode');
+                      registration.unregister();
+                    }
+                  });
+                  // Vider tous les caches
+                  caches.keys().then(function(names) {
+                    for (let name of names) {
+                      console.log('Deleting cache:', name);
+                      caches.delete(name);
+                    }
+                  });
+                }
+              `,
+            }}
+          />
+        )}
       </body>
     </html>
   );

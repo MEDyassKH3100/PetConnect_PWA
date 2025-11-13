@@ -49,45 +49,40 @@ export const PetForm = ({ pet, token, onSaved, onClose }: PetFormProps) => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setLoading(true);
-  setError('');
+    e.preventDefault();
+    setLoading(true);
+    setError('');
 
-  try {
-    // Decode JWT token
-    const decoded: any = jwtDecode(token);
-    const userId = decoded.userId || decoded.id;
-    if (!userId) throw new Error('Utilisateur non authentifié');
+    try {
+      const decoded: any = jwtDecode(token);
+      const userId = decoded.userId || decoded.id;
+      if (!userId) throw new Error('Utilisateur non authentifié');
 
-    // Prepare request body
-    const body = { ...formData }; // ❌ Don't include owner here
+      const method = pet ? 'PATCH' : 'POST';
+      const url = '/api/pets'; // just POST or PATCH to same endpoint
+      const body = pet ? { ...formData, id: pet._id } : formData; // 👈 add id for PATCH
 
-    // Choose HTTP method and URL
-    const method = pet ? 'PATCH' : 'POST';
-    // For PATCH, pass id as search param
-    const url = pet ? `/api/pets?id=${pet._id}` : '/api/pets';
+      const res = await fetch(url, {
+        method,
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(body),
+      });
 
- const res = await fetch('/api/pets', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    Authorization: `Bearer ${token}`,
-  },
-  body: JSON.stringify(formData), // MUST be stringified
-});
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Erreur serveur');
 
+      onSaved();
+      onClose();
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Erreur serveur');
-
-    onSaved();
-    onClose();
-  } catch (err: any) {
-    setError(err.message);
-  } finally {
-    setLoading(false);
-  }
-};
 
 
   return (
@@ -244,9 +239,8 @@ export const PetForm = ({ pet, token, onSaved, onClose }: PetFormProps) => {
           <button
             type="submit"
             disabled={loading}
-            className={`flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] text-white rounded-md hover:from-[#FFB8C2] hover:to-[#F5F5DC] ${
-              loading ? 'opacity-70 cursor-not-allowed' : ''
-            }`}
+            className={`flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-[#F5F5DC] to-[#FFB8C2] text-white rounded-md hover:from-[#FFB8C2] hover:to-[#F5F5DC] ${loading ? 'opacity-70 cursor-not-allowed' : ''
+              }`}
           >
             <SaveIcon size={16} />
             <span>{pet ? 'Enregistrer' : 'Ajouter'}</span>

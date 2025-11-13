@@ -32,9 +32,8 @@ export const AdoptionCard = ({
         >
           <BsHeartFill
             size={20}
-            className={`${
-              isFavorite ? 'text-red-500' : 'text-gray-500 hover:text-red-500'
-            }`}
+            className={`${isFavorite ? 'text-red-500' : 'text-gray-500 hover:text-red-500'
+              }`}
           />
         </button>
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-3">

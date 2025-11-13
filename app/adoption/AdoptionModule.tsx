@@ -82,11 +82,10 @@ export const AdoptionModule = () => {
           </button>
 
           <button
-            className={`flex items-center justify-center px-4 py-2 border rounded-md ${
-              showFavoritesOnly
-                ? 'bg-pink-100 border-pink-400'
-                : 'bg-white border-gray-300 hover:bg-gray-50'
-            }`}
+            className={`flex items-center justify-center px-4 py-2 border rounded-md ${showFavoritesOnly
+              ? 'bg-pink-100 border-pink-400'
+              : 'bg-white border-gray-300 hover:bg-gray-50'
+              }`}
             onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
           >
             <BsHeartFill

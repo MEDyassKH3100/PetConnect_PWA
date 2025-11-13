@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-
 import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
 import { Dashboard } from './components/Dashboard';
@@ -93,7 +92,7 @@ export default function HomePage() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
+    <div className="min-h-screen bg-gray-50 flex flex-col lg:flex-row">
       {/* Sidebar */}
       <Sidebar
         activeModule={activeModule}
@@ -103,19 +102,16 @@ export default function HomePage() {
       />
 
       {/* Main Content */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col w-full lg:w-auto">
         {/* Header */}
-        <Header toggleSidebar={toggleSidebar} setActiveModule={setActiveModule} />
-
+        <Header toggleSidebarAction={toggleSidebar} setActiveModuleAction={setActiveModule} />
         {/* Modules */}
-        <main className="flex-1 p-6 overflow-y-auto">
+        <main className="flex-1 p-4 sm:p-6 overflow-y-auto">
           {activeModule === 'dashboard' && <Dashboard />}
           {activeModule === 'health' && <HealthModule />}
-        {activeModule === 'nutrition' && userToken && (
-  <NutritionModule token={userToken} />
-)}
-
-
+          {activeModule === 'nutrition' && userToken && (
+            <NutritionModule token={userToken} />
+          )}
           {activeModule === 'education' && <EducationModule />}
           {activeModule === 'adoption' && <AdoptionModule />}
           {activeModule === 'pets' && userToken && <UserPets token={userToken} />}

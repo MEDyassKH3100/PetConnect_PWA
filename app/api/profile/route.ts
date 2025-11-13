@@ -1,65 +1,43 @@
-import { UserService } from "@/services/userService";
-import { authenticateUser } from "@/lib/auth-server";
 import { NextRequest, NextResponse } from "next/server";
+import { UserService } from "@/services/userService";
+import { authenticateUser } from "@/lib/auth";
 
-// Interface simplifiée pour les données utilisateur
-interface UserProfileData {
-  _id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone?: string;
-  address?: string;
-  avatar?: string;
-  role: "user" | "admin" | "vet";
-  isVerified: boolean;
-  createdAt: Date;
-  updatedAt: Date;
-}
-
+/**
+ * GET /api/profile
+ * Récupère le profil de l'utilisateur connecté
+ */
 export async function GET(request: NextRequest) {
   try {
+    console.log("\n📋 ===== RÉCUPÉRATION PROFIL =====");
+
     // Authentifier l'utilisateur
-    const user = await authenticateUser(request);
+    const authResult = await authenticateUser(request);
+    if (!authResult.authenticated || !authResult.userId) {
+      console.log("❌ Non authentifié");
+      return NextResponse.json({ error: "Non authentifié" }, { status: 401 });
+    }
 
-    // Récupérer les informations complètes de l'utilisateur
-    const userProfile = await UserService.getUserById(user.id);
+    console.log("✅ Utilisateur authentifié:", authResult.userId);
 
-    if (!userProfile) {
+    // Récupérer le profil
+    const user = await UserService.getUserById(authResult.userId);
+
+    if (!user) {
+      console.log("❌ Utilisateur non trouvé");
       return NextResponse.json(
         { error: "Utilisateur non trouvé" },
         { status: 404 }
       );
     }
 
-    // Créer une réponse sécurisée et simplifiée (sans les méthodes Mongoose)
-    const userData: UserProfileData = {
-      _id: userProfile._id.toString(),
-      firstName: userProfile.firstName,
-      lastName: userProfile.lastName,
-      email: userProfile.email,
-      phone: userProfile.phone,
-      address: userProfile.address,
-      avatar: userProfile.avatar,
-      role: userProfile.role,
-      isVerified: userProfile.isVerified,
-      createdAt: userProfile.createdAt,
-      updatedAt: userProfile.updatedAt,
-    };
+    console.log("✅ Profil récupéré:", user.email);
+    console.log("==========================================\n");
 
-    return NextResponse.json({
-      message: "Profil récupéré avec succès",
-      user: userData,
-    });
+    return NextResponse.json({ user }, { status: 200 });
   } catch (error: any) {
-    console.error("Erreur récupération profil:", error);
-
-    if (error.message.includes("Token")) {
-      return NextResponse.json(
-        { error: "Authentification requise" },
-        { status: 401 }
-      );
-    }
+    console.error("\n❌ ===== ERREUR PROFIL =====");
+    console.error("🚫 Message:", error.message);
+    console.error("==========================================\n");
 
     return NextResponse.json(
       { error: error.message || "Erreur serveur" },
@@ -68,58 +46,108 @@ export async function GET(request: NextRequest) {
   }
 }
 
+/**
+ * PUT /api/profile
+ * Met à jour le profil de l'utilisateur connecté
+ */
 export async function PUT(request: NextRequest) {
   try {
-    // Authentifier l'utilisateur
-    const user = await authenticateUser(request);
-    const body = await request.json();
+    console.log("\n💾 ===== MISE À JOUR PROFIL =====");
 
-    const { firstName, lastName, phone, address, avatar } = body;
+    // Authentifier l'utilisateur
+    const authResult = await authenticateUser(request);
+    if (!authResult.authenticated || !authResult.userId) {
+      console.log("❌ Non authentifié");
+      return NextResponse.json({ error: "Non authentifié" }, { status: 401 });
+    }
+
+    const body = await request.json();
+    console.log("📝 Données reçues:", body);
 
     // Mettre à jour le profil
-    const updatedUser = await UserService.updateProfile(user.id, {
-      firstName,
-      lastName,
-      phone,
-      address,
-      avatar,
-    });
+    const updatedUser = await UserService.updateProfile(
+      authResult.userId,
+      body
+    );
 
     if (!updatedUser) {
+      console.log("❌ Erreur lors de la mise à jour");
       return NextResponse.json(
-        { error: "Erreur lors de la mise à jour" },
-        { status: 400 }
+        { error: "Erreur lors de la mise à jour du profil" },
+        { status: 500 }
       );
     }
 
-    // Créer une réponse sécurisée et simplifiée
-    const userData: UserProfileData = {
-      _id: updatedUser._id.toString(),
-      firstName: updatedUser.firstName,
-      lastName: updatedUser.lastName,
-      email: updatedUser.email,
-      phone: updatedUser.phone,
-      address: updatedUser.address,
-      avatar: updatedUser.avatar,
-      role: updatedUser.role,
-      isVerified: updatedUser.isVerified,
-      createdAt: updatedUser.createdAt,
-      updatedAt: updatedUser.updatedAt,
-    };
+    console.log("✅ Profil mis à jour:", updatedUser.email);
+    console.log("==========================================\n");
 
-    return NextResponse.json({
-      message: "Profil mis à jour avec succès",
-      user: userData,
-    });
+    return NextResponse.json(
+      { user: updatedUser, message: "Profil mis à jour avec succès" },
+      { status: 200 }
+    );
   } catch (error: any) {
-    console.error("Erreur mise à jour profil:", error);
+    console.error("\n❌ ===== ERREUR MISE À JOUR =====");
+    console.error("🚫 Message:", error.message);
+    console.error("==========================================\n");
 
-    if (error.message.includes("Token")) {
+    return NextResponse.json(
+      { error: error.message || "Erreur serveur" },
+      { status: 500 }
+    );
+  }
+}
+
+/**
+ * DELETE /api/profile
+ * Supprime le compte de l'utilisateur connecté et toutes ses données
+ */
+export async function DELETE(request: NextRequest) {
+  try {
+    console.log("\n🗑️ ===== SUPPRESSION COMPTE =====");
+
+    // Authentifier l'utilisateur
+    const authResult = await authenticateUser(request);
+    if (!authResult.authenticated || !authResult.userId) {
+      console.log("❌ Non authentifié");
+      return NextResponse.json({ error: "Non authentifié" }, { status: 401 });
+    }
+
+    console.log("✅ Utilisateur authentifié:", authResult.userId);
+
+    // Vérifier que l'utilisateur existe
+    const user = await UserService.getUserById(authResult.userId);
+    if (!user) {
+      console.log("❌ Utilisateur non trouvé");
       return NextResponse.json(
-        { error: "Authentification requise" },
-        { status: 401 }
+        { error: "Utilisateur non trouvé" },
+        { status: 404 }
       );
     }
+
+    console.log("🔍 Suppression du compte:", user.email);
+
+    // Supprimer le compte et toutes les données associées
+    const deleted = await UserService.deleteAccount(authResult.userId);
+
+    if (!deleted) {
+      console.log("❌ Erreur lors de la suppression");
+      return NextResponse.json(
+        { error: "Erreur lors de la suppression du compte" },
+        { status: 500 }
+      );
+    }
+
+    console.log("✅ Compte supprimé avec succès:", user.email);
+    console.log("==========================================\n");
+
+    return NextResponse.json(
+      { message: "Compte supprimé avec succès" },
+      { status: 200 }
+    );
+  } catch (error: any) {
+    console.error("\n❌ ===== ERREUR SUPPRESSION =====");
+    console.error("🚫 Message:", error.message);
+    console.error("==========================================\n");
 
     return NextResponse.json(
       { error: error.message || "Erreur serveur" },

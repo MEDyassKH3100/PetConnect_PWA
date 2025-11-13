@@ -11,24 +11,15 @@ import {
     CheckIcon,
     XIcon,
 } from 'lucide-react';
+import { Appointment } from '@/types/Appointement';
 
 type AppointmentProps = {
-    appointment: {
-        id: string;
-        title: string;
-        type: string;
-        pet: string;
-        date: string;
-        time: string;
-        doctor: string;
-        location: string;
-        address: string;
-        status: string;
-        notes: string;
-    };
+    appointment: Appointment;
+    onDelete?: (id?: string) => void;
+    onEdit?: (appointment: Appointment) => void;
 };
 
-export const AppointmentCard = ({ appointment }: AppointmentProps) => {
+export const AppointmentCard = ({ appointment, onDelete, onEdit }: AppointmentProps) => {
     const isPast = appointment.status === 'completed' || appointment.status === 'cancelled';
 
     return (
@@ -38,9 +29,7 @@ export const AppointmentCard = ({ appointment }: AppointmentProps) => {
                 <div className="p-4 flex-1">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-3">
                         <div>
-                            <h3 className="font-semibold text-gray-800">
-                                {appointment.title}
-                            </h3>
+                            <h3 className="font-semibold text-gray-800">{appointment.title || 'Rendez-vous'}</h3>
                             <p className="text-sm text-gray-500">
                                 {appointment.type} • {appointment.pet}
                             </p>
@@ -63,6 +52,7 @@ export const AppointmentCard = ({ appointment }: AppointmentProps) => {
                             )}
                         </div>
                     </div>
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-3">
                         <div className="flex items-center text-sm text-gray-600">
                             <CalendarIcon size={16} className="mr-2 text-gray-400 flex-shrink-0" />
@@ -78,9 +68,10 @@ export const AppointmentCard = ({ appointment }: AppointmentProps) => {
                         </div>
                         <div className="flex items-center text-sm text-gray-600">
                             <MapPinIcon size={16} className="mr-2 text-gray-400 flex-shrink-0" />
-                            <span>{appointment.location}</span>
+                            <span>{appointment.location || appointment.clinic || '—'}</span>
                         </div>
                     </div>
+
                     {appointment.notes && (
                         <div className="mb-3">
                             <p className="text-sm text-gray-600">
@@ -89,16 +80,27 @@ export const AppointmentCard = ({ appointment }: AppointmentProps) => {
                             </p>
                         </div>
                     )}
+
                     {!isPast && (
                         <div className="flex justify-end space-x-2 mt-2">
-                            <button className="flex items-center space-x-1 text-sm text-[#FFB8C2] hover:underline">
-                                <EditIcon size={14} />
-                                <span>Modifier</span>
-                            </button>
-                            <button className="flex items-center space-x-1 text-sm text-red-500 hover:underline">
-                                <Trash2Icon size={14} />
-                                <span>Annuler</span>
-                            </button>
+                            {onEdit && (
+                                <button
+                                    className="flex items-center space-x-1 text-sm text-[#FFB8C2] hover:underline"
+                                    onClick={() => onEdit(appointment)}
+                                >
+                                    <EditIcon size={14} />
+                                    <span>Modifier</span>
+                                </button>
+                            )}
+                            {onDelete && (
+                                <button
+                                    className="flex items-center space-x-1 text-sm text-red-500 hover:underline"
+                                    onClick={() => onDelete(appointment.id || appointment._id)}
+                                >
+                                    <Trash2Icon size={14} />
+                                    <span>Annuler</span>
+                                </button>
+                            )}
                         </div>
                     )}
                 </div>

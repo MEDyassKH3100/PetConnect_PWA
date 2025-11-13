@@ -58,12 +58,13 @@ export async function POST(
 
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   await connectDB();
   const decoded: any = verifyToken(request);
   if (!decoded)
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  const { id } = await params;
 
   try {
     const { weightId } = await request.json();

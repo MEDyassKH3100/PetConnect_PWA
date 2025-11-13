@@ -34,7 +34,10 @@ async function createHealthEntryFromMongo(petId: string) {
   }
 }
 
-export async function GET(request: NextRequest, { params }: { params: any }) {
+export async function GET(
+  request: NextRequest,
+  { params }: { params: Promise<{ petId: string }> }
+) {
   try {
     // `params` may be a promise in Next.js route handlers; await it before accessing properties
     const petId = (await params)?.petId;
@@ -73,7 +76,10 @@ async function ensurePetExists(petId: string) {
     throw err;
   }
 }
-export async function POST(request: NextRequest, { params }: { params: any }) {
+export async function POST(
+  request: NextRequest,
+  { params }: { params: Promise<{ petId: string }> }
+) {
   try {
     const petId = (await params)?.petId;
     if (!petId)
